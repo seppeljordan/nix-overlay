@@ -1,0 +1,12 @@
+pyyaml
+stormssh
+toml
+xmltodict
+jinja2-cli
+
+git+https://github.com/seppeljordan/pykube#egg=pykube
+# git+https://github.com/seppeljordan/kubecert#egg=svm-kubecert
+# git+https://github.com/seppeljordan/kubernetes-tools#egg=svm-kubernetes-tools
+git+https://github.com/schneevonmorgen/nix-helpers#egg=svm-nix-helpers
+git+https://github.com/seppeljordan/pypi2nix#egg=pypi2nix
+hg+https://bitbucket.org/schneevonmorgen/kubernetes-utils#egg=svm-kubernetes-utils
