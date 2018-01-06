@@ -382,7 +382,7 @@ let
 
     "pypi2nix" = python.mkDerivation {
       name = "pypi2nix-1.8.1";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/pypi2nix"; sha256 = "1f74h060nnjsp1d4g7qasyqpcz547q82ixj7gxzz6sj714rpzh2n"; rev = "98ce29fd9608f5b52ee24d078733e5b3827d26f4"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/pypi2nix"; sha256 = "0y0ysm7x2myf6hl1ls5wf6sm53yaw8frqc47wl9i0rapgirbaxnn"; rev = "8126880c8f907f70438f70559f1756e7a656b855"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -562,7 +562,7 @@ let
   localOverridesFile = ./python3_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchgit { url = "https://github.com/garbas/nixpkgs-python.git"; sha256 = "12cfc250pdkms34rg4rl21rmj6q8zjmfl2ylyzsbkfaa4daxnkfk"; rev = "e5d198532b51960bd3bd519c26d30a587e1d61d8"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchgit { url = "https://github.com/garbas/nixpkgs-python.git"; sha256 = "19xhcxw7d31gdbzmv5ki8wkzjz20i0b9kw7qm12n0cg2hxs512vi"; rev = "051b1616154ab0a9d0ed0c36f735d81839fe1872"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
