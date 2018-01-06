@@ -8,9 +8,9 @@ makeTest {
     machine = {config, pkgs, ...}:
     let
       python2Env =
-        import 10-python2Packages/python2.nix { pkgs = pkgs; };
+        import ../10-python2Packages/python2.nix { inherit pkgs; };
       python3Env =
-        import 10-python3Packages/python3.nix { pkgs = pkgs; };
+        import ../10-python3Packages/python3.nix { inherit pkgs; };
     in
     {
       environment.systemPackages = [

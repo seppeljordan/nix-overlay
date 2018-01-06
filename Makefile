@@ -1,8 +1,13 @@
 PYPI2NIX=pypi2nix # ~/src/pypi2nix/examples/pypi2nix/bin/pypi2nix
 
+all: update test
+
 update: update-pypiPackages3 update-geimskell update-lrucache \
 	update-htiled update-winetricks update-pypiPackages2 \
 	update-node-packages
+
+test:
+	nix-build tests/test.nix
 
 update-htiled:
 	mkdir -p 90-custom/htiled
@@ -48,4 +53,4 @@ update-node-packages:
 		node2nix -6 -i pkgs.json -o pkgs.nix
 
 .PHONY: update update-winetricks update-node-packages update-pypiPackages2 \
-	update-pypiPackages3
+	update-pypiPackages3 test
