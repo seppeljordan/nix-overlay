@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -v -V 2.7 -E libffi openssl -r python2.txt --default-overrides --basename python2
+#   pypi2nix -v -V 2.7 -E libffi openssl -r 10-python2Packages/python2.txt --default-overrides --basename 10-python2Packages/python2
 #
 
 { pkgs ? import <nixpkgs> {}
@@ -95,10 +95,10 @@ let
       };
     };
   };
-  localOverridesFile = ./python2_override.nix;
+  localOverridesFile = ./10-python2Packages/python2_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchgit { url = "https://github.com/garbas/nixpkgs-python.git"; sha256 = "19xhcxw7d31gdbzmv5ki8wkzjz20i0b9kw7qm12n0cg2hxs512vi"; rev = "051b1616154ab0a9d0ed0c36f735d81839fe1872"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchgit { url = "https://github.com/garbas/nixpkgs-python.git"; sha256 = "1wkg1jq68bikpk320s0xjzwafy82k4bdxncwjzy87m9hw9hmkdax"; rev = "e03877a00d5f94b84125e511b9fd50ede0f7c16e"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

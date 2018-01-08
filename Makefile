@@ -1,5 +1,5 @@
-PYPI2NIX=pypi2nix # ~/src/pypi2nix/examples/pypi2nix/bin/pypi2nix
-NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unstable.tar.gz:nixpkgs-overlays=./.
+PYPI2NIX=pypi2nix-exec/bin/pypi2nix
+NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unstable.tar.gz:nixpkgs-overlays=$(shell pwd)
 
 all: update test
 
@@ -32,35 +32,40 @@ update-geimskell:
 	cd 90-custom/geimskell && \
 		cabal2nix "https://github.com/seppeljordan/geimskell.git" > default.nix
 
-update-pypiPackages3:
-	cd 10-python3Packages && $(PYPI2NIX) \
+update-pypiPackages3: pypi2nix-exec/bin/pypi2nix
+	$(PYPI2NIX) \
 		-v \
 		-V 3 \
 		-E "libffi openssl" \
-		-r python3.txt \
+		-r 10-python3Packages/python3.txt \
 		--default-overrides \
-		--basename python3
+		--basename 10-python3Packages/python3
 
-update-pypiPackages2:
-	cd 10-python2Packages && $(PYPI2NIX) \
+update-pypiPackages2: pypi2nix-exec/bin/pypi2nix
+	$(PYPI2NIX) \
 		-v \
 		-V 2.7 \
 		-E "libffi openssl" \
-		-r python2.txt \
+		-r 10-python2Packages/python2.txt \
 		--default-overrides \
-		--basename python2
+		--basename 10-python2Packages/python2
+
 update-nixpkgs-python:
 	cd 00-nixpkgs-python && ./update.sh
 
 update-winetricks:
+	echo $(NIX_PATH)
 	cd 90-custom/winetricks && \
-		nix-shell -p pypiPackages.interpreter \
+		nix-shell '<nixpkgs>' -p pypiPackages3.interpreter \
 		--command './update'
 
 update-node-packages:
 	cd 90-custom/node-packages && \
 		node2nix -6 -i pkgs.json -o pkgs.nix
 
+pypi2nix-exec/bin/pypi2nix:
+	nix-build '<nixpkgs>' -A pypiPackages3.packages.pypi2nix -o pypi2nix-exec
+
 .PHONY: update update-winetricks update-node-packages update-pypiPackages2 \
 	update-pypiPackages3 test test-python2-build test-integration \
-	test-python3-build
+	test-python3-build pypi2nix-exec/bin/pypi2nix
