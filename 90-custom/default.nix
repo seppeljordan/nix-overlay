@@ -107,5 +107,4 @@ in
       (useCustomSource (useWineWow super.winetricks));
   customNodePackages = import ./node-packages { pkgs = self; };
   nix-kubernetes = self.customNodePackages."nix-kubernetes-git+https://github.com/seppeljordan/nix-kubernetes.git";
-  stablePkgs = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-17.09.tar.gz) {};
 }
