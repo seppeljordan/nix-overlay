@@ -70,10 +70,6 @@ in
   pypiPackages = self.pypiPackages3;
   display-config = self.callPackage ./display-config {};
   geimskell = self.wrapWithCsound self.haskellPackages.geimskell;
-  homad-admin =
-    self.callPackages /home/sebastian/svm/src/homad_admin/default.nix
-    { lxml = self.pythonPackages.lxml; };
-
   emacsEnv = self.emacsWithPackages
     (p: with p; [
       adoc-mode

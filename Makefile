@@ -1,4 +1,5 @@
 PYPI2NIX=pypi2nix # ~/src/pypi2nix/examples/pypi2nix/bin/pypi2nix
+NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unstable.tar.gz:nixpkgs-overlays=./.
 
 all: update test
 
@@ -6,8 +7,16 @@ update: update-pypiPackages3 update-geimskell update-lrucache \
 	update-htiled update-winetricks update-pypiPackages2 \
 	update-node-packages
 
-test:
+test: test-python2-build test-python3-build test-integration
+
+test-integration:
 	nix-build tests/test.nix
+
+test-python2-build:
+	nix-build tests/test-python2-build.nix
+
+test-python3-build:
+	nix-build tests/test-python3-build.nix
 
 update-htiled:
 	mkdir -p 90-custom/htiled
@@ -53,4 +62,5 @@ update-node-packages:
 		node2nix -6 -i pkgs.json -o pkgs.nix
 
 .PHONY: update update-winetricks update-node-packages update-pypiPackages2 \
-	update-pypiPackages3 test
+	update-pypiPackages3 test test-python2-build test-integration \
+	test-python3-build
