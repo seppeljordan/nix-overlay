@@ -589,13 +589,13 @@ let
         sha1 = "540572d34f7ac3119f8f76c30cbc1b1e037affbe";
       };
     };
-    "semver-5.4.1" = {
+    "semver-5.5.0" = {
       name = "semver";
       packageName = "semver";
-      version = "5.4.1";
+      version = "5.5.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/semver/-/semver-5.4.1.tgz";
-        sha512 = "2r13vwvb5ick34k6flr7vgbjfsdka8zbj5a74rd0ba4bp0nqmhppbaw3qlwn7f4smpifpa4iy4hxj137y598rbvsmy3h0d8vxgvzwar";
+        url = "https://registry.npmjs.org/semver/-/semver-5.5.0.tgz";
+        sha512 = "0h32zh035y8m6dzcqhcymbhwgmc8839fa1hhj0jfh9ivp9kmqfj1sbwnsnkzcn9qm3sqn38sa8ys2g4c638lpnmzjr0a0qndmv7f8p1";
       };
     };
     "validate-npm-package-license-3.0.1" = {
@@ -733,7 +733,7 @@ in
       sources."is-utf8-0.2.1"
       sources."hosted-git-info-2.5.0"
       sources."is-builtin-module-1.0.0"
-      sources."semver-5.4.1"
+      sources."semver-5.5.0"
       sources."validate-npm-package-license-3.0.1"
       sources."builtin-modules-1.1.1"
       sources."spdx-correct-1.0.2"
