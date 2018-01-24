@@ -1,11 +1,14 @@
 PYPI2NIX=pypi2nix-exec/bin/pypi2nix
 NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unstable.tar.gz:nixpkgs-overlays=$(shell pwd)
 
-all: update test
+all: pypi2nix-exec update test
 
 update: update-pypiPackages3 update-geimskell update-lrucache \
 	update-htiled update-winetricks update-pypiPackages2 \
 	update-node-packages
+
+clean:
+	rm pypi2nix-exec
 
 test: test-python2-build test-python3-build test-integration
 
@@ -32,7 +35,7 @@ update-geimskell:
 	cd 90-custom/geimskell && \
 		cabal2nix "https://github.com/seppeljordan/geimskell.git" > default.nix
 
-update-pypiPackages3: pypi2nix-exec/bin/pypi2nix
+update-pypiPackages3:
 	$(PYPI2NIX) \
 		-v \
 		-V 3 \
@@ -50,9 +53,6 @@ update-pypiPackages2: pypi2nix-exec/bin/pypi2nix
 		--default-overrides \
 		--basename 10-python2Packages/python2
 
-update-nixpkgs-python:
-	cd 00-nixpkgs-python && ./update.sh
-
 update-winetricks:
 	echo $(NIX_PATH)
 	cd 90-custom/winetricks && \
@@ -64,8 +64,10 @@ update-node-packages:
 		node2nix -6 -i pkgs.json -o pkgs.nix
 
 pypi2nix-exec/bin/pypi2nix:
-	nix-build '<nixpkgs>' -A pypiPackages3.packages.pypi2nix -o pypi2nix-exec
+	nix-build '<nixpkgs>' \
+		-A pypiPackages3.packages.pypi2nix \
+		-o pypi2nix-exec
 
 .PHONY: update update-winetricks update-node-packages update-pypiPackages2 \
 	update-pypiPackages3 test test-python2-build test-integration \
-	test-python3-build pypi2nix-exec/bin/pypi2nix
+	test-python3-build pypi2nix-exec/bin/pypi2nix clean
