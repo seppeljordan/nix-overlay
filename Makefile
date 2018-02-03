@@ -10,7 +10,11 @@ update: update-pypiPackages3 update-geimskell update-lrucache \
 clean:
 	rm pypi2nix-exec
 
-test: test-python2-build test-python3-build test-integration
+test: \
+	test-python2-build \
+	test-python3-build \
+	test-emacs \
+	test-integration
 
 test-integration:
 	nix-build tests/test.nix
@@ -20,6 +24,9 @@ test-python2-build:
 
 test-python3-build:
 	nix-build tests/test-python3-build.nix
+
+test-emacs:
+	nix-build tests/test-emacs.nix
 
 update-htiled:
 	mkdir -p 90-custom/htiled
@@ -70,4 +77,4 @@ pypi2nix-exec/bin/pypi2nix:
 
 .PHONY: update update-winetricks update-node-packages update-pypiPackages2 \
 	update-pypiPackages3 test test-python2-build test-integration \
-	test-python3-build pypi2nix-exec/bin/pypi2nix clean
+	test-python3-build pypi2nix-exec/bin/pypi2nix clean test-emacs
