@@ -301,13 +301,13 @@ let
         sha1 = "5bf45e8e49ba4189e17d482789dfd15bd140b7b6";
       };
     };
-    "lodash-4.17.4" = {
+    "lodash-4.17.5" = {
       name = "lodash";
       packageName = "lodash";
-      version = "4.17.4";
+      version = "4.17.5";
       src = fetchurl {
-        url = "https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz";
-        sha1 = "78203a4d1c328ae1d86dca6460e369b57f4055ae";
+        url = "https://registry.npmjs.org/lodash/-/lodash-4.17.5.tgz";
+        sha512 = "11hikgyas884mz8a58vyixaahxbpdwljdw4cb6qp15xa3sfqikp2mm6wgv41jsl34nzsv1hkx9kw3nwczvas5p73whirmaz4sxggwmj";
       };
     };
     "lodash.assign-4.2.0" = {
@@ -701,7 +701,7 @@ in
       sources."is-utf8-0.2.1"
       sources."lcid-1.0.0"
       sources."load-json-file-1.1.0"
-      sources."lodash-4.17.4"
+      sources."lodash-4.17.5"
       sources."lodash.assign-4.2.0"
       sources."minimatch-3.0.4"
       sources."normalize-package-data-2.4.0"
