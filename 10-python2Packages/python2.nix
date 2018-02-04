@@ -98,7 +98,7 @@ let
   localOverridesFile = ./10-python2Packages/python2_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchgit { url = "https://github.com/garbas/nixpkgs-python.git"; sha256 = "1dhyqvfnqkwmsfx73x06ynk2i1ljklf68w0mpcikdnbd19ijyy63"; rev = "40a4df8b697de8aa832acb14d0fb2a1ff7a54033"; fetchSubmodules = false; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "fa35bc2c4a71d0bd384b76532bab3cba36a660ac"; sha256 = "110j4qkm2zlazw4l1inhihi1kky3qgg6g76cmi1zynck8jn7m4wm"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
