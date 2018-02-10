@@ -49,13 +49,13 @@ let
         sha1 = "677d28cef9a90eaee911cf63fc7e883bafdf2c9c";
       };
     };
-    "brace-expansion-1.1.8" = {
+    "brace-expansion-1.1.11" = {
       name = "brace-expansion";
       packageName = "brace-expansion";
-      version = "1.1.8";
+      version = "1.1.11";
       src = fetchurl {
-        url = "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.8.tgz";
-        sha1 = "c07b211c7c952ec1f8efd51a77ef0d1d3990a292";
+        url = "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz";
+        sha512 = "248cnpbbf0p32h53rd3g8wzpgrkaj4p078ra1g6l16f82i6bzkvmhwqan5rk88apbll9ly1476kngd7f7z27i3b3zxpbb3064f8yaw8";
       };
     };
     "builtin-modules-1.1.1" = {
@@ -670,7 +670,7 @@ in
       sources."balanced-match-1.0.0"
       sources."bluebird-3.5.1"
       sources."bluebird-retry-0.5.3"
-      sources."brace-expansion-1.1.8"
+      sources."brace-expansion-1.1.11"
       sources."builtin-modules-1.1.1"
       sources."camelcase-3.0.0"
       (sources."cli-table2-0.2.0" // {

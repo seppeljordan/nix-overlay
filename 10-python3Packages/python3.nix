@@ -382,7 +382,7 @@ let
 
     "pypi2nix" = python.mkDerivation {
       name = "pypi2nix-1.8.1";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/pypi2nix"; sha256 = "083hg4yxv7xwkn4sq1f45062pzwprk7nbp5pg3lp1yh0b0zpch0b"; rev = "0318d5553b4edc6e7033f20091ea01b114c9af88"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/pypi2nix"; sha256 = "0wzgxhm2lfpfcvkhlpmq9268v3blhaxx5yb86pafg25fv87g6jdl"; rev = "d3aecefd32b9e0cbf6c3d8e14f97d3e4153b8f12"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -398,8 +398,8 @@ let
     };
 
     "pytz" = python.mkDerivation {
-      name = "pytz-2017.3";
-      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/60/88/d3152c234da4b2a1f7a989f89609ea488225eaea015bc16fbde2b3fdfefa/pytz-2017.3.zip"; sha256 = "fae4cffc040921b8a2d60c6cf0b5d662c1190fe54d718271db4eb17d44a185b7"; };
+      name = "pytz-2018.3";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/1b/50/4cdc62fc0753595fc16c8f722a89740f487c6e5670c644eb8983946777be/pytz-2018.3.tar.gz"; sha256 = "410bcd1d6409026fbaa65d9ed33bf6dd8b1e94a499e32168acfc7b332e4095c0"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
@@ -562,7 +562,7 @@ let
   localOverridesFile = ./10-python3Packages/python3_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchgit { url = "https://github.com/garbas/nixpkgs-python.git"; sha256 = "110j4qkm2zlazw4l1inhihi1kky3qgg6g76cmi1zynck8jn7m4wm"; rev = "fa35bc2c4a71d0bd384b76532bab3cba36a660ac"; fetchSubmodules = false; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "f6b57aa3ded6197c3ab78907e156a73264eb7135"; sha256 = "1prkrc4i86918ikclwmsn8w75pbgfbnz6yq7qy0g0hh1gvl6mvs8"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
