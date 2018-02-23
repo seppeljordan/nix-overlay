@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -v -V 3 -E libffi openssl -r 10-python3Packages/python3.txt --default-overrides --basename 10-python3Packages/python3
+#   pypi2nix -vvv -V 3 -E libffi openssl mercurial -r 10-python3Packages/python3.txt --default-overrides --basename 10-python3Packages/python3
 #
 
 { pkgs ? import <nixpkgs> {}
@@ -32,7 +32,7 @@ let
       };
   };
 
-  commonBuildInputs = with pkgs; [ libffi openssl ];
+  commonBuildInputs = with pkgs; [ libffi openssl mercurial ];
   commonDoCheck = false;
 
   withPackages = pkgs':
@@ -382,7 +382,7 @@ let
 
     "pypi2nix" = python.mkDerivation {
       name = "pypi2nix-1.8.1";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/pypi2nix"; sha256 = "0wzgxhm2lfpfcvkhlpmq9268v3blhaxx5yb86pafg25fv87g6jdl"; rev = "d3aecefd32b9e0cbf6c3d8e14f97d3e4153b8f12"; };
+      src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "0qxvmr0wn5ws71ldmcgx3ldjk5vaqxr081lsfl8kgchnbv0j8y2x"; rev = "b76d58b097c518a5b8807613ee00beb563ecea9b"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -562,7 +562,7 @@ let
   localOverridesFile = ./10-python3Packages/python3_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "f6b57aa3ded6197c3ab78907e156a73264eb7135"; sha256 = "1prkrc4i86918ikclwmsn8w75pbgfbnz6yq7qy0g0hh1gvl6mvs8"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "8fe3c0cae01de79e2dbc98660d177e26a3df8cde"; sha256 = "0dbalc4smg5981pv2f1vczvfyf3sdhcmccwvcbpq684qg82zhxnk"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

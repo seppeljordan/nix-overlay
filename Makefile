@@ -44,9 +44,9 @@ update-geimskell:
 
 update-pypiPackages3:
 	$(PYPI2NIX) \
-		-v \
+		-vvv \
 		-V 3 \
-		-E "libffi openssl" \
+		-E "libffi openssl mercurial" \
 		-r 10-python3Packages/python3.txt \
 		--default-overrides \
 		--basename 10-python3Packages/python3
@@ -71,9 +71,7 @@ update-node-packages:
 		node2nix -6 -i pkgs.json -o pkgs.nix
 
 pypi2nix-exec/bin/pypi2nix:
-	nix-build '<nixpkgs>' \
-		-A pypiPackages3.packages.pypi2nix \
-		-o pypi2nix-exec
+	nix-build '<nixpkgs>' -A pythonNEXT.pypi2nix.packages.pypi2nix -o pypi2nix-exec --show-trace
 
 .PHONY: update update-winetricks update-node-packages update-pypiPackages2 \
 	update-pypiPackages3 test test-python2-build test-integration \
