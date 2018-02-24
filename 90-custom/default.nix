@@ -107,4 +107,12 @@ in
       (useCustomSource (useWineWow super.winetricks));
   customNodePackages = import ./node-packages { pkgs = self; };
   nix-kubernetes = self.customNodePackages."nix-kubernetes-git+https://github.com/seppeljordan/nix-kubernetes.git";
+  nixops = super.nixops.overrideDerivation (
+    old: {
+      patchPhase = ''
+        substituteInPlace nix/eval-machine-info.nix \
+            --replace 'system.nixosVersion' 'system.nixos.version'
+      '';
+    }
+  );
 }
