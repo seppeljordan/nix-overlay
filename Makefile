@@ -3,9 +3,13 @@ NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unsta
 
 all: pypi2nix-exec update test
 
-update: update-pypiPackages3 update-geimskell update-lrucache \
+update: update-nixpkgs-python update-pypiPackages3 update-geimskell
+	update-lrucache \
 	update-htiled update-winetricks update-pypiPackages2 \
 	update-node-packages
+
+update-nixpkgs-python:
+	nix-prefetch-github garbas nixpkgs-python > 10-nixpkgs-python/nixpkgs-python.json
 
 clean:
 	rm pypi2nix-exec
@@ -75,4 +79,5 @@ pypi2nix-exec/bin/pypi2nix:
 
 .PHONY: update update-winetricks update-node-packages update-pypiPackages2 \
 	update-pypiPackages3 test test-python2-build test-integration \
-	test-python3-build pypi2nix-exec/bin/pypi2nix clean test-emacs
+	test-python3-build pypi2nix-exec/bin/pypi2nix clean test-emacs \
+	update-nixpkgs-python
