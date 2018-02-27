@@ -13,13 +13,13 @@ let
         sha1 = "c3b33ab5ee360d86e0e628f0468ae7ef27d654df";
       };
     };
-    "argparse-1.0.9" = {
+    "argparse-1.0.10" = {
       name = "argparse";
       packageName = "argparse";
-      version = "1.0.9";
+      version = "1.0.10";
       src = fetchurl {
-        url = "https://registry.npmjs.org/argparse/-/argparse-1.0.9.tgz";
-        sha1 = "73d83bc263f86e97f8cc4f6bae1b0e90a7d22c86";
+        url = "https://registry.npmjs.org/argparse/-/argparse-1.0.10.tgz";
+        sha512 = "17fhywmdjcp8g0ys089i5xg26yajkkg9zg8hyry3fghz75b2pq5vdx997dk5p2sc15r9nsj8rmf4f27g81hi92kzj5q86sdmg5ni553";
       };
     };
     "balanced-match-1.0.0" = {
@@ -499,31 +499,58 @@ let
         sha1 = "045f9782d011ae9a6803ddd382b24392b3d890f7";
       };
     };
-    "spdx-correct-1.0.2" = {
+    "spdx-correct-2.0.4" = {
       name = "spdx-correct";
       packageName = "spdx-correct";
-      version = "1.0.2";
+      version = "2.0.4";
       src = fetchurl {
-        url = "https://registry.npmjs.org/spdx-correct/-/spdx-correct-1.0.2.tgz";
-        sha1 = "4b3073d933ff51f3912f03ac5519498a4150db40";
+        url = "https://registry.npmjs.org/spdx-correct/-/spdx-correct-2.0.4.tgz";
+        sha512 = "2c84cz0n6r79p2kwaz5p7hnjxi835n964wcy4dn36ndjr5y430mvljghv5jl13iqqjwg4mq332z2z5h5fawzrf1xmrkhq3xkcz21vkk";
       };
     };
-    "spdx-expression-parse-1.0.4" = {
+    "spdx-exceptions-2.1.0" = {
+      name = "spdx-exceptions";
+      packageName = "spdx-exceptions";
+      version = "2.1.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/spdx-exceptions/-/spdx-exceptions-2.1.0.tgz";
+        sha512 = "057m2ab3y8j38xb89w7d191hfaa693vbf7wnwkf302zicsgi2v5ayvcc4f03vyj4yyycqasqp3ryp2d3q0vcaq54r4ls2g5dar4vbg0";
+      };
+    };
+    "spdx-expression-parse-2.0.2" = {
       name = "spdx-expression-parse";
       packageName = "spdx-expression-parse";
-      version = "1.0.4";
+      version = "2.0.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-1.0.4.tgz";
-        sha1 = "9bdf2f20e1f40ed447fbe273266191fced51626c";
+        url = "https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-2.0.2.tgz";
+        sha512 = "3sqyk0fgd94c00jb00kd3729ppplnki3pgv88vb4603zjkkix6v5pyy6m74gn44jb8hxilvbqs3hmayl2p1yx6snhjjs5czc28lwp50";
       };
     };
-    "spdx-license-ids-1.2.2" = {
+    "spdx-expression-parse-3.0.0" = {
+      name = "spdx-expression-parse";
+      packageName = "spdx-expression-parse";
+      version = "3.0.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-3.0.0.tgz";
+        sha512 = "351djgqvsgqmfg6h764c2k09dmixczw5073jirm8km6i1yym4xjrzc7g5ckwkidi3gls7s910m4ahl8sh37dsb478j8j3sigbfq63k2";
+      };
+    };
+    "spdx-license-ids-2.0.1" = {
       name = "spdx-license-ids";
       packageName = "spdx-license-ids";
-      version = "1.2.2";
+      version = "2.0.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz";
-        sha1 = "c9df7a3424594ade6bd11900d596696dc06bac57";
+        url = "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-2.0.1.tgz";
+        sha1 = "02017bcc3534ee4ffef6d58d20e7d3e9a1c3c8ec";
+      };
+    };
+    "spdx-license-ids-3.0.0" = {
+      name = "spdx-license-ids";
+      packageName = "spdx-license-ids";
+      version = "3.0.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.0.tgz";
+        sha512 = "066gb8vcffv2mf3lbmxvxp5b60jviw32x52n50l3zgl9z4cgwg74ca4kr4y5c3mss736bmg9nxl1lvprishbikqy0jy56770v10zqfv";
       };
     };
     "sprintf-js-1.0.3" = {
@@ -571,13 +598,13 @@ let
         sha1 = "72419d4a8be7d6ce75148fd8b324e593a711c2ed";
       };
     };
-    "validate-npm-package-license-3.0.1" = {
+    "validate-npm-package-license-3.0.2" = {
       name = "validate-npm-package-license";
       packageName = "validate-npm-package-license";
-      version = "3.0.1";
+      version = "3.0.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.1.tgz";
-        sha1 = "2804babe712ad3379459acfbe24746ab2c303fbc";
+        url = "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.2.tgz";
+        sha512 = "03aqkig9piya6nph5841ngy1n2l8wxrygg68caif9p6dfzgvknx7ajgs8nhqajlhyw04y2k8318aah9hy6cpjj0i6xr03hrf71lcfgk";
       };
     };
     "which-module-1.0.0" = {
@@ -666,7 +693,7 @@ in
     };
     dependencies = [
       sources."ansi-regex-2.1.1"
-      sources."argparse-1.0.9"
+      sources."argparse-1.0.10"
       sources."balanced-match-1.0.0"
       sources."bluebird-3.5.1"
       sources."bluebird-retry-0.5.3"
@@ -723,22 +750,31 @@ in
       sources."require-main-filename-1.0.1"
       sources."semver-5.5.0"
       sources."set-blocking-2.0.0"
-      sources."spdx-correct-1.0.2"
-      sources."spdx-expression-parse-1.0.4"
-      sources."spdx-license-ids-1.2.2"
+      (sources."spdx-correct-2.0.4" // {
+        dependencies = [
+          sources."spdx-expression-parse-2.0.2"
+        ];
+      })
+      sources."spdx-exceptions-2.1.0"
+      sources."spdx-expression-parse-3.0.0"
+      sources."spdx-license-ids-2.0.1"
       sources."sprintf-js-1.0.3"
       sources."string-width-1.0.2"
       sources."strip-ansi-3.0.1"
       sources."strip-bom-2.0.0"
       sources."tmp-0.0.30"
-      sources."validate-npm-package-license-3.0.1"
+      sources."validate-npm-package-license-3.0.2"
       sources."which-module-1.0.0"
       sources."window-size-0.2.0"
       sources."wrap-ansi-2.1.0"
       sources."wrappy-1.0.2"
       sources."y18n-3.2.1"
       sources."yamljs-0.2.10"
-      sources."yargs-4.8.1"
+      (sources."yargs-4.8.1" // {
+        dependencies = [
+          sources."spdx-license-ids-3.0.0"
+        ];
+      })
       sources."yargs-parser-2.4.1"
     ];
     buildInputs = globalBuildInputs;

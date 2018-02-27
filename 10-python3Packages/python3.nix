@@ -318,6 +318,23 @@ let
       };
     };
 
+    "nix-helpers" = python.mkDerivation {
+      name = "nix-helpers-1.0";
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-helpers"; sha256 = "0n3snpgc2bjxhs5mw4wnncy70kdpp425gqcz7n8i6w6p558zid8c"; rev = "8662fb2ee9cf55c670f88a0910690e92caa5cdd0"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."Jinja2"
+      self."click"
+      self."requests"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/seppeljordan/nix-helpers";
+        license = "GPL-3";
+        description = "Utilities for working with Nix package manager";
+      };
+    };
+
     "paramiko" = python.mkDerivation {
       name = "paramiko-2.4.0";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/c8/de/791773d6a4b23327c7475ae3d7ada0d07fa147bf77fb6f561a4a7d8afd11/paramiko-2.4.0.tar.gz"; sha256 = "486f637f0a33a4792e0e567be37426c287efaa8c4c4a45e3216f9ce7fd70b1fc"; };
@@ -382,7 +399,7 @@ let
 
     "pypi2nix" = python.mkDerivation {
       name = "pypi2nix-1.8.1";
-      src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "0qxvmr0wn5ws71ldmcgx3ldjk5vaqxr081lsfl8kgchnbv0j8y2x"; rev = "b76d58b097c518a5b8807613ee00beb563ecea9b"; };
+      src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "05c0727ryw2izj6qx7116k6gggq747dbnbjhmal9zkz2mdk4s0va"; rev = "e891c0de45053b34b39a75a84d6fdeb0bede9654"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -562,7 +579,7 @@ let
   localOverridesFile = ./10-python3Packages/python3_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "8fe3c0cae01de79e2dbc98660d177e26a3df8cde"; sha256 = "0dbalc4smg5981pv2f1vczvfyf3sdhcmccwvcbpq684qg82zhxnk"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "2ddd0ffacd07f8e26fb6c43a61fd0c26176e70f1"; sha256 = "0baxwajry6q6q34wccn6c3ln4xdxldn64w3hpxkas6dmgzgfh6nd"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

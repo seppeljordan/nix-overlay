@@ -3,7 +3,7 @@ NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unsta
 
 all: pypi2nix-exec update test
 
-update: update-nixpkgs-python update-pypiPackages3 update-geimskell
+update: update-nixpkgs-python update-pypiPackages3 update-geimskell \
 	update-lrucache \
 	update-htiled update-winetricks update-pypiPackages2 \
 	update-node-packages
@@ -74,8 +74,11 @@ update-node-packages:
 	cd 90-custom/node-packages && \
 		node2nix -6 -i pkgs.json -o pkgs.nix
 
+# -A pythonNEXT.pypi2nix.packages.pypi2nix
 pypi2nix-exec/bin/pypi2nix:
-	nix-build '<nixpkgs>' -A pythonNEXT.pypi2nix.packages.pypi2nix -o pypi2nix-exec --show-trace
+	nix-build '<nixpkgs>' \
+		-A pypiPackages3.packages.pypi2nix \
+		-o pypi2nix-exec --show-trace
 
 .PHONY: update update-winetricks update-node-packages update-pypiPackages2 \
 	update-pypiPackages3 test test-python2-build test-integration \
