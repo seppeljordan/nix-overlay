@@ -354,15 +354,15 @@ let
     };
 
     "parsemon2" = python.mkDerivation {
-      name = "parsemon2-0.0.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "10n15vrkazhdf9g0f8809axqbr4pgfqw10k8i1chahhfr9b7jib4"; rev = "91fb9e7ca8d3b556ec84e4e0e488a9c52b5731be"; };
+      name = "parsemon2-1.0";
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "11gcwxjrbr91l7cydn0hys100sq0s5rda1n5h82hyq9ipypgykhi"; rev = "1c5afb8056fda9159dfdc0e4e18f10e97bf6408b"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "";
-        license = "";
-        description = "UNKNOWN";
+        license = "GPL-3";
+        description = "A monadic parser combinator written purely in python";
       };
     };
 
