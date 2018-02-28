@@ -135,6 +135,7 @@ let
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
       self."cffi"
+      self."pytest"
       self."six"
     ];
       meta = with pkgs.stdenv.lib; {
@@ -163,6 +164,7 @@ let
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."pytest"
       self."termcolor"
     ];
       meta = with pkgs.stdenv.lib; {
@@ -185,6 +187,22 @@ let
       };
     };
 
+    "attrs" = python.mkDerivation {
+      name = "attrs-17.4.0";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/8b/0b/a06cfcb69d0cb004fde8bc6f0fd192d96d565d1b8aa2829f0f20adb796e5/attrs-17.4.0.tar.gz"; sha256 = "1c7960ccfd6a005cd9f7ba884e6316b5e430a3f1a6c37c5f87d8b43f83b54ec9"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."pytest"
+      self."six"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://www.attrs.org/";
+        license = licenses.mit;
+        description = "Classes Without Boilerplate";
+      };
+    };
+
     "bcrypt" = python.mkDerivation {
       name = "bcrypt-3.1.4";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/f3/ec/bb6b384b5134fd881b91b6aa3a88ccddaad0103857760711a5ab8c799358/bcrypt-3.1.4.tar.gz"; sha256 = "67ed1a374c9155ec0840214ce804616de49c3df9c5bc66740687c1c9b1cd9e8d"; };
@@ -192,6 +210,7 @@ let
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
       self."cffi"
+      self."pytest"
       self."six"
     ];
       meta = with pkgs.stdenv.lib; {
@@ -264,6 +283,7 @@ let
       self."asn1crypto"
       self."cffi"
       self."idna"
+      self."pytest"
       self."pytz"
       self."six"
     ];
@@ -308,6 +328,7 @@ let
       propagatedBuildInputs = [
       self."Jinja2"
       self."PyYAML"
+      self."pytest"
       self."toml"
       self."xmltodict"
     ];
@@ -366,6 +387,32 @@ let
       };
     };
 
+    "pluggy" = python.mkDerivation {
+      name = "pluggy-0.6.0";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/11/bf/cbeb8cdfaffa9f2ea154a30ae31a9d04a1209312e2919138b4171a1f8199/pluggy-0.6.0.tar.gz"; sha256 = "7f8ae7f5bdf75671a718d2daf0a64b7885f74510bcd98b1a0bb420eb9a9d0cff"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/pytest-dev/pluggy";
+        license = licenses.mit;
+        description = "plugin and hook calling mechanisms for python";
+      };
+    };
+
+    "py" = python.mkDerivation {
+      name = "py-1.5.2";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/90/e3/e075127d39d35f09a500ebb4a90afd10f9ef0a1d28a6d09abeec0e444fdd/py-1.5.2.tar.gz"; sha256 = "ca18943e28235417756316bfada6cd96b23ce60dd532642690dcfdaba988a76d"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://py.readthedocs.io/";
+        license = licenses.mit;
+        description = "library with cross-python path, ini-parsing, io, code, log facilities";
+      };
+    };
+
     "pyasn1" = python.mkDerivation {
       name = "pyasn1-0.4.2";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/eb/3d/b7d0fdf4a882e26674c68c20f40682491377c4db1439870f5b6f862f76ed/pyasn1-0.4.2.tar.gz"; sha256 = "d258b0a71994f7770599835249cece1caef3c70def868c4915e6e5ca49b67d15"; };
@@ -412,7 +459,7 @@ let
 
     "pypi2nix" = python.mkDerivation {
       name = "pypi2nix-1.8.1";
-      src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "1d3n79ryxq6090d9772mjy3dzky6y37zbngkwmjsaxkimxqfnx0c"; rev = "6c469420292c3ed368ee8cfda4c6cd3ced5b21bd"; };
+      src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "0mqv35hgq05ngb94idijvx8766w1y7fl2mspa4dj253njg8cxdd0"; rev = "5375058662f9bead0a7d56909d346d8988739717"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -424,6 +471,24 @@ let
         homepage = "https://github.com/NixOS/pypi2nix";
         license = licenses.bsdOriginal;
         description = "A tool that generates nix expressions for your python packages, so you don't have to.";
+      };
+    };
+
+    "pytest" = python.mkDerivation {
+      name = "pytest-3.4.1";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/84/11/a6fe751118861b4d6587e07633f2e055733fc3678f7e5d7ae30303d90b7e/pytest-3.4.1.tar.gz"; sha256 = "9ddcb879c8cc859d2540204b5399011f842e5e8823674bf429f70ada281b3cc6"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."attrs"
+      self."pluggy"
+      self."py"
+      self."six"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://pytest.org";
+        license = licenses.mit;
+        description = "pytest: simple powerful testing with Python";
       };
     };
 

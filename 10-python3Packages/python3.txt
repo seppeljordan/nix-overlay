@@ -3,6 +3,7 @@ pyyaml
 stormssh
 toml
 xmltodict
+pytest
 
 git+https://github.com/seppeljordan/pykube#egg=pykube
 git+https://github.com/schneevonmorgen/nix-helpers#egg=svm-nix-helpers
