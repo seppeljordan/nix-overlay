@@ -215,8 +215,8 @@ let
     };
 
     "cffi" = python.mkDerivation {
-      name = "cffi-1.11.4";
-      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"; sha256 = "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"; };
+      name = "cffi-1.11.5";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"; sha256 = "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -579,7 +579,7 @@ let
   localOverridesFile = ./10-python3Packages/python3_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "2ddd0ffacd07f8e26fb6c43a61fd0c26176e70f1"; sha256 = "0baxwajry6q6q34wccn6c3ln4xdxldn64w3hpxkas6dmgzgfh6nd"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "a55a66c07f50e5d3fe0b6b64c1d83e01853b5c49"; sha256 = "11cv1z9536aw1r0g98fnlgsdch9qid253rr40zy51hrb2nlcvbvl"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
