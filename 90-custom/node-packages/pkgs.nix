@@ -499,13 +499,13 @@ let
         sha1 = "045f9782d011ae9a6803ddd382b24392b3d890f7";
       };
     };
-    "spdx-correct-2.0.4" = {
+    "spdx-correct-3.0.0" = {
       name = "spdx-correct";
       packageName = "spdx-correct";
-      version = "2.0.4";
+      version = "3.0.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/spdx-correct/-/spdx-correct-2.0.4.tgz";
-        sha512 = "2c84cz0n6r79p2kwaz5p7hnjxi835n964wcy4dn36ndjr5y430mvljghv5jl13iqqjwg4mq332z2z5h5fawzrf1xmrkhq3xkcz21vkk";
+        url = "https://registry.npmjs.org/spdx-correct/-/spdx-correct-3.0.0.tgz";
+        sha512 = "3xgkqk4hsm4nzvy68icv1rlv4s0qgb7mwpi9s4z2mp1a5fwny6kc6m4nqa7zzx2k7mrjlh7psci9lb7892bl3q4r4y2f4sw7vvnhprp";
       };
     };
     "spdx-exceptions-2.1.0" = {
@@ -517,15 +517,6 @@ let
         sha512 = "057m2ab3y8j38xb89w7d191hfaa693vbf7wnwkf302zicsgi2v5ayvcc4f03vyj4yyycqasqp3ryp2d3q0vcaq54r4ls2g5dar4vbg0";
       };
     };
-    "spdx-expression-parse-2.0.2" = {
-      name = "spdx-expression-parse";
-      packageName = "spdx-expression-parse";
-      version = "2.0.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-2.0.2.tgz";
-        sha512 = "3sqyk0fgd94c00jb00kd3729ppplnki3pgv88vb4603zjkkix6v5pyy6m74gn44jb8hxilvbqs3hmayl2p1yx6snhjjs5czc28lwp50";
-      };
-    };
     "spdx-expression-parse-3.0.0" = {
       name = "spdx-expression-parse";
       packageName = "spdx-expression-parse";
@@ -533,15 +524,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-3.0.0.tgz";
         sha512 = "351djgqvsgqmfg6h764c2k09dmixczw5073jirm8km6i1yym4xjrzc7g5ckwkidi3gls7s910m4ahl8sh37dsb478j8j3sigbfq63k2";
-      };
-    };
-    "spdx-license-ids-2.0.1" = {
-      name = "spdx-license-ids";
-      packageName = "spdx-license-ids";
-      version = "2.0.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-2.0.1.tgz";
-        sha1 = "02017bcc3534ee4ffef6d58d20e7d3e9a1c3c8ec";
       };
     };
     "spdx-license-ids-3.0.0" = {
@@ -598,13 +580,13 @@ let
         sha1 = "72419d4a8be7d6ce75148fd8b324e593a711c2ed";
       };
     };
-    "validate-npm-package-license-3.0.2" = {
+    "validate-npm-package-license-3.0.3" = {
       name = "validate-npm-package-license";
       packageName = "validate-npm-package-license";
-      version = "3.0.2";
+      version = "3.0.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.2.tgz";
-        sha512 = "03aqkig9piya6nph5841ngy1n2l8wxrygg68caif9p6dfzgvknx7ajgs8nhqajlhyw04y2k8318aah9hy6cpjj0i6xr03hrf71lcfgk";
+        url = "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.3.tgz";
+        sha512 = "39caf21ga6s2gvpka90wdngdijarwmkix5fpgh9r94bw14fx1zfnf7j5mprgsdlh8dv0wpwxn65qn9gfwa8n3dxw3iqaj7qf994wxpb";
       };
     };
     "which-module-1.0.0" = {
@@ -750,31 +732,23 @@ in
       sources."require-main-filename-1.0.1"
       sources."semver-5.5.0"
       sources."set-blocking-2.0.0"
-      (sources."spdx-correct-2.0.4" // {
-        dependencies = [
-          sources."spdx-expression-parse-2.0.2"
-        ];
-      })
+      sources."spdx-correct-3.0.0"
       sources."spdx-exceptions-2.1.0"
       sources."spdx-expression-parse-3.0.0"
-      sources."spdx-license-ids-2.0.1"
+      sources."spdx-license-ids-3.0.0"
       sources."sprintf-js-1.0.3"
       sources."string-width-1.0.2"
       sources."strip-ansi-3.0.1"
       sources."strip-bom-2.0.0"
       sources."tmp-0.0.30"
-      sources."validate-npm-package-license-3.0.2"
+      sources."validate-npm-package-license-3.0.3"
       sources."which-module-1.0.0"
       sources."window-size-0.2.0"
       sources."wrap-ansi-2.1.0"
       sources."wrappy-1.0.2"
       sources."y18n-3.2.1"
       sources."yamljs-0.2.10"
-      (sources."yargs-4.8.1" // {
-        dependencies = [
-          sources."spdx-license-ids-3.0.0"
-        ];
-      })
+      sources."yargs-4.8.1"
       sources."yargs-parser-2.4.1"
     ];
     buildInputs = globalBuildInputs;
