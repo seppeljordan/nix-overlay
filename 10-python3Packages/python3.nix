@@ -353,6 +353,19 @@ let
       };
     };
 
+    "parsemon2" = python.mkDerivation {
+      name = "parsemon2-0.0.0";
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "10n15vrkazhdf9g0f8809axqbr4pgfqw10k8i1chahhfr9b7jib4"; rev = "91fb9e7ca8d3b556ec84e4e0e488a9c52b5731be"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "";
+        license = "";
+        description = "UNKNOWN";
+      };
+    };
+
     "pyasn1" = python.mkDerivation {
       name = "pyasn1-0.4.2";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/eb/3d/b7d0fdf4a882e26674c68c20f40682491377c4db1439870f5b6f862f76ed/pyasn1-0.4.2.tar.gz"; sha256 = "d258b0a71994f7770599835249cece1caef3c70def868c4915e6e5ca49b67d15"; };
@@ -399,7 +412,7 @@ let
 
     "pypi2nix" = python.mkDerivation {
       name = "pypi2nix-1.8.1";
-      src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "13j92yxw6ai0qpfxgf844fkb5kmf9kyjhxyriy3jjpdwmxpnhgfr"; rev = "abba244d6287aa113f4d53662963a34460f1372f"; };
+      src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "1d3n79ryxq6090d9772mjy3dzky6y37zbngkwmjsaxkimxqfnx0c"; rev = "6c469420292c3ed368ee8cfda4c6cd3ced5b21bd"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -579,7 +592,7 @@ let
   localOverridesFile = ./10-python3Packages/python3_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "a55a66c07f50e5d3fe0b6b64c1d83e01853b5c49"; sha256 = "11cv1z9536aw1r0g98fnlgsdch9qid253rr40zy51hrb2nlcvbvl"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "fd3d67393e2cdd0874fc40fbdfb6404304db1f44"; sha256 = "00hravnbydj0h302hhb7imyyiv5kppb971rzbvv502bi9b50lh3i"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
