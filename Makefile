@@ -53,6 +53,7 @@ update-pypiPackages3:
 		-E "libffi openssl mercurial" \
 		-r 10-python3Packages/python3.txt \
 		--default-overrides \
+		-O ./python3_override.nix \
 		--basename 10-python3Packages/python3
 
 update-pypiPackages2: pypi2nix-exec/bin/pypi2nix

@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -vvv -V 3 -E libffi openssl mercurial -r 10-python3Packages/python3.txt --default-overrides --basename 10-python3Packages/python3
+#   pypi2nix -vvv -V 3 -E libffi openssl mercurial -r 10-python3Packages/python3.txt --default-overrides -O ./python3_override.nix --basename 10-python3Packages/python3
 #
 
 { pkgs ? import <nixpkgs> {}
@@ -490,7 +490,7 @@ let
 
     "parsemon2" = python.mkDerivation {
       name = "parsemon2-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "0h5a757m55zz79c9fb34k3dinsb2gw960m541r2jbjraazx1rc9v"; rev = "23a16d3594f47c32f7b7ca8ee9a622772f270042"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "0hambqlpgkd0ij3wl9297nr7k68z5fpaq5g1vwwwcsq7v0mpq1yl"; rev = "3d8505f7bc32a8f22c35615cde57c42fe2c5e096"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
@@ -812,7 +812,8 @@ let
   localOverridesFile = ./10-python3Packages/python3_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "0e2ad3f58a8fa5f5f14eeae8e82022cbd83e5ff3"; sha256 = "1f4q2jxk8sr06c1qqg6lblqv4chmkzp1hqwr50z06lc526r3yyjn"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (import ./python3_override.nix { inherit pkgs python ; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "84884400196c5b50cbcb221c099d8981da831d49"; sha256 = "0fhbz752ksnpwkgl9whly7zf43c23jmrhjmj4b939v6jnxnk92b0"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
