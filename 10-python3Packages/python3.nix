@@ -82,6 +82,21 @@ let
   python = withPackages {};
 
   generated = self: {
+    "Babel" = python.mkDerivation {
+      name = "Babel-2.5.3";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/0e/d5/9b1d6a79c975d0e9a32bd337a1465518c2519b14b214682ca9892752417e/Babel-2.5.3.tar.gz"; sha256 = "8ce4cb6fdd4393edd323227cba3a077bceb2a6ce5201c902c65e730046f41f14"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."pytz"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://babel.pocoo.org/";
+        license = licenses.bsdOriginal;
+        description = "Internationalization utilities";
+      };
+    };
+
     "Flask" = python.mkDerivation {
       name = "Flask-0.12.2";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/eb/12/1c7bd06fcbd08ba544f25bf2c6612e305a70ea51ca0eda8007344ec3f123/Flask-0.12.2.tar.gz"; sha256 = "49f44461237b69ecd901cc7ce66feea0319b9158743dd27a2899962ab214dac1"; };
@@ -106,6 +121,7 @@ let
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."Babel"
       self."MarkupSafe"
     ];
       meta = with pkgs.stdenv.lib; {
@@ -134,6 +150,7 @@ let
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."Sphinx"
       self."cffi"
       self."pytest"
       self."six"
@@ -158,12 +175,52 @@ let
       };
     };
 
+    "Pygments" = python.mkDerivation {
+      name = "Pygments-2.2.0";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"; sha256 = "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://pygments.org/";
+        license = licenses.bsdOriginal;
+        description = "Pygments is a syntax highlighting package written in Python.";
+      };
+    };
+
+    "Sphinx" = python.mkDerivation {
+      name = "Sphinx-1.7.1";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/b1/21/b97c0936171669a90e0e7036a112c55fc415699e8707e675b987949221e1/Sphinx-1.7.1.tar.gz"; sha256 = "da987de5fcca21a4acc7f67a86a363039e67ac3e8827161e61b91deb131c0ee8"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."Babel"
+      self."Jinja2"
+      self."Pygments"
+      self."alabaster"
+      self."docutils"
+      self."imagesize"
+      self."packaging"
+      self."pytest"
+      self."requests"
+      self."six"
+      self."snowballstemmer"
+      self."sphinxcontrib-websupport"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://sphinx-doc.org/";
+        license = licenses.bsdOriginal;
+        description = "Python documentation generator";
+      };
+    };
+
     "Werkzeug" = python.mkDerivation {
       name = "Werkzeug-0.14.1";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/9f/08/a3bb1c045ec602dc680906fc0261c267bed6b3bb4609430aff92c3888ec8/Werkzeug-0.14.1.tar.gz"; sha256 = "c3fd7a7d41976d9f44db327260e263132466836cef6f91512889ed60ad26557c"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."Sphinx"
       self."pytest"
       self."termcolor"
     ];
@@ -171,6 +228,19 @@ let
         homepage = "https://www.palletsprojects.org/p/werkzeug/";
         license = licenses.bsdOriginal;
         description = "The comprehensive WSGI web application library.";
+      };
+    };
+
+    "alabaster" = python.mkDerivation {
+      name = "alabaster-0.7.10";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/d0/a5/e3a9ad3ee86aceeff71908ae562580643b955ea1b1d4f08ed6f7e8396bd7/alabaster-0.7.10.tar.gz"; sha256 = "37cdcb9e9954ed60912ebc1ca12a9d12178c26637abdf124e3cde2341c257fe0"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://alabaster.readthedocs.io";
+        license = licenses.bsdOriginal;
+        description = "A configurable sidebar-enabled Sphinx theme";
       };
     };
 
@@ -193,6 +263,7 @@ let
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."Sphinx"
       self."pytest"
       self."six"
     ];
@@ -280,6 +351,7 @@ let
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."Sphinx"
       self."asn1crypto"
       self."cffi"
       self."idna"
@@ -294,6 +366,19 @@ let
       };
     };
 
+    "docutils" = python.mkDerivation {
+      name = "docutils-0.14";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"; sha256 = "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://docutils.sourceforge.net/";
+        license = licenses.publicDomain;
+        description = "Docutils -- Python Documentation Utilities";
+      };
+    };
+
     "idna" = python.mkDerivation {
       name = "idna-2.6";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"; sha256 = "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"; };
@@ -304,6 +389,19 @@ let
         homepage = "https://github.com/kjd/idna";
         license = licenses.bsdOriginal;
         description = "Internationalized Domain Names in Applications (IDNA)";
+      };
+    };
+
+    "imagesize" = python.mkDerivation {
+      name = "imagesize-1.0.0";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/c6/3f/1db2da33804e8d7ef3a868b27b7bdc1aae6a4f693f0162d2aeeaf503864f/imagesize-1.0.0.tar.gz"; sha256 = "5b326e4678b6925158ccc66a9fa3122b6106d7c876ee32d7de6ce59385b96315"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/shibukawa/imagesize_py";
+        license = licenses.mit;
+        description = "Getting image size from png/jpeg/jpeg2000/gif file";
       };
     };
 
@@ -356,6 +454,22 @@ let
       };
     };
 
+    "packaging" = python.mkDerivation {
+      name = "packaging-17.1";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/77/32/439f47be99809c12ef2da8b60a2c47987786d2c6c9205549dd6ef95df8bd/packaging-17.1.tar.gz"; sha256 = "f019b770dd64e585a99714f1fd5e01c7a8f11b45635aa953fd41c689a657375b"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."pyparsing"
+      self."six"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/pypa/packaging";
+        license = licenses.bsdOriginal;
+        description = "Core utilities for Python packages";
+      };
+    };
+
     "paramiko" = python.mkDerivation {
       name = "paramiko-2.4.0";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/c8/de/791773d6a4b23327c7475ae3d7ada0d07fa147bf77fb6f561a4a7d8afd11/paramiko-2.4.0.tar.gz"; sha256 = "486f637f0a33a4792e0e567be37426c287efaa8c4c4a45e3216f9ce7fd70b1fc"; };
@@ -376,7 +490,7 @@ let
 
     "parsemon2" = python.mkDerivation {
       name = "parsemon2-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "1r1vicbw84s8zagav0v52lrm358020chh2q0piwzr158l98fnsgn"; rev = "3c3e9e9261475284be763fb4d2ea04eb435a19c4"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "0h5a757m55zz79c9fb34k3dinsb2gw960m541r2jbjraazx1rc9v"; rev = "23a16d3594f47c32f7b7ca8ee9a622772f270042"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
@@ -457,6 +571,19 @@ let
       };
     };
 
+    "pyparsing" = python.mkDerivation {
+      name = "pyparsing-2.2.0";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"; sha256 = "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://pyparsing.wikispaces.com/";
+        license = licenses.mit;
+        description = "Python parsing module";
+      };
+    };
+
     "pypi2nix" = python.mkDerivation {
       name = "pypi2nix-1.8.1";
       src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "0mqv35hgq05ngb94idijvx8766w1y7fl2mspa4dj253njg8cxdd0"; rev = "5375058662f9bead0a7d56909d346d8988739717"; };
@@ -534,6 +661,34 @@ let
         homepage = "http://pypi.python.org/pypi/six/";
         license = licenses.mit;
         description = "Python 2 and 3 compatibility utilities";
+      };
+    };
+
+    "snowballstemmer" = python.mkDerivation {
+      name = "snowballstemmer-1.2.1";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/20/6b/d2a7cb176d4d664d94a6debf52cd8dbae1f7203c8e42426daa077051d59c/snowballstemmer-1.2.1.tar.gz"; sha256 = "919f26a68b2c17a7634da993d91339e288964f93c274f1343e3bbbe2096e1128"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/shibukawa/snowball_py";
+        license = licenses.bsdOriginal;
+        description = "This package provides 16 stemmer algorithms (15 + Poerter English stemmer) generated from Snowball algorithms.";
+      };
+    };
+
+    "sphinxcontrib-websupport" = python.mkDerivation {
+      name = "sphinxcontrib-websupport-1.0.1";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/c5/6b/f0630436b931ad4f8331a9399ca18a7d447f0fcc0c7178fb56b1aee68d01/sphinxcontrib-websupport-1.0.1.tar.gz"; sha256 = "7a85961326aa3a400cd4ad3c816d70ed6f7c740acd7ce5d78cd0a67825072eb9"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."pytest"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://sphinx-doc.org/";
+        license = licenses.bsdOriginal;
+        description = "Sphinx API for Web Apps";
       };
     };
 
