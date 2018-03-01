@@ -812,7 +812,7 @@ let
   localOverridesFile = ./10-python3Packages/python3_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "2592f323a108d16a93970602c4c82eee56092844"; sha256 = "0s39l1hg0hjpsdrc9hbblpc63dlbhwz1k7vpcqz1ck1ibrnbpwa8"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "0e2ad3f58a8fa5f5f14eeae8e82022cbd83e5ff3"; sha256 = "1f4q2jxk8sr06c1qqg6lblqv4chmkzp1hqwr50z06lc526r3yyjn"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
