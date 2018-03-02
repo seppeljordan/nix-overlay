@@ -490,7 +490,7 @@ let
 
     "parsemon2" = python.mkDerivation {
       name = "parsemon2-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "0hambqlpgkd0ij3wl9297nr7k68z5fpaq5g1vwwwcsq7v0mpq1yl"; rev = "3d8505f7bc32a8f22c35615cde57c42fe2c5e096"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "0qlrgmi449jk9w3j091rh6qp1xq3lljyd6as310x575qvwa2ffvv"; rev = "ceb4db3d6b2a4f4e5d6154a6a6966c4f321ca05b"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
