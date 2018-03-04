@@ -95,10 +95,10 @@ let
       };
     };
   };
-  localOverridesFile = ./10-python2Packages/python2_override.nix;
+  localOverridesFile = ./python2_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "efff54ed177f4100d509ff1420b28182bd1bb5f2"; sha256 = "17hvmkdww88slzmxa06s0pakzcqm2ifcqflk3i5h1dcl424qils9"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "fe418ccef88a49561ee61af4568c8a4d65dbe164"; sha256 = "0fqv5k5ghpsif1rpddaz1zvfb8iy4l2kjv2025scbk9pgjkcmpn9"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
