@@ -809,7 +809,7 @@ let
       };
     };
   };
-  localOverridesFile = ./10-python3Packages/python3_override.nix;
+  localOverridesFile = ./python3_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
