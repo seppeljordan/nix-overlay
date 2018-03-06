@@ -602,8 +602,8 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-3.4.1";
-      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/84/11/a6fe751118861b4d6587e07633f2e055733fc3678f7e5d7ae30303d90b7e/pytest-3.4.1.tar.gz"; sha256 = "9ddcb879c8cc859d2540204b5399011f842e5e8823674bf429f70ada281b3cc6"; };
+      name = "pytest-3.4.2";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/dd/05/4579d3028ba1740467690c3427d3991eff91f95cbaa6bb0280f40708721a/pytest-3.4.2.tar.gz"; sha256 = "117bad36c1a787e1a8a659df35de53ba05f9f3398fb9e4ac17e80ad5903eb8c5"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -813,7 +813,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "fe418ccef88a49561ee61af4568c8a4d65dbe164"; sha256 = "0fqv5k5ghpsif1rpddaz1zvfb8iy4l2kjv2025scbk9pgjkcmpn9"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "f519e9cbf4eb21c7ae52d9599e609b601745f90f"; sha256 = "1h3k39qvncb91zizg2fcskgrj1zl9cimmizyw4r9cwaw1h20bsdf"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
