@@ -15,3 +15,4 @@ git+https://github.com/seppeljordan/nix-helpers#egg=nix-helpers
 git+https://github.com/seppeljordan/parsemon2#egg=parsemon2
 git+https://github.com/seppeljordan/pykube#egg=pykube
 hg+https://bitbucket.org/schneevonmorgen/kubernetes-utils#egg=svm-kubernetes-utils
+git+https://github.com/seppeljordan/nix-prefetch-github#egg=nix-prefetch-github

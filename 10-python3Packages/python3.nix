@@ -439,7 +439,7 @@ let
 
     "nix-helpers" = python.mkDerivation {
       name = "nix-helpers-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-helpers"; sha256 = "0n3snpgc2bjxhs5mw4wnncy70kdpp425gqcz7n8i6w6p558zid8c"; rev = "8662fb2ee9cf55c670f88a0910690e92caa5cdd0"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-helpers"; sha256 = "18wnwlz1hv87ldc849sjiz86c19abcxq2h758yc4f3p02zqp69y9"; rev = "8e8a988acba86fd5184e0a429720918a4fe2704a"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -451,6 +451,23 @@ let
         homepage = "https://github.com/seppeljordan/nix-helpers";
         license = "GPL-3";
         description = "Utilities for working with Nix package manager";
+      };
+    };
+
+    "nix-prefetch-github" = python.mkDerivation {
+      name = "nix-prefetch-github-0.0.0";
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-prefetch-github"; sha256 = "1zwiq1pgzycwjn72zxlhdhvx04vpk07dz0hlzsdj11qhfl11mmv2"; rev = "0d485e23f474a0ab814a7bd5bb6ec3d98f7a19ca"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."Jinja2"
+      self."click"
+      self."requests"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "";
+        license = "";
+        description = "UNKNOWN";
       };
     };
 
@@ -471,8 +488,8 @@ let
     };
 
     "paramiko" = python.mkDerivation {
-      name = "paramiko-2.4.0";
-      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/c8/de/791773d6a4b23327c7475ae3d7ada0d07fa147bf77fb6f561a4a7d8afd11/paramiko-2.4.0.tar.gz"; sha256 = "486f637f0a33a4792e0e567be37426c287efaa8c4c4a45e3216f9ce7fd70b1fc"; };
+      name = "paramiko-2.4.1";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/29/65/83181630befb17cd1370a6abb9a87957947a43c2332216e5975353f61d64/paramiko-2.4.1.tar.gz"; sha256 = "33e36775a6c71790ba7692a73f948b329cf9295a72b0102144b031114bd2a4f3"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -813,7 +830,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "f519e9cbf4eb21c7ae52d9599e609b601745f90f"; sha256 = "1h3k39qvncb91zizg2fcskgrj1zl9cimmizyw4r9cwaw1h20bsdf"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "dc49a364e1023d1f68f9ec9d18b2227a18f836f1"; sha256 = "0pvmk6pcifjky8pdad59g5slga9al3v7rvfkz0llyzjxwp0x62h3"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

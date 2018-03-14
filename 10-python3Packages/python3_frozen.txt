@@ -17,8 +17,9 @@ Jinja2==2.10
 jinja2-cli==0.6.0
 MarkupSafe==1.0
 nix-helpers==1.0
+nix-prefetch-github==0.0.0
 packaging==17.1
-paramiko==2.4.0
+paramiko==2.4.1
 parsemon2==1.0
 pluggy==0.6.0
 py==1.5.2
