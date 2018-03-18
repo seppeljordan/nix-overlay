@@ -59,13 +59,14 @@ in
   };
   haskellEnv = self.haskellPackages.ghcWithHoogle
                (p: with p; [
-                 base
-                 QuickCheck
-                 doctest
-                 cabal-install
-                 lrucache
-                 htiled
                  argparser
+                 base
+                 cabal-install
+                 doctest
+                 hspec
+                 htiled
+                 lrucache
+                 QuickCheck
                ]);
   pypiPackages = self.pypiPackages3;
   display-config = self.callPackage ./display-config {};
