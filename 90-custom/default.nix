@@ -66,6 +66,8 @@ in
                  hspec
                  htiled
                  lrucache
+                 mtl
+                 parsec
                  QuickCheck
                ]);
   pypiPackages = self.pypiPackages3;

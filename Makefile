@@ -18,6 +18,7 @@ test: \
 	test-python2-build \
 	test-python3-build \
 	test-emacs \
+	test-haskell-env \
 	test-integration
 
 test-integration:
@@ -28,6 +29,9 @@ test-python2-build:
 
 test-python3-build:
 	nix-build tests/test-python3-build.nix
+
+test-haskell-env:
+	nix-build tests/test-haskell-env.nix
 
 test-emacs:
 	nix-build tests/test-emacs.nix
@@ -81,7 +85,18 @@ pypi2nix-exec/bin/pypi2nix:
 		-A pypiPackages3.packages.pypi2nix \
 		-o pypi2nix-exec --show-trace
 
-.PHONY: update update-winetricks update-node-packages update-pypiPackages2 \
-	update-pypiPackages3 test test-python2-build test-integration \
-	test-python3-build pypi2nix-exec/bin/pypi2nix clean test-emacs \
-	update-nixpkgs-python
+.PHONY: \
+	clean \
+	pypi2nix-exec/bin/pypi2nix \
+	test \
+	test-emacs \
+	test-haskell-env \
+	test-integration \
+	test-python2-build \
+	test-python3-build \
+	update \
+	update-nixpkgs-python \
+	update-node-packages \
+	update-pypiPackages2 \
+	update-pypiPackages3 \
+	update-winetricks
