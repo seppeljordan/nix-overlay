@@ -472,7 +472,7 @@ let
 
     "nix-prefetch-github" = python.mkDerivation {
       name = "nix-prefetch-github-0.0.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-prefetch-github"; sha256 = "01ajzshm7lsnykjafij0s1cl7agdwrvs7vxm672b0sk9vc81fsnd"; rev = "4d2b3052b6ded6e1882b8976b573f8ec64e91620"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-prefetch-github"; sha256 = "1wrvvy85x7yqj4rkgpj93cdnhalyhzpr8pmyca38v59lm5ndh2w4"; rev = "603f42203db128a7aaa091cf34d406bf7a80e9f0"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
