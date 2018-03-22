@@ -379,6 +379,22 @@ let
       };
     };
 
+    "effect" = python.mkDerivation {
+      name = "effect-0.11.0";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/8a/9a/25a881d1a48847ae95742a30ad0471d9fd71f28a506d30e09dc8cdf4b3ac/effect-0.11.0.tar.gz"; sha256 = "0607530ef589b59f907cfebcb681b5ed4ed56bff1fc2a5de430dcfa72ae1e5e0"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."attrs"
+      self."six"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://github.com/python-effect/effect/";
+        license = licenses.mit;
+        description = "pure effects for Python";
+      };
+    };
+
     "idna" = python.mkDerivation {
       name = "idna-2.6";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"; sha256 = "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"; };
@@ -456,12 +472,14 @@ let
 
     "nix-prefetch-github" = python.mkDerivation {
       name = "nix-prefetch-github-0.0.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-prefetch-github"; sha256 = "0dyc91dlvxqsksw4s7lz0fbky13izg61cd5jabp0izgc6lcdmnd7"; rev = "98c6d6f3ab004967384944db42198f8ae9638ff7"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-prefetch-github"; sha256 = "0g4l5lm7xp36lgxw557n96yd63c7vmm3n8ryhvny50r6bhrzx6vh"; rev = "9529029d3440420b48e78ad77fbc94822eacf004"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
       self."Jinja2"
+      self."attrs"
       self."click"
+      self."effect"
       self."requests"
     ];
       meta = with pkgs.stdenv.lib; {
@@ -532,8 +550,8 @@ let
     };
 
     "py" = python.mkDerivation {
-      name = "py-1.5.2";
-      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/90/e3/e075127d39d35f09a500ebb4a90afd10f9ef0a1d28a6d09abeec0e444fdd/py-1.5.2.tar.gz"; sha256 = "ca18943e28235417756316bfada6cd96b23ce60dd532642690dcfdaba988a76d"; };
+      name = "py-1.5.3";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/f7/84/b4c6e84672c4ceb94f727f3da8344037b62cee960d80e999b1cd9b832d83/py-1.5.3.tar.gz"; sha256 = "29c9fab495d7528e80ba1e343b958684f4ace687327e6f789a94bf3d1915f881"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
