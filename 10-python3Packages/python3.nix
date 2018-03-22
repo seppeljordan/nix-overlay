@@ -472,7 +472,7 @@ let
 
     "nix-prefetch-github" = python.mkDerivation {
       name = "nix-prefetch-github-0.0.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-prefetch-github"; sha256 = "0g4l5lm7xp36lgxw557n96yd63c7vmm3n8ryhvny50r6bhrzx6vh"; rev = "9529029d3440420b48e78ad77fbc94822eacf004"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-prefetch-github"; sha256 = "01ajzshm7lsnykjafij0s1cl7agdwrvs7vxm672b0sk9vc81fsnd"; rev = "4d2b3052b6ded6e1882b8976b573f8ec64e91620"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -848,7 +848,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "a3c20d79843adc24425ecf737acab854f5f828f3"; sha256 = "1dk8xd7kv0fbk779wpwvbn2c7yi20q3pi2fw2kix8pkdc7w9k64l"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "c790f4a6136ba23350f11106b9008de4b532a31a"; sha256 = "1mfqy6dpjyc5zlcvn3h8g15yz4hph7bws8337d0jdhspj725dbj7"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
