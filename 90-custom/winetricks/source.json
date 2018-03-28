@@ -1,1 +1,6 @@
-{"url": "https://github.com/Winetricks/winetricks.git", "rev": "185acea55d3b69361ea7eee8240e59dbeec9af28", "sha256": "0qqc1bkkbqdbfmxai6by1hficjc6mi1aidg3hdzxccd8213n9hrx"}
+{
+    "owner": "Winetricks",
+    "repo": "winetricks",
+    "rev": "185acea55d3b69361ea7eee8240e59dbeec9af28",
+    "sha256": "0qqc1bkkbqdbfmxai6by1hficjc6mi1aidg3hdzxccd8213n9hrx"
+}

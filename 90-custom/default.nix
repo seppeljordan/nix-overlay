@@ -104,7 +104,7 @@ in
       useWineWow = drv: drv.override { wine = self.wineWow; };
       useCustomSource = drv: drv.overrideDerivation( old: {
         src = with builtins; with self;
-          fetchgit (fromJSON (readFile winetricks/source.json));
+          fetchFromGitHub (fromJSON (readFile winetricks/source.json));
       });
     in
       (useCustomSource (useWineWow super.winetricks));

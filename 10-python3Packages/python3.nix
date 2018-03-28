@@ -346,8 +346,8 @@ let
     };
 
     "cryptography" = python.mkDerivation {
-      name = "cryptography-2.2.1";
-      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/fd/2c/a9e42f90bda9ebadf4790ed699e44edd630614f1590eb42e11de64a0b9c1/cryptography-2.2.1.tar.gz"; sha256 = "dddad9d322a3f0867009ff9f25477b8f7c0bdbedf143704b384c9472f11cb2d3"; };
+      name = "cryptography-2.2.2";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"; sha256 = "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -486,8 +486,8 @@ let
     };
 
     "nix-prefetch-github" = python.mkDerivation {
-      name = "nix-prefetch-github-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-prefetch-github"; sha256 = "0rg7viq00ljpsdyfpak598jq528a9w3fmlj86ayf0ld8rjrqyw26"; rev = "d5a34eced5509cc1f6ea63c1b2b79bfc04600b6d"; };
+      name = "nix-prefetch-github-1.2";
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-prefetch-github"; sha256 = "1cqradr62aqjqh8f5fpkvvacppcmyxlfb2gd26d0ar2j6zli5094"; rev = "c8d6fd674920a80555be345be7fc176e006d62f6"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -498,9 +498,9 @@ let
       self."requests"
     ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "";
-        license = "";
-        description = "UNKNOWN";
+        homepage = "https://github.com/seppeljordan/nix-prefetch-github";
+        license = "GPL3";
+        description = "Prefetch source code from github for nix build tool";
       };
     };
 
@@ -864,7 +864,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "140b68255d65e83c069b5f10afe4c653c093a998"; sha256 = "1k45z2ik53rlqicw2cfa1qk99gbnvxbs1wpjk095c3d4fa460ca1"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "7bc1ea0d99a2ba15f6cae352e878e1cd2592eaf2"; sha256 = "1kj5ymw0l4n9161blwhpri9q5b1cyjdb7yp8wikx7fi06anrrllm"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

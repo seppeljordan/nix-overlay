@@ -70,10 +70,8 @@ update-pypiPackages2: pypi2nix-exec/bin/pypi2nix
 		--basename 10-python2Packages/python2
 
 update-winetricks:
-	echo $(NIX_PATH)
 	cd 90-custom/winetricks && \
-		nix-shell '<nixpkgs>' -p pypiPackages3.interpreter \
-		--command './update'
+		nix-prefetch-github Winetricks winetricks > source.json
 
 update-node-packages:
 	cd 90-custom/node-packages && \
