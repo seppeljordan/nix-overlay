@@ -18,11 +18,7 @@ test: \
 	test-python2-build \
 	test-python3-build \
 	test-emacs \
-	test-haskell-env \
-	test-integration
-
-test-integration:
-	nix-build tests/test.nix
+	test-haskell-env
 
 test-python2-build:
 	nix-build tests/test-python2-build.nix
@@ -89,7 +85,6 @@ pypi2nix-exec/bin/pypi2nix:
 	test \
 	test-emacs \
 	test-haskell-env \
-	test-integration \
 	test-python2-build \
 	test-python3-build \
 	update \
