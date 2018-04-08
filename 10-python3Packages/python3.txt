@@ -8,6 +8,7 @@ sphinx
 stormssh
 toml
 xmltodict
+lxml
 
 git+https://github.com/garbas/pypi2nix#egg=pypi2nix
 git+https://github.com/schneevonmorgen/nix-helpers#egg=svm-nix-helpers

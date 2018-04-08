@@ -48,9 +48,8 @@ update-geimskell:
 
 update-pypiPackages3:
 	$(PYPI2NIX) \
-		-vvv \
 		-V 3 \
-		-E "libffi openssl mercurial" \
+		-E "libffi openssl mercurial libxml2 libxslt" \
 		-r 10-python3Packages/python3.txt \
 		--default-overrides \
 		-O ./python3_override.nix \

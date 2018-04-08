@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -vvv -V 3 -E libffi openssl mercurial -r 10-python3Packages/python3.txt --default-overrides -O ./python3_override.nix --basename 10-python3Packages/python3
+#   pypi2nix -V 3 -E libffi openssl mercurial libxml2 libxslt -r 10-python3Packages/python3.txt --default-overrides -O ./python3_override.nix --basename 10-python3Packages/python3
 #
 
 { pkgs ? import <nixpkgs> {}
@@ -32,7 +32,7 @@ let
       };
   };
 
-  commonBuildInputs = with pkgs; [ libffi openssl mercurial ];
+  commonBuildInputs = with pkgs; [ libffi openssl mercurial libxml2 libxslt ];
   commonDoCheck = false;
 
   withPackages = pkgs':
@@ -453,6 +453,19 @@ let
       };
     };
 
+    "lxml" = python.mkDerivation {
+      name = "lxml-4.2.1";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/e8/5d/98f56e274bdf17f2e0d9016d1788ca80d26d8987dcd5e1d9416d86ee0625/lxml-4.2.1.tar.gz"; sha256 = "e2629cdbcad82b83922a3488937632a4983ecc0fed3e5cfbf430d069382eeb9b"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://lxml.de/";
+        license = licenses.bsdOriginal;
+        description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.";
+      };
+    };
+
     "more-itertools" = python.mkDerivation {
       name = "more-itertools-4.1.0";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/db/0b/f5660bf6299ec5b9f17bd36096fa8148a1c843fa77ddfddf9bebac9301f7/more-itertools-4.1.0.tar.gz"; sha256 = "c9ce7eccdcb901a2c75d326ea134e0886abfbea5f93e91cc95de9507c0816c44"; };
@@ -864,7 +877,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "30540bda9072607b3a6639508dbbbfbd4e55c8a8"; sha256 = "1kgpjn8iiggfiil8z7fja3w7lqg3c56wl6qh85yqwxnckgvm8qcx"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "ed713cf9a80a3c1abf026f1047e95e8a433833a3"; sha256 = "1raw9aj4w25s3pm2qv147ha4kr6jgl3c3s3v1250k227m670zg5r"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
