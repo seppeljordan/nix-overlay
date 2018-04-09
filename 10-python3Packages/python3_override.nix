@@ -16,4 +16,10 @@ self: super: {
     }
   );
 
+  "xdg" = super.xdg.overrideDerivation( old:
+    {
+      patchPhase = ''
+        sed -i -e "s|'pytest\-runner'||" setup.py
+      '';
+    });
 }

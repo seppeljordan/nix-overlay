@@ -860,6 +860,19 @@ let
       };
     };
 
+    "xdg" = python.mkDerivation {
+      name = "xdg-3.0.2";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/1a/14/5bb008f64444c5257fce77adc9356c89cdf9bf674e423af41d4287f00cde/xdg-3.0.2.tar.gz"; sha256 = "7ce9fc52cee0f8e31d0beb0f29e102f23725c0c470aee447d907e1999ffda7b7"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/srstevenson/xdg";
+        license = licenses.isc;
+        description = "Variables defined by the XDG Base Directory Specification";
+      };
+    };
+
     "xmltodict" = python.mkDerivation {
       name = "xmltodict-0.11.0";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/57/17/a6acddc5f5993ea6eaf792b2e6c3be55e3e11f3b85206c818572585f61e1/xmltodict-0.11.0.tar.gz"; sha256 = "8f8d7d40aa28d83f4109a7e8aa86e67a4df202d9538be40c0cb1d70da527b0df"; };

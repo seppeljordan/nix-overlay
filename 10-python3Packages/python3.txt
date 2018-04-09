@@ -1,14 +1,15 @@
 click
 jinja2
 jinja2-cli
+lxml
 pytest
 pyyaml
 requests
 sphinx
 stormssh
 toml
+xdg
 xmltodict
-lxml
 
 git+https://github.com/garbas/pypi2nix#egg=pypi2nix
 git+https://github.com/schneevonmorgen/nix-helpers#egg=svm-nix-helpers
