@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -V 3 -E libffi openssl mercurial libxml2 libxslt -r 10-python3Packages/python3.txt --default-overrides -O ./python3_override.nix --basename 10-python3Packages/python3
+#   pypi2nix -V 3 -v -E libffi openssl mercurial libxml2 libxslt -r 10-python3Packages/python3.txt --default-overrides -O ./python3_override.nix --basename 10-python3Packages/python3
 #
 
 { pkgs ? import <nixpkgs> {}
@@ -517,6 +517,21 @@ let
       };
     };
 
+    "nix-pureos" = python.mkDerivation {
+      name = "nix-pureos-1.0";
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-pureos"; sha256 = "0gjxxi4sx4i547qz9ibvpbinlyll9qvdpi6yq2cpg6564bxc7n3f"; rev = "bc7fba19b7e93513432a5b4a07dc47850fdad140"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."xdg"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "";
+        license = "GPLv3";
+        description = "Manage user services and files with nix on pureOS";
+      };
+    };
+
     "packaging" = python.mkDerivation {
       name = "packaging-17.1";
       src = pkgs.fetchurl { url = "https://pypi.python.org/packages/77/32/439f47be99809c12ef2da8b60a2c47987786d2c6c9205549dd6ef95df8bd/packaging-17.1.tar.gz"; sha256 = "f019b770dd64e585a99714f1fd5e01c7a8f11b45635aa953fd41c689a657375b"; };
@@ -684,8 +699,8 @@ let
     };
 
     "pytz" = python.mkDerivation {
-      name = "pytz-2018.3";
-      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/1b/50/4cdc62fc0753595fc16c8f722a89740f487c6e5670c644eb8983946777be/pytz-2018.3.tar.gz"; sha256 = "410bcd1d6409026fbaa65d9ed33bf6dd8b1e94a499e32168acfc7b332e4095c0"; };
+      name = "pytz-2018.4";
+      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/10/76/52efda4ef98e7544321fd8d5d512e11739c1df18b0649551aeccfb1c8376/pytz-2018.4.tar.gz"; sha256 = "c06425302f2cf668f1bba7a0a03f3c1d34d4ebeef2c72003da308b3947c7f749"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
@@ -890,7 +905,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "ed713cf9a80a3c1abf026f1047e95e8a433833a3"; sha256 = "1raw9aj4w25s3pm2qv147ha4kr6jgl3c3s3v1250k227m670zg5r"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "32c99c925144da7531c9f0922cf899527a538f64"; sha256 = "17996g9j3cxxagpzbjhrs5xqdb22pa8vz0whxy9rp7c4zh361hc6"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
