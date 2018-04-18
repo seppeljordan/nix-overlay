@@ -29,10 +29,4 @@ self: super: {
     }
   );
 
-  "PyGObject" = super."PyGObject".overrideDerivation( old:
-    {
-
-    }
-  );
-    
 }

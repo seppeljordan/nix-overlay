@@ -84,7 +84,7 @@ let
   generated = self: {
     "hetzner" = python.mkDerivation {
       name = "hetzner-0.8.0";
-      src = pkgs.fetchurl { url = "https://pypi.python.org/packages/33/d9/5fb6cd9ef2bd9f0d4d6e5841cbb913eaaf18f1406f581e23e925c935cd98/hetzner-0.8.0.tar.gz"; sha256 = "ea1b1ee3f2b788522ff937085009f6e32a341de5e8f04de0f1271e88bec09476"; };
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/33/d9/5fb6cd9ef2bd9f0d4d6e5841cbb913eaaf18f1406f581e23e925c935cd98/hetzner-0.8.0.tar.gz"; sha256 = "ea1b1ee3f2b788522ff937085009f6e32a341de5e8f04de0f1271e88bec09476"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
@@ -98,7 +98,7 @@ let
   localOverridesFile = ./python2_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "32c99c925144da7531c9f0922cf899527a538f64"; sha256 = "17996g9j3cxxagpzbjhrs5xqdb22pa8vz0whxy9rp7c4zh361hc6"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "4ef82542d4efd638f5d33865f3d298b0c9587f87"; sha256 = "05pvanjcb6zkg622875x0d5knqnxpx1dm18343dc08v125p7fqxv"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

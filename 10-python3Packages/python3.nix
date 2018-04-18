@@ -547,10 +547,11 @@ let
 
     "nix-pureos" = python.mkDerivation {
       name = "nix-pureos-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-pureos"; sha256 = "1p6lwk46kfmzfscsydlyrn6vq9977373lfg18k7xxrknsdvhrrk1"; rev = "76118e7e2f637101d64124d0976f5830b28caa3c"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-pureos"; sha256 = "1g6mki8bfsdm6b331hgvskhrmv59bcxkzjzk2kwz8cqkwb80vbmq"; rev = "7167a3e41fdedf7889b5623b9bd324a76e4518c9"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."pydbus"
       self."xdg"
     ];
       meta = with pkgs.stdenv.lib; {
@@ -959,7 +960,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "910d3f07ef41b9c12f0f18028d039f2e80458d69"; sha256 = "1csizxyld6mj265j5kn79z6y2b8nh06wfb7anvg6f0m5l3rm36fr"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "4ef82542d4efd638f5d33865f3d298b0c9587f87"; sha256 = "05pvanjcb6zkg622875x0d5knqnxpx1dm18343dc08v125p7fqxv"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

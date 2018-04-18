@@ -9,8 +9,8 @@ mkDerivation {
   version = "0.1.0.0";
   src = fetchgit {
     url = "https://github.com/seppeljordan/geimskell.git";
-    sha256 = "00y2wvmcqzp375ina325rc9mn8m57vkzphyj7s8ssv2pi6423kmz";
-    rev = "e1fb6c467fe971e789dc4d9eabec5a44c6fa0e7c";
+    sha256 = "1f76s2rfsk5rinfrvvdrdlp705p91vyb1mr9a6pzpnldfrpfhapj";
+    rev = "a9ca4cf8341d9eca8d1391188005994c34878b56";
   };
   isLibrary = true;
   isExecutable = true;
