@@ -30,6 +30,7 @@ pluggy==0.6.0
 py==1.5.3
 pyasn1==0.4.2
 pycparser==2.18
+pydbus==0.6.0
 Pygments==2.2.0
 pykube==0.16a1
 PyNaCl==1.2.1

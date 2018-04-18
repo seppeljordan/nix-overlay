@@ -3,6 +3,7 @@ dbus-python
 jinja2
 jinja2-cli
 lxml
+pydbus
 pytest
 pyyaml
 requests

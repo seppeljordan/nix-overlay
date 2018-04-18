@@ -644,6 +644,19 @@ let
       };
     };
 
+    "pydbus" = python.mkDerivation {
+      name = "pydbus-0.6.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/58/56/3e84f2c1f2e39b9ea132460183f123af41e3b9c8befe222a35636baa6a5a/pydbus-0.6.0.tar.gz"; sha256 = "4207162eff54223822c185da06c1ba8a34137a9602f3da5a528eedf3f78d0f2c"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/LEW21/pydbus";
+        license = licenses.lgpl2Plus;
+        description = "Pythonic DBus library";
+      };
+    };
+
     "pykube" = python.mkDerivation {
       name = "pykube-0.16a1";
       src = pkgs.fetchgit { url = "https://github.com/seppeljordan/pykube"; sha256 = "0cfp83n9y8jfwzbz1pdgshrqzg7m27j3aqzz3xaphbl1k9lrsabj"; rev = "e8a46298a592ad9037587afb707ac75b3114eff9"; };
