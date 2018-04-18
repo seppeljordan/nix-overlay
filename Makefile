@@ -50,7 +50,8 @@ update-pypiPackages3:
 	$(PYPI2NIX) \
 		-V 3 \
 		-v \
-		-E "libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses" \
+		-E "libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection" \
+		--setup-requires 'pycairo' \
 		-r 10-python3Packages/python3.txt \
 		--default-overrides \
 		-O ./python3_override.nix \

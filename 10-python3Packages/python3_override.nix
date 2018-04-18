@@ -22,4 +22,17 @@ self: super: {
         sed -i -e "s|'pytest\-runner'||" setup.py
       '';
     });
+
+  "pydbus" = super.pydbus.overrideDerivation( old:
+    {
+      propagatedBuildInputs = old.propagatedBuildInputs ++ [ self."PyGObject" ];
+    }
+  );
+
+  "PyGObject" = super."PyGObject".overrideDerivation( old:
+    {
+
+    }
+  );
+    
 }

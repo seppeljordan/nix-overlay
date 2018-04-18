@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -V 3 -v -E libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses -r 10-python3Packages/python3.txt --default-overrides -O ./python3_override.nix --basename 10-python3Packages/python3
+#   pypi2nix -V 3 -v -E libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection --setup-requires pycairo -r 10-python3Packages/python3.txt --default-overrides -O ./python3_override.nix --basename 10-python3Packages/python3
 #
 
 { pkgs ? import <nixpkgs> {}
@@ -32,7 +32,7 @@ let
       };
   };
 
-  commonBuildInputs = with pkgs; [ libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses ];
+  commonBuildInputs = with pkgs; [ libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection ];
   commonDoCheck = false;
 
   withPackages = pkgs':
@@ -141,6 +141,21 @@ let
         homepage = "http://github.com/pallets/markupsafe";
         license = licenses.bsdOriginal;
         description = "Implements a XML/HTML/XHTML Markup safe string for Python";
+      };
+    };
+
+    "PyGObject" = python.mkDerivation {
+      name = "PyGObject-3.28.2";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/86/c5/70bd78009fcf29c71db615e28f0b487bf7c5b2741237877dc718626a5741/PyGObject-3.28.2.tar.gz"; sha256 = "f704f4be3b4ae3cae70acf82ac64a8c7c44d3acad2d33e9849056ac317345f5e"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."pycairo"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://pygobject.readthedocs.io";
+        license = licenses.lgpl2;
+        description = "Python bindings for GObject Introspection";
       };
     };
 
@@ -628,6 +643,19 @@ let
         homepage = "https://github.com/etingof/pyasn1";
         license = licenses.bsdOriginal;
         description = "ASN.1 types and codecs";
+      };
+    };
+
+    "pycairo" = python.mkDerivation {
+      name = "pycairo-1.17.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/60/47/d335364f0ca00e475a40a5a664f17691bf77b3973f999b157d56ee89e04a/pycairo-1.17.0.tar.gz"; sha256 = "cdd4d1d357325dec3a21720b85d273408ef83da5f15c184f2eff3212ff236b9f"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://pycairo.readthedocs.io";
+        license = licenses.lgpl2;
+        description = "Python interface for cairo";
       };
     };
 
