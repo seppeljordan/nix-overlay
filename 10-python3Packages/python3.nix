@@ -547,7 +547,7 @@ let
 
     "nix-pureos" = python.mkDerivation {
       name = "nix-pureos-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-pureos"; sha256 = "1g6mki8bfsdm6b331hgvskhrmv59bcxkzjzk2kwz8cqkwb80vbmq"; rev = "7167a3e41fdedf7889b5623b9bd324a76e4518c9"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-pureos"; sha256 = "12xr2qyi75vg7gxybfy481bq9k1lb3jh17dkcssahy7c7saclll8"; rev = "b15f22bfbf08aa6b79946f8d4d0ce90a39e2bdc8"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
