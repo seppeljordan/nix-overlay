@@ -547,10 +547,11 @@ let
 
     "nix-pureos" = python.mkDerivation {
       name = "nix-pureos-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-pureos"; sha256 = "12xr2qyi75vg7gxybfy481bq9k1lb3jh17dkcssahy7c7saclll8"; rev = "b15f22bfbf08aa6b79946f8d4d0ce90a39e2bdc8"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/nix-pureos"; sha256 = "1valk3jyyxybkqx7bj21g409w9826p63l9j9ws63pxpjlz0mm1jc"; rev = "c26ea7285872e67ab14894db0fd3dbdd0c943a26"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."click"
       self."pydbus"
       self."xdg"
     ];
