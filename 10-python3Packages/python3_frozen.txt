@@ -44,7 +44,7 @@ PyYAML==3.12
 requests==2.18.4
 six==1.11.0
 snowballstemmer==1.2.1
-Sphinx==1.7.2
+Sphinx==1.7.3
 sphinxcontrib-websupport==1.0.1
 stormssh==0.6.9
 svm-kubernetes-utils==0.1

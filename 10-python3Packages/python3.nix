@@ -204,8 +204,8 @@ let
     };
 
     "Sphinx" = python.mkDerivation {
-      name = "Sphinx-1.7.2";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/0d/12/843cdf08c9795d1d225c92e099a18143856110cbeff562b8abd60bd26cec/Sphinx-1.7.2.tar.gz"; sha256 = "5a1c9a0fec678c24b9a2f5afba240c04668edb7f45c67ce2ed008996b3f21ae2"; };
+      name = "Sphinx-1.7.3";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/ff/bd/a709626705bb1f13b86904f6caaf53e3d088cbf2919b678296ce11fd646c/Sphinx-1.7.3.tar.gz"; sha256 = "9495a1f78c13d0a725ab8104e923e9663519ecc04552aa4a8f684c2da355443d"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -961,7 +961,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "4ef82542d4efd638f5d33865f3d298b0c9587f87"; sha256 = "05pvanjcb6zkg622875x0d5knqnxpx1dm18343dc08v125p7fqxv"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "eb60a9f14526942b5453163373ec22d944de9a18"; sha256 = "07j37n88p9ycqprh50llpwcpfvf5brgfm3qc9yih7ar3rz10vrcd"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
