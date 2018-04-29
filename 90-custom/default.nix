@@ -52,9 +52,6 @@ in
       csound-expression-typed =
         cleanSource (new.callPackage
         ./csound-expression-typed.nix {});
-      update-tool =
-        cleanSource (new.callPackage
-        ./update-tool {});
     };
   };
   haskellEnv = self.haskellPackages.ghcWithHoogle

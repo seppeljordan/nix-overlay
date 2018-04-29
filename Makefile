@@ -21,16 +21,16 @@ test: \
 	test-haskell-env
 
 test-python2-build:
-	nix-build tests/test-python2-build.nix
+	nix build -f tests/test-python2-build.nix
 
 test-python3-build:
-	nix-build tests/test-python3-build.nix
+	nix build -f tests/test-python3-build.nix
 
 test-haskell-env:
-	nix-build tests/test-haskell-env.nix
+	nix build -f tests/test-haskell-env.nix
 
 test-emacs:
-	nix-build tests/test-emacs.nix
+	nix build -f tests/test-emacs.nix
 
 update-htiled:
 	mkdir -p 90-custom/htiled
