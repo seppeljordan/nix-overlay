@@ -98,20 +98,22 @@ let
     };
 
     "Flask" = python.mkDerivation {
-      name = "Flask-0.12.2";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/eb/12/1c7bd06fcbd08ba544f25bf2c6612e305a70ea51ca0eda8007344ec3f123/Flask-0.12.2.tar.gz"; sha256 = "49f44461237b69ecd901cc7ce66feea0319b9158743dd27a2899962ab214dac1"; };
+      name = "Flask-1.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/99/ab/eedb921f26adf7057ade1291f9c1bfa35a506d64894f58546457ef658772/Flask-1.0.tar.gz"; sha256 = "7fab1062d11dd0038434e790d18c5b9133fd9e6b7257d707c4578ccc1e38b67c"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
       self."Jinja2"
+      self."Sphinx"
       self."Werkzeug"
       self."click"
       self."itsdangerous"
+      self."pytest"
     ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "http://github.com/pallets/flask/";
+        homepage = "https://www.palletsprojects.com/p/flask/";
         license = licenses.bsdOriginal;
-        description = "A microframework based on Werkzeug, Jinja2 and good intentions";
+        description = "A simple framework for building complex web applications.";
       };
     };
 
@@ -204,8 +206,8 @@ let
     };
 
     "Sphinx" = python.mkDerivation {
-      name = "Sphinx-1.7.3";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/ff/bd/a709626705bb1f13b86904f6caaf53e3d088cbf2919b678296ce11fd646c/Sphinx-1.7.3.tar.gz"; sha256 = "9495a1f78c13d0a725ab8104e923e9663519ecc04552aa4a8f684c2da355443d"; };
+      name = "Sphinx-1.7.4";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/40/45/d4a68a1f8dc669714f48d251afb4352036f87be5e9873cd27e57b9c141f0/Sphinx-1.7.4.tar.gz"; sha256 = "e9b1a75a3eae05dded19c80eb17325be675e0698975baae976df603b6ed1eb10"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -736,8 +738,8 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-3.5.0";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/2d/56/6019153cdd743300c5688ab3b07702355283e53c83fbf922242c053ffb7b/pytest-3.5.0.tar.gz"; sha256 = "fae491d1874f199537fd5872b5e1f0e74a009b979df9d53d1553fd03da1703e1"; };
+      name = "pytest-3.5.1";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/b2/85/24954df0ea8156599563b753de54383a5d702081093b7953334e4701b8d8/pytest-3.5.1.tar.gz"; sha256 = "54713b26c97538db6ff0703a12b19aeaeb60b5e599de542e7fca0ec83b9038e8"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -961,7 +963,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "eb60a9f14526942b5453163373ec22d944de9a18"; sha256 = "07j37n88p9ycqprh50llpwcpfvf5brgfm3qc9yih7ar3rz10vrcd"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "92eb7afbf33e1166b6de06206f97ea13d3bc9938"; sha256 = "0b2nxmvyc8zlhsp38dsz9wkll0sfh4vnka7linhvplris7n4mim6"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

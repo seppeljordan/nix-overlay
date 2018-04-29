@@ -1,7 +1,7 @@
 PYPI2NIX=pypi2nix-exec/bin/pypi2nix
 NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unstable.tar.gz:nixpkgs-overlays=$(shell pwd)
 
-all: pypi2nix-exec update test
+all: pypi2nix-exec/bin/pypi2nix update test
 
 update: update-nixpkgs-python update-pypiPackages3 update-geimskell \
 	update-lrucache \
@@ -57,7 +57,7 @@ update-pypiPackages3:
 		-O ./python3_override.nix \
 		--basename 10-python3Packages/python3
 
-update-pypiPackages2: pypi2nix-exec/bin/pypi2nix
+update-pypiPackages2:
 	$(PYPI2NIX) \
 		-v \
 		-V 2.7 \
