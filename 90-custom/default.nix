@@ -20,21 +20,6 @@ let
     });
 in
 {
-  wrapWithCsound = drv:
-    let
-      drvName = builtins.parseDrvName drv.name;
-    in
-      self.stdenv.mkDerivation {
-        name = drvName.name + "-wrapped-" + drvName.version;
-        buildInputs = [ self.makeWrapper ];
-        phases = ["installPhase"];
-        inherit drv;
-        installPhase = ''
-          mkdir -p $out/bin
-          makeWrapper ${drv}/bin/geimskell $out/bin/geimskell \
-            --prefix PATH : ${self.lib.makeBinPath [ self.csound ]}
-        '';
-      };
   gdo-exec = self.callPackage gdo/executable.nix {};
   haskellPackages = super.haskellPackages.override {
     overrides = new: orig: {
@@ -69,7 +54,7 @@ in
                ]);
   pypiPackages = self.pypiPackages3;
   display-config = self.callPackage ./display-config {};
-  geimskell = self.wrapWithCsound self.haskellPackages.geimskell;
+  geimskell = self.haskellPackages.geimskell;
   emacsEnv = self.emacsWithPackages
     (p: with p; [
       adoc-mode
