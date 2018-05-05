@@ -30,13 +30,7 @@ in
       geimskell = makeThreadedHaskell
         (new.callPackage ./geimskell {});
       htiled = new.callPackage ./htiled {};
-      csound-expression-dynamic =
-        cleanSource (new.callPackage
-        ./csound-expression-dynamic.nix {});
       argparser = super.haskell.lib.dontCheck orig.argparser;
-      csound-expression-typed =
-        cleanSource (new.callPackage
-        ./csound-expression-typed.nix {});
     };
   };
   haskellEnv = self.haskellPackages.ghcWithHoogle

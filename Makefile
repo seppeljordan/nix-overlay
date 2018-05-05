@@ -18,7 +18,11 @@ test: \
 	test-python2-build \
 	test-python3-build \
 	test-emacs \
-	test-haskell-env
+	test-haskell-env \
+	test-geimskell
+
+test-geimskell:
+	nix build -f tests/test-geimskell.nix
 
 test-python2-build:
 	nix build -f tests/test-python2-build.nix
@@ -93,4 +97,5 @@ pypi2nix-exec/bin/pypi2nix:
 	update-node-packages \
 	update-pypiPackages2 \
 	update-pypiPackages3 \
-	update-winetricks
+	update-winetricks \
+	test-geimskell
