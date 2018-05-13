@@ -16,8 +16,8 @@ xdg
 xmltodict
 
 git+https://github.com/garbas/pypi2nix#egg=pypi2nix
-git+https://github.com/schneevonmorgen/nix-helpers#egg=svm-nix-helpers
 git+https://github.com/seppeljordan/nix-helpers#egg=nix-helpers
+git+https://github.com/seppeljordan/nix-helpers#egg=svm-nix-helpers
 git+https://github.com/seppeljordan/nix-prefetch-github#egg=nix-prefetch-github
 git+https://github.com/seppeljordan/nix-pureos#egg=nix-pureos
 git+https://github.com/seppeljordan/parsemon2#egg=parsemon2

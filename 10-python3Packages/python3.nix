@@ -862,19 +862,6 @@ let
       };
     };
 
-    "svm-nix-helpers" = python.mkDerivation {
-      name = "svm-nix-helpers-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/schneevonmorgen/nix-helpers"; sha256 = "0sr9pzxd20yd2hgcdc30xvf41dbdpdq9pmcksjnj07zlxbzmbqyi"; rev = "8e6222348f4d028e903880fb8658f4ddcc22390e"; };
-      doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs;
-      propagatedBuildInputs = [ ];
-      meta = with pkgs.stdenv.lib; {
-        homepage = "https://github.com/schneevonmorgen/nix-helpers";
-        license = "";
-        description = "Utilities for working with Nix package manager";
-      };
-    };
-
     "termcolor" = python.mkDerivation {
       name = "termcolor-1.1.0";
       src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz"; sha256 = "1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"; };
