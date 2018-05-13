@@ -98,8 +98,8 @@ let
     };
 
     "Flask" = python.mkDerivation {
-      name = "Flask-1.0";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/99/ab/eedb921f26adf7057ade1291f9c1bfa35a506d64894f58546457ef658772/Flask-1.0.tar.gz"; sha256 = "7fab1062d11dd0038434e790d18c5b9133fd9e6b7257d707c4578ccc1e38b67c"; };
+      name = "Flask-1.0.2";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/4b/12/c1fbf4971fda0e4de05565694c9f0c92646223cff53f15b6eb248a310a62/Flask-1.0.2.tar.gz"; sha256 = "2271c0070dbcb5275fad4a82e29f23ab92682dc45f9dfbc22c02ba9b9322ce48"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -275,8 +275,8 @@ let
     };
 
     "attrs" = python.mkDerivation {
-      name = "attrs-17.4.0";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/8b/0b/a06cfcb69d0cb004fde8bc6f0fd192d96d565d1b8aa2829f0f20adb796e5/attrs-17.4.0.tar.gz"; sha256 = "1c7960ccfd6a005cd9f7ba884e6316b5e430a3f1a6c37c5f87d8b43f83b54ec9"; };
+      name = "attrs-18.1.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/e4/ac/a04671e118b57bee87dabca1e0f2d3bda816b7a551036012d0ca24190e71/attrs-18.1.0.tar.gz"; sha256 = "e0d0eb91441a3b53dab4d9b743eafc1ac44476296a2053b6ca3af0b139faf87b"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
@@ -384,8 +384,8 @@ let
     };
 
     "dbus-python" = python.mkDerivation {
-      name = "dbus-python-1.2.4";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/ad/1b/76adc363212c642cabbf9329457a918308c0b9b5d38ce04d541a67255174/dbus-python-1.2.4.tar.gz"; sha256 = "e2f1d6871f74fba23652e51d10873e54f71adab0525833c19bad9e99b1b2f9cc"; };
+      name = "dbus-python-1.2.8";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/3f/e7/4edb582d1ffd5ac3c84188deea32e960b5c8c0fe1da56ce70224f85ce542/dbus-python-1.2.8.tar.gz"; sha256 = "abf12bbb765e300bf8e2a1b2f32f85949eab06998dbda127952c31cb63957b6f"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
@@ -963,7 +963,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "92eb7afbf33e1166b6de06206f97ea13d3bc9938"; sha256 = "0b2nxmvyc8zlhsp38dsz9wkll0sfh4vnka7linhvplris7n4mim6"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "8a704bb3103f97e1204f76be35ec5fcb5a2cad8c"; sha256 = "1877gnp39ixgh3s1z1haws9hwvdfdq6dwhf2x9jdlfy4aay1ncwz"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
