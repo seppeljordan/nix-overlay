@@ -94,4 +94,5 @@ in
       '';
     }
   );
+  riemann-tools = self.callPackage ./riemann-tools {};
 }

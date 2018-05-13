@@ -19,7 +19,8 @@ test: \
 	test-python3-build \
 	test-emacs \
 	test-haskell-env \
-	test-geimskell
+	test-geimskell \
+	test-riemann-tools
 
 test-geimskell:
 	nix build -f tests/test-geimskell.nix
@@ -35,6 +36,9 @@ test-haskell-env:
 
 test-emacs:
 	nix build -f tests/test-emacs.nix
+
+test-riemann-tools:
+	nix build -f tests/test-riemann-tools.nix
 
 update-htiled:
 	mkdir -p 90-custom/htiled
@@ -98,4 +102,5 @@ pypi2nix-exec/bin/pypi2nix:
 	update-pypiPackages2 \
 	update-pypiPackages3 \
 	update-winetricks \
-	test-geimskell
+	test-geimskell \
+	test-riemann-tools
