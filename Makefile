@@ -3,10 +3,16 @@ NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unsta
 
 all: pypi2nix-exec/bin/pypi2nix update test
 
-update: update-nixpkgs-python update-pypiPackages3 update-geimskell \
+update: \
+	update-geimskell \
+	update-htiled \
 	update-lrucache \
-	update-htiled update-winetricks update-pypiPackages2 \
-	update-node-packages
+	update-nixpkgs-python \
+	update-node-packages \
+	update-pypiPackages2 \
+	update-pypiPackages3 \
+	update-riemann \
+	update-winetricks
 
 update-nixpkgs-python:
 	nix-prefetch-github garbas nixpkgs-python > 10-nixpkgs-python/nixpkgs-python.json
@@ -82,6 +88,9 @@ update-node-packages:
 	cd 90-custom/node-packages && \
 		node2nix -6 -i pkgs.json -o pkgs.nix
 
+update-riemann:
+	cd 90-custom/riemann-tools && ./generate-gemset
+
 # -A pythonNEXT.pypi2nix.packages.pypi2nix
 pypi2nix-exec/bin/pypi2nix:
 	nix-build '<nixpkgs>' \
@@ -93,14 +102,15 @@ pypi2nix-exec/bin/pypi2nix:
 	pypi2nix-exec/bin/pypi2nix \
 	test \
 	test-emacs \
+	test-geimskell \
 	test-haskell-env \
 	test-python2-build \
 	test-python3-build \
+	test-riemann-tools \
 	update \
 	update-nixpkgs-python \
 	update-node-packages \
 	update-pypiPackages2 \
 	update-pypiPackages3 \
 	update-winetricks \
-	test-geimskell \
-	test-riemann-tools
+	update-riemann
