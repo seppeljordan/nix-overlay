@@ -483,6 +483,19 @@ let
       };
     };
 
+    "kubecert" = python.mkDerivation {
+      name = "kubecert-1.0";
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/kubecert"; sha256 = "1zfy1f6jis0wv9lj9yzpfbv72dhk0np8s53llq8rki4yngn7i6rl"; rev = "cd31192d2b4aa8ba8bd7a16bb82a642ae96fb415"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "";
+        license = "";
+        description = "UNKNOWN";
+      };
+    };
+
     "lxml" = python.mkDerivation {
       name = "lxml-4.2.1";
       src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/e8/5d/98f56e274bdf17f2e0d9016d1788ca80d26d8987dcd5e1d9416d86ee0625/lxml-4.2.1.tar.gz"; sha256 = "e2629cdbcad82b83922a3488937632a4983ecc0fed3e5cfbf430d069382eeb9b"; };
@@ -950,7 +963,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "8a704bb3103f97e1204f76be35ec5fcb5a2cad8c"; sha256 = "1877gnp39ixgh3s1z1haws9hwvdfdq6dwhf2x9jdlfy4aay1ncwz"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "4dd1db5692bfe6252f64229f959b136f4d2e9e17"; sha256 = "0z39y6gj2gc9w1pmiq0dnl5zyvq6bq557qcnr3ikbkg80xqp15li"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
