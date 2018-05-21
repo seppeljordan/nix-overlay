@@ -103,13 +103,13 @@ let
         sha1 = "0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77";
       };
     };
-    "colors-1.2.5" = {
+    "colors-1.3.0" = {
       name = "colors";
       packageName = "colors";
-      version = "1.2.5";
+      version = "1.3.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/colors/-/colors-1.2.5.tgz";
-        sha512 = "2k2a7k096qcm5fghgcmybg96y3x5bpqb62j0zdlnxq7za4asb6vsy9i69nkg9wqfhkcbh6qzm8zzvq7q516p54awxpp2qrzm8nm3cvs";
+        url = "https://registry.npmjs.org/colors/-/colors-1.3.0.tgz";
+        sha512 = "03rrn3n1k9lcwlg5xdx0cj727blwc1a0r6rnq1r8nynwni4bwqlbzlb9qp02x09pfnrfj0ihb28wsimqxiivm5k0f2wa77hmvfmffhh";
       };
     };
     "concat-map-0.0.1" = {
@@ -689,7 +689,7 @@ in
       })
       sources."cliui-3.2.0"
       sources."code-point-at-1.1.0"
-      sources."colors-1.2.5"
+      sources."colors-1.3.0"
       sources."concat-map-0.0.1"
       sources."decamelize-1.2.0"
       sources."error-ex-1.3.1"
