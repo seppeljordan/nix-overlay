@@ -1,4 +1,4 @@
 language: nix
 
 script:
-  - make test
+  - travis_wait make test
