@@ -498,10 +498,12 @@ let
 
     "kubecert" = python.mkDerivation {
       name = "kubecert-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/kubecert"; sha256 = "1zfy1f6jis0wv9lj9yzpfbv72dhk0np8s53llq8rki4yngn7i6rl"; rev = "cd31192d2b4aa8ba8bd7a16bb82a642ae96fb415"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/kubecert"; sha256 = "09cnymkhvinx5i8jkpfd37gk90p2d4273wsa7rrsv698dgy9g7rr"; rev = "275febbecb2aff1f84ce243ad826fafc1501adaa"; };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs;
-      propagatedBuildInputs = [ ];
+      propagatedBuildInputs = [
+      self."effect"
+    ];
       meta = with pkgs.stdenv.lib; {
         homepage = "";
         license = "";
@@ -977,7 +979,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "f74d445b0e592356f44ed8fa8a1acd2c85b1cff7"; sha256 = "0j21hmcyrpmz41ink1cjxarxvdq7nl6i5ha429xldiyhn029xyhz"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "2df838fd53593c8253ed019d3858eb0b8e6c10dc"; sha256 = "19fwdcw81l6m6ybbdj5vqirklf95addk5mmjxjpm655pnzxkibgy"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
