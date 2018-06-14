@@ -23,10 +23,12 @@ let
       self: super: {
         bootstrapped-pip = super.bootstrapped-pip.overrideDerivation (old: {
           patchPhase = old.patchPhase + ''
-            sed -i \
-              -e "s|paths_to_remove.remove(auto_confirm)|#paths_to_remove.remove(auto_confirm)|"  \
-              -e "s|self.uninstalled = paths_to_remove|#self.uninstalled = paths_to_remove|"  \
-                $out/${pkgs.python35.sitePackages}/pip/req/req_install.py
+            if [ -e $out/${pkgs.python27Full.sitePackages}/pip/req/req_install.py ]; then
+              sed -i \
+                -e "s|paths_to_remove.remove(auto_confirm)|#paths_to_remove.remove(auto_confirm)|"  \
+                -e "s|self.uninstalled = paths_to_remove|#self.uninstalled = paths_to_remove|"  \
+                $out/${pkgs.python27Full.sitePackages}/pip/req/req_install.py
+            fi
           '';
         });
       };
@@ -86,6 +88,8 @@ let
       name = "hetzner-0.8.0";
       src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/33/d9/5fb6cd9ef2bd9f0d4d6e5841cbb913eaaf18f1406f581e23e925c935cd98/hetzner-0.8.0.tar.gz"; sha256 = "ea1b1ee3f2b788522ff937085009f6e32a341de5e8f04de0f1271e88bec09476"; };
       doCheck = commonDoCheck;
+      checkPhase = "";
+      installCheckPhase = "";
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
@@ -98,7 +102,7 @@ let
   localOverridesFile = ./python2_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "2df838fd53593c8253ed019d3858eb0b8e6c10dc"; sha256 = "19fwdcw81l6m6ybbdj5vqirklf95addk5mmjxjpm655pnzxkibgy"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "064d6a5bc3c11979ff6b03fff0042846228284e6"; sha256 = "1ij7hzvp7lf9scia2h1gv8c9w5ihcxgvnsa00m79b8wcrrq0i9rm"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

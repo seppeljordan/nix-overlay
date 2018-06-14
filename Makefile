@@ -91,11 +91,12 @@ update-node-packages:
 update-riemann:
 	cd 90-custom/riemann-tools && ./generate-gemset
 
-# -A pythonNEXT.pypi2nix.packages.pypi2nix
+# -A pypiPackages3.packages.pypi2nix
 pypi2nix-exec/bin/pypi2nix:
 	nix-build '<nixpkgs>' \
-		-A pypiPackages3.packages.pypi2nix \
+		-A pythonNEXT.pypi2nix.packages.pypi2nix \
 		-o pypi2nix-exec --show-trace
+
 
 .PHONY: \
 	clean \
