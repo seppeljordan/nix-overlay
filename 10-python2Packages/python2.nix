@@ -40,15 +40,15 @@ let
   withPackages = pkgs':
     let
       pkgs = builtins.removeAttrs pkgs' ["__unfix__"];
-      interpreter = pythonPackages.buildPythonPackage {
+      interpreterWithPackages = selectPkgsFn: pythonPackages.buildPythonPackage {
         name = "python27Full-interpreter";
-        buildInputs = [ makeWrapper ] ++ (builtins.attrValues pkgs);
+        buildInputs = [ makeWrapper ] ++ (selectPkgsFn pkgs);
         buildCommand = ''
           mkdir -p $out/bin
           ln -s ${pythonPackages.python.interpreter} \
               $out/bin/${pythonPackages.python.executable}
           for dep in ${builtins.concatStringsSep " "
-              (builtins.attrValues pkgs)}; do
+              (selectPkgsFn pkgs)}; do
             if [ -d "$dep/bin" ]; then
               for prog in "$dep/bin/"*; do
                 if [ -x "$prog" ] && [ -f "$prog" ]; then
@@ -68,9 +68,12 @@ let
         '';
         passthru.interpreter = pythonPackages.python;
       };
+
+      interpreter = interpreterWithPackages builtins.attrValues;
     in {
       __old = pythonPackages;
       inherit interpreter;
+      inherit interpreterWithPackages;
       mkDerivation = pythonPackages.buildPythonPackage;
       packages = pkgs;
       overrideDerivation = drv: f:
@@ -102,7 +105,7 @@ let
   localOverridesFile = ./python2_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "93a09691bf6a66861b355ef41549eae879e29365"; sha256 = "1ihs06f1h8prbmqhf2nnsms2vyi1z9iblmr79rgva2zfy37lbix8"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "146c03e67b794f16f3ff8a1cc9fd4e901e4e22e7"; sha256 = "1d8h0bvn09j90r2j5j3nr06n5xvl0axk3fnbbhpl6bxmbjbyxli3"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

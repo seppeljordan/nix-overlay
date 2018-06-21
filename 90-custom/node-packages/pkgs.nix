@@ -130,13 +130,13 @@ let
         sha1 = "f6534d15148269b20352e7bee26f501f9a191290";
       };
     };
-    "error-ex-1.3.1" = {
+    "error-ex-1.3.2" = {
       name = "error-ex";
       packageName = "error-ex";
-      version = "1.3.1";
+      version = "1.3.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/error-ex/-/error-ex-1.3.1.tgz";
-        sha1 = "f855a86ce61adc4e8621c3cda21e7a7612c3a8dc";
+        url = "https://registry.npmjs.org/error-ex/-/error-ex-1.3.2.tgz";
+        sha512 = "3igrl2amb9mpa9d2z6qghz3ljqd7amjla8ahfs5fdgl0w52pw6gz3y32q5fk229yvfyg3x9kpfygadcm2w0lv4hv4nj25cyd8v4glgd";
       };
     };
     "expand-tilde-1.2.2" = {
@@ -692,7 +692,7 @@ in
       sources."colors-1.3.0"
       sources."concat-map-0.0.1"
       sources."decamelize-1.2.0"
-      sources."error-ex-1.3.1"
+      sources."error-ex-1.3.2"
       sources."expand-tilde-1.2.2"
       sources."find-up-1.1.2"
       sources."fs.realpath-1.0.0"

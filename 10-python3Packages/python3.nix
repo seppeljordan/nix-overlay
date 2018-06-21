@@ -40,15 +40,15 @@ let
   withPackages = pkgs':
     let
       pkgs = builtins.removeAttrs pkgs' ["__unfix__"];
-      interpreter = pythonPackages.buildPythonPackage {
+      interpreterWithPackages = selectPkgsFn: pythonPackages.buildPythonPackage {
         name = "python3-interpreter";
-        buildInputs = [ makeWrapper ] ++ (builtins.attrValues pkgs);
+        buildInputs = [ makeWrapper ] ++ (selectPkgsFn pkgs);
         buildCommand = ''
           mkdir -p $out/bin
           ln -s ${pythonPackages.python.interpreter} \
               $out/bin/${pythonPackages.python.executable}
           for dep in ${builtins.concatStringsSep " "
-              (builtins.attrValues pkgs)}; do
+              (selectPkgsFn pkgs)}; do
             if [ -d "$dep/bin" ]; then
               for prog in "$dep/bin/"*; do
                 if [ -x "$prog" ] && [ -f "$prog" ]; then
@@ -68,9 +68,12 @@ let
         '';
         passthru.interpreter = pythonPackages.python;
       };
+
+      interpreter = interpreterWithPackages builtins.attrValues;
     in {
       __old = pythonPackages;
       inherit interpreter;
+      inherit interpreterWithPackages;
       mkDerivation = pythonPackages.buildPythonPackage;
       packages = pkgs;
       overrideDerivation = drv: f:
@@ -271,8 +274,8 @@ let
     };
 
     "alabaster" = python.mkDerivation {
-      name = "alabaster-0.7.10";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/d0/a5/e3a9ad3ee86aceeff71908ae562580643b955ea1b1d4f08ed6f7e8396bd7/alabaster-0.7.10.tar.gz"; sha256 = "37cdcb9e9954ed60912ebc1ca12a9d12178c26637abdf124e3cde2341c257fe0"; };
+      name = "alabaster-0.7.11";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/3f/46/9346ea429931d80244ab7f11c4fce83671df0b7ae5a60247a2b588592c46/alabaster-0.7.11.tar.gz"; sha256 = "b63b1f4dc77c074d386752ec4a8a7517600f6c0db8cd42980cae17ab7b3275d7"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -554,7 +557,7 @@ let
 
     "kubecert" = python.mkDerivation {
       name = "kubecert-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/kubecert"; sha256 = "09cnymkhvinx5i8jkpfd37gk90p2d4273wsa7rrsv698dgy9g7rr"; rev = "275febbecb2aff1f84ce243ad826fafc1501adaa"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/kubecert"; sha256 = "09nzm6445ijsibhmvx84axbwnqdr0dpzknnyc12bwcrfyl4j78b4"; rev = "708cfd830697771c63dba5037df47b16c803b89b"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -859,8 +862,8 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-3.6.1";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/46/0e/d06d37d546bd181358eb3fb24b9c097609dae9a8cc0ed5756eefddd47841/pytest-3.6.1.tar.gz"; sha256 = "32c49a69566aa7c333188149ad48b58ac11a426d5352ea3d8f6ce843f88199cb"; };
+      name = "pytest-3.6.2";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/a2/ec/415d0cccc1ed41cd7fdf69ad989da16a8d13057996371004cab4bafc48f3/pytest-3.6.2.tar.gz"; sha256 = "8ea01fc4fcc8e1b1e305252b4bc80a1528019ab99fd3b88666c9dc38d754406c"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -1100,7 +1103,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "93a09691bf6a66861b355ef41549eae879e29365"; sha256 = "1ihs06f1h8prbmqhf2nnsms2vyi1z9iblmr79rgva2zfy37lbix8"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "146c03e67b794f16f3ff8a1cc9fd4e901e4e22e7"; sha256 = "1d8h0bvn09j90r2j5j3nr06n5xvl0axk3fnbbhpl6bxmbjbyxli3"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
