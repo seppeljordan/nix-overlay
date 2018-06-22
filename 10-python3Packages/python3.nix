@@ -557,7 +557,7 @@ let
 
     "kubecert" = python.mkDerivation {
       name = "kubecert-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/kubecert"; sha256 = "0fil6kvkmrrpanrjqpd76ib0hk23w10zr0v14zvi00976qjvxchq"; rev = "ae7fdd0e663f10b46d10dfd25f72eca2d95b8de9"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/kubecert"; sha256 = "1jwmmba5clxjkidjcaf93rv0fida8wwzrjqmh16b0j1na6si2n1w"; rev = "fce49761e01db334e32a49ad282d6d9173f143f4"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -573,8 +573,8 @@ let
     };
 
     "lxml" = python.mkDerivation {
-      name = "lxml-4.2.1";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/e8/5d/98f56e274bdf17f2e0d9016d1788ca80d26d8987dcd5e1d9416d86ee0625/lxml-4.2.1.tar.gz"; sha256 = "e2629cdbcad82b83922a3488937632a4983ecc0fed3e5cfbf430d069382eeb9b"; };
+      name = "lxml-4.2.2";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/41/a7/26f3f89efcd33b2f033ff58fe3f0e535e2035d0fae481025eef51bc8ae43/lxml-4.2.2.tar.gz"; sha256 = "82f278cd24da1b8a98df89de38946d67381a00e39adef768fd302dc8f4e1c383"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -1103,7 +1103,7 @@ let
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
         (import ./python3_override.nix { inherit pkgs python ; })
-    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "146c03e67b794f16f3ff8a1cc9fd4e901e4e22e7"; sha256 = "1d8h0bvn09j90r2j5j3nr06n5xvl0axk3fnbbhpl6bxmbjbyxli3"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "edda36c2b55d1d4b83a60d79910813815d6b8906"; sha256 = "07g619a4ad558rb99jy7zil86yhv9ahxn61090crz8wj7mqbz5gx"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

@@ -19,7 +19,7 @@ itsdangerous==0.24
 Jinja2==2.10
 jinja2-cli==0.6.0
 kubecert==1.0
-lxml==4.2.1
+lxml==4.2.2
 MarkupSafe==1.0
 more-itertools==4.2.0
 nix-helpers==1.0
