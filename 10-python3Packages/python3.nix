@@ -557,7 +557,7 @@ let
 
     "kubecert" = python.mkDerivation {
       name = "kubecert-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/kubecert"; sha256 = "09nzm6445ijsibhmvx84axbwnqdr0dpzknnyc12bwcrfyl4j78b4"; rev = "708cfd830697771c63dba5037df47b16c803b89b"; };
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/kubecert"; sha256 = "0fil6kvkmrrpanrjqpd76ib0hk23w10zr0v14zvi00976qjvxchq"; rev = "ae7fdd0e663f10b46d10dfd25f72eca2d95b8de9"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
