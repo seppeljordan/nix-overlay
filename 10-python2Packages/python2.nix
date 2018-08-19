@@ -5,7 +5,8 @@
 #   pypi2nix -v -V 2.7 -E libffi openssl -r 10-python2Packages/python2.txt --default-overrides --basename 10-python2Packages/python2
 #
 
-{ pkgs ? import <nixpkgs> {}
+{ pkgs ? import <nixpkgs> {},
+  overrides ? ({ pkgs, python }: self: super: {})
 }:
 
 let
@@ -103,13 +104,16 @@ let
     };
   };
   localOverridesFile = ./python2_override.nix;
-  overrides = import localOverridesFile { inherit pkgs python; };
+  localOverrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "edda36c2b55d1d4b83a60d79910813815d6b8906"; sha256 = "07g619a4ad558rb99jy7zil86yhv9ahxn61090crz8wj7mqbz5gx"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "e0b5a91236aa8945efc9ecf65ac16203d59b048b"; sha256 = "1jbz2gz085fvrk2j8yw1yhsh7mjm79irzd37abga9ybc8r5n0cg0"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+  ];
+  paramOverrides = [
+    (overrides { inherit pkgs python; })
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)
-     then [overrides] else [] ) ++ commonOverrides;
+     then [localOverrides] else [] ) ++ commonOverrides ++ paramOverrides;
 
 in python.withPackages
    (fix' (pkgs.lib.fold

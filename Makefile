@@ -1,4 +1,4 @@
-PYPI2NIX=pypi2nix-exec/bin/pypi2nix
+PYPI2NIX=$(PWD)/pypi2nix-exec/bin/pypi2nix
 NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unstable.tar.gz:nixpkgs-overlays=$(shell pwd)
 
 all: pypi2nix-exec/bin/pypi2nix update test
@@ -61,15 +61,14 @@ update-geimskell:
 		cabal2nix "https://github.com/seppeljordan/geimskell.git" > default.nix
 
 update-pypiPackages3:
-	$(PYPI2NIX) \
+	cd 10-python3Packages && $(PYPI2NIX) \
 		-V 3 \
 		-v \
 		-E "libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection" \
 		--setup-requires 'pycairo' \
-		-r 10-python3Packages/python3.txt \
+		-r python3.txt \
 		--default-overrides \
-		-O ./python3_override.nix \
-		--basename 10-python3Packages/python3
+		--basename python3
 
 update-pypiPackages2:
 	$(PYPI2NIX) \

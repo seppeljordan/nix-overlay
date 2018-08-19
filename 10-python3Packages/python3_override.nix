@@ -29,4 +29,9 @@ self: super: {
     }
   );
 
+  "pluggy" = super.pluggy.overrideDerivation( old:
+    {
+      buildInputs = old.buildInputs ++ [ self."setuptools-scm" ];
+    }
+  );
 }
