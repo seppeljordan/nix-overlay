@@ -11,10 +11,12 @@ mkDerivation {
     url = "https://github.com/seppeljordan/geimskell.git";
     sha256 = "1cvxmb5db8hxd5jf5d2ngl693ghp7hiqv45v4phsy0dri8ksiakk";
     rev = "4e2396aad167e0219e8229a2448ea61686ac1bb6";
+    fetchSubmodules = true;
   };
   isLibrary = true;
   isExecutable = true;
   enableSeparateDataOutput = true;
+  doCheck = false;
   libraryHaskellDepends = [
     array base containers csound-expression deepseq directory hosc
     htiled lens linear mtl prelude-safeenum process QuickCheck random

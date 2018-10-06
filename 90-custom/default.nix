@@ -31,6 +31,7 @@ in
         (new.callPackage ./geimskell {});
       htiled = new.callPackage ./htiled {};
       argparser = super.haskell.lib.dontCheck orig.argparser;
+      sdl2 = super.haskell.lib.dontCheck orig.sdl2;
     };
   };
   haskellEnv = self.haskellPackages.ghcWithHoogle
