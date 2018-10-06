@@ -105,6 +105,21 @@ let
       };
     };
 
+    "Click" = python.mkDerivation {
+      name = "Click-7.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"; sha256 = "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"; };
+      doCheck = commonDoCheck;
+      checkPhase = "";
+      installCheckPhase = "";
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://palletsprojects.com/p/click/";
+        license = licenses.bsdOriginal;
+        description = "Composable command line interface toolkit";
+      };
+    };
+
     "Flask" = python.mkDerivation {
       name = "Flask-1.0.2";
       src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/4b/12/c1fbf4971fda0e4de05565694c9f0c92646223cff53f15b6eb248a310a62/Flask-1.0.2.tar.gz"; sha256 = "2271c0070dbcb5275fad4a82e29f23ab92682dc45f9dfbc22c02ba9b9322ce48"; };
@@ -113,10 +128,10 @@ let
       installCheckPhase = "";
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."Click"
       self."Jinja2"
       self."Sphinx"
       self."Werkzeug"
-      self."click"
       self."itsdangerous"
       self."pytest"
     ];
@@ -161,8 +176,8 @@ let
     };
 
     "PyGObject" = python.mkDerivation {
-      name = "PyGObject-3.28.3";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/e0/e8/1e4f21800015a9ca153969e85fc29f7962f8f82fc5dbc1ecbdeb9dc54c75/PyGObject-3.28.3.tar.gz"; sha256 = "250fb669b6ac64eba034cc4404fcbcc993717b1f77c29dff29f8c9202da20d55"; };
+      name = "PyGObject-3.30.1";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/00/17/198a9d0eb0e89b5c7d2a9b4437eb40d62702ab771030cd79fc7141cb0d30/PyGObject-3.30.1.tar.gz"; sha256 = "5e642a76cfddd3e488a32bcdf7cef189e29226522be8726bc0e050dd53fa2d1c"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -178,8 +193,8 @@ let
     };
 
     "PyNaCl" = python.mkDerivation {
-      name = "PyNaCl-1.2.1";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/08/19/cf56e60efd122fa6d2228118a9b345455b13ffe16a14be81d025b03b261f/PyNaCl-1.2.1.tar.gz"; sha256 = "e0d38fa0a75f65f556fb912f2c6790d1fa29b7dd27a1d9cc5591b281321eaaa9"; };
+      name = "PyNaCl-1.3.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/61/ab/2ac6dea8489fa713e2b4c6c5b549cc962dd4a842b5998d9e80cf8440b7cd/PyNaCl-1.3.0.tar.gz"; sha256 = "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -228,8 +243,8 @@ let
     };
 
     "Sphinx" = python.mkDerivation {
-      name = "Sphinx-1.7.7";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/18/66/5aabe11160435a905ca137788c12c3d58c8693ad71cf9e7bb86e84b77d2a/Sphinx-1.7.7.tar.gz"; sha256 = "71531900af3f68625a29c4e00381bee8f85255219a3d500a3e255076a45b735e"; };
+      name = "Sphinx-1.8.1";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/c7/e9/b1bed881847680cecc70159b8b9d5fd1cd4e85627c534712c2c7b339f8b6/Sphinx-1.8.1.tar.gz"; sha256 = "652eb8c566f18823a022bb4b6dbc868d366df332a11a0226b5bc3a798a479f17"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -275,8 +290,8 @@ let
     };
 
     "alabaster" = python.mkDerivation {
-      name = "alabaster-0.7.11";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/3f/46/9346ea429931d80244ab7f11c4fce83671df0b7ae5a60247a2b588592c46/alabaster-0.7.11.tar.gz"; sha256 = "b63b1f4dc77c074d386752ec4a8a7517600f6c0db8cd42980cae17ab7b3275d7"; };
+      name = "alabaster-0.7.12";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/cc/b4/ed8dcb0d67d5cfb7f83c4d5463a7614cb1d078ad7ae890c9143edebbf072/alabaster-0.7.12.tar.gz"; sha256 = "a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -305,8 +320,8 @@ let
     };
 
     "atomicwrites" = python.mkDerivation {
-      name = "atomicwrites-1.1.5";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/a1/e1/2d9bc76838e6e6667fde5814aa25d7feb93d6fa471bf6816daac2596e8b2/atomicwrites-1.1.5.tar.gz"; sha256 = "240831ea22da9ab882b551b31d4225591e5e447a68c5e188db5b89ca1d487585"; };
+      name = "atomicwrites-1.2.1";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/ac/ed/a311712ef6b4355035489f665e63e1a73f9eb371929e3c98e5efd451069e/atomicwrites-1.2.1.tar.gz"; sha256 = "ec9ae8adaae229e4f8446952d204a3e4b5fdd2d099f9be3aaf556120135fb3ee"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -320,8 +335,8 @@ let
     };
 
     "attrs" = python.mkDerivation {
-      name = "attrs-18.1.0";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/e4/ac/a04671e118b57bee87dabca1e0f2d3bda816b7a551036012d0ca24190e71/attrs-18.1.0.tar.gz"; sha256 = "e0d0eb91441a3b53dab4d9b743eafc1ac44476296a2053b6ca3af0b139faf87b"; };
+      name = "attrs-18.2.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/0f/9e/26b1d194aab960063b266170e53c39f73ea0d0d3f5ce23313e0ec8ee9bdf/attrs-18.2.0.tar.gz"; sha256 = "10cbf6e27dbce8c30807caf056c8eb50917e0eaafe86347671b57254006c3e69"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -332,7 +347,7 @@ let
       self."six"
     ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "http://www.attrs.org/";
+        homepage = "https://www.attrs.org/";
         license = licenses.mit;
         description = "Classes Without Boilerplate";
       };
@@ -358,8 +373,8 @@ let
     };
 
     "certifi" = python.mkDerivation {
-      name = "certifi-2018.8.13";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/53/0d/d1d13a63563cc50a27b310f5612645bef06d29a5022a7e79ac659dd0fc50/certifi-2018.8.13.tar.gz"; sha256 = "4c1d68a1408dd090d2f3a869aa94c3947cc1d967821d1ed303208c9f41f0f2f4"; };
+      name = "certifi-2018.8.24";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/e1/0f/f8d5e939184547b3bdc6128551b831a62832713aa98c2ccdf8c47ecc7f17/certifi-2018.8.24.tar.gz"; sha256 = "376690d6f16d32f9d1fe8932551d80b23e9d393a8578c5633a2ed39a64861638"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -401,21 +416,6 @@ let
         homepage = "https://github.com/chardet/chardet";
         license = licenses.lgpl2;
         description = "Universal encoding detector for Python 2 and 3";
-      };
-    };
-
-    "click" = python.mkDerivation {
-      name = "click-6.7";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"; sha256 = "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"; };
-      doCheck = commonDoCheck;
-      checkPhase = "";
-      installCheckPhase = "";
-      buildInputs = commonBuildInputs;
-      propagatedBuildInputs = [ ];
-      meta = with pkgs.stdenv.lib; {
-        homepage = "http://github.com/mitsuhiko/click";
-        license = licenses.bsdOriginal;
-        description = "A simple wrapper around optparse for powerful command line utilities.";
       };
     };
 
@@ -506,8 +506,8 @@ let
     };
 
     "imagesize" = python.mkDerivation {
-      name = "imagesize-1.0.0";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/c6/3f/1db2da33804e8d7ef3a868b27b7bdc1aae6a4f693f0162d2aeeaf503864f/imagesize-1.0.0.tar.gz"; sha256 = "5b326e4678b6925158ccc66a9fa3122b6106d7c876ee32d7de6ce59385b96315"; };
+      name = "imagesize-1.1.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/41/f5/3cf63735d54aa9974e544aa25858d8f9670ac5b4da51020bbfc6aaade741/imagesize-1.1.0.tar.gz"; sha256 = "f3832918bc3c66617f92e35f5d70729187676313caa60c187eb0f28b8fe5e3b5"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -574,8 +574,8 @@ let
     };
 
     "lxml" = python.mkDerivation {
-      name = "lxml-4.2.4";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/ca/63/139b710671c1655aed3b20c1e6776118c62e9f9311152f4c6031e12a0554/lxml-4.2.4.tar.gz"; sha256 = "e2afbe403090f5893e254958d02875e0732975e73c4c0cdd33c1f009a61963ca"; };
+      name = "lxml-4.2.5";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/4b/20/ddf5eb3bd5c57582d2b4652b4bbcf8da301bdfe5d805cb94e805f4d7464d/lxml-4.2.5.tar.gz"; sha256 = "36720698c29e7a9626a0dc802ef8885f8f0239bfd1689628ecd459a061f2807f"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -613,8 +613,8 @@ let
       installCheckPhase = "";
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."Click"
       self."Jinja2"
-      self."click"
       self."requests"
     ];
       meta = with pkgs.stdenv.lib; {
@@ -632,9 +632,9 @@ let
       installCheckPhase = "";
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."Click"
       self."Jinja2"
       self."attrs"
-      self."click"
       self."effect"
       self."requests"
     ];
@@ -653,7 +653,7 @@ let
       installCheckPhase = "";
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
-      self."click"
+      self."Click"
       self."pydbus"
       self."xdg"
     ];
@@ -665,8 +665,8 @@ let
     };
 
     "packaging" = python.mkDerivation {
-      name = "packaging-17.1";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/77/32/439f47be99809c12ef2da8b60a2c47987786d2c6c9205549dd6ef95df8bd/packaging-17.1.tar.gz"; sha256 = "f019b770dd64e585a99714f1fd5e01c7a8f11b45635aa953fd41c689a657375b"; };
+      name = "packaging-18.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/cf/50/1f10d2626df0aa97ce6b62cf6ebe14f605f4e101234f7748b8da4138a8ed/packaging-18.0.tar.gz"; sha256 = "0886227f54515e592aaa2e5a553332c73962917f2831f1b0f9b9f4380a4b9807"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -683,8 +683,8 @@ let
     };
 
     "paramiko" = python.mkDerivation {
-      name = "paramiko-2.4.1";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/29/65/83181630befb17cd1370a6abb9a87957947a43c2332216e5975353f61d64/paramiko-2.4.1.tar.gz"; sha256 = "33e36775a6c71790ba7692a73f948b329cf9295a72b0102144b031114bd2a4f3"; };
+      name = "paramiko-2.4.2";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/a4/57/86681372e7a8d642718cadeef38ead1c24c4a1af21ae852642bf974e37c7/paramiko-2.4.2.tar.gz"; sha256 = "a8975a7df3560c9f1e2b43dc54ebd40fd00a7017392ca5445ce7df409f900fcb"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -735,8 +735,8 @@ let
     };
 
     "py" = python.mkDerivation {
-      name = "py-1.5.4";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/35/77/a0a2a4126cf454e6ac772942898379e2fe78f2b7885df0461a5b8f8a8040/py-1.5.4.tar.gz"; sha256 = "3fd59af7435864e1a243790d322d763925431213b6b8529c6ca71081ace3bbf7"; };
+      name = "py-1.6.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/4f/38/5f427d1eedae73063ce4da680d2bae72014995f9fdeaa57809df61c968cd/py-1.6.0.tar.gz"; sha256 = "06a30435d058473046be836d3fc4f27167fd84c45b99704f2fb5509ef61f9af1"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -780,8 +780,8 @@ let
     };
 
     "pycparser" = python.mkDerivation {
-      name = "pycparser-2.18";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"; sha256 = "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"; };
+      name = "pycparser-2.19";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"; sha256 = "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -830,15 +830,15 @@ let
     };
 
     "pyparsing" = python.mkDerivation {
-      name = "pyparsing-2.2.0";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"; sha256 = "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"; };
+      name = "pyparsing-2.2.2";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/1a/e2/4a7ad8f2808e03caebd3ec0a250b4afbb26d4ba063c39c3286185dd06dd1/pyparsing-2.2.2.tar.gz"; sha256 = "bc6c7146b91af3f567cf6daeaec360bc07d45ffec4cf5353f4d7a208ce7ca30a"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "http://pyparsing.wikispaces.com/";
+        homepage = "https://github.com/pyparsing/pyparsing/";
         license = licenses.mit;
         description = "Python parsing module";
       };
@@ -846,14 +846,14 @@ let
 
     "pypi2nix" = python.mkDerivation {
       name = "pypi2nix-1.8.1";
-      src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "0zxwjvrn3sn25z0h1nqfzyz4kf1hnyz92699snzcfa2pi58bb969"; rev = "ec42eaab4b8f4e0cdc0c8045f924cef31ea01da1"; };
+      src = pkgs.fetchgit { url = "https://github.com/garbas/pypi2nix"; sha256 = "0v12989csv4hhkblvl3mhq2xi0rxrvyqwcfgc5zw373z61ys31ap"; rev = "2c8c01d6b96d20b2b7c84c3e95156de5eb95af15"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
       buildInputs = commonBuildInputs;
       propagatedBuildInputs = [
+      self."Click"
       self."Jinja2"
-      self."click"
       self."nix-prefetch-github"
       self."requests"
     ];
@@ -865,8 +865,8 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-3.7.2";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/34/73/3ad0ffb79c312022fb6d81694aff5a32d83f55ae6d2174a0437c0298cf07/pytest-3.7.2.tar.gz"; sha256 = "3459a123ad5532852d36f6f4501dfe1acf4af1dd9541834a164666aa40395b02"; };
+      name = "pytest-3.8.2";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/5f/d2/7f77f406ac505abda02ab4afb50d06ebf304f6ea42fca34f8f37529106b2/pytest-3.8.2.tar.gz"; sha256 = "9332147e9af2dcf46cd7ceb14d5acadb6564744ddff1fe8c17f0ce60ece7d9a2"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -880,7 +880,7 @@ let
       self."six"
     ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "http://pytest.org";
+        homepage = "https://docs.pytest.org/en/latest/";
         license = licenses.mit;
         description = "pytest: simple powerful testing with Python";
       };
@@ -1037,8 +1037,8 @@ let
     };
 
     "toml" = python.mkDerivation {
-      name = "toml-0.9.4";
-      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/f5/f9/044110c267e6408013b85166a7cfcd352cf85275aa8ce700aa5c0eb407ba/toml-0.9.4.tar.gz"; sha256 = "8e86bd6ce8cc11b9620cb637466453d94f5d57ad86f17e98a98d1f73e3baab2d"; };
+      name = "toml-0.10.0";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/b9/19/5cbd78eac8b1783671c40e34bb0fa83133a06d340a38b55c645076d40094/toml-0.10.0.tar.gz"; sha256 = "229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -1046,7 +1046,7 @@ let
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/uiri/toml";
-        license = "License :: OSI Approved :: MIT License";
+        license = licenses.mit;
         description = "Python Library for Tom's Obvious, Minimal Language";
       };
     };
@@ -1120,7 +1120,7 @@ let
   localOverridesFile = ./python3_override.nix;
   localOverrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "e0b5a91236aa8945efc9ecf65ac16203d59b048b"; sha256 = "1jbz2gz085fvrk2j8yw1yhsh7mjm79irzd37abga9ybc8r5n0cg0"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "fdc822ffbef1adbb3918464effad79cfa5a4766d"; sha256 = "1bfbmz5py0vma5wnn940wm2v46fvgc4zsz72i545zv90zadblhfx"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   paramOverrides = [
     (overrides { inherit pkgs python; })

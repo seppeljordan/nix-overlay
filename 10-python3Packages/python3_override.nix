@@ -7,6 +7,7 @@ self: super: {
       postPhases = [ "buildDocsPhase" "installDocsPhase" ];
       buildInputs = old.buildInputs ++ [ self."Sphinx" ];
       buildDocsPhase = ''
+        export LC_ALL=C
         make man
       '';
       installDocsPhase = ''
@@ -34,4 +35,9 @@ self: super: {
       buildInputs = old.buildInputs ++ [ self."setuptools-scm" ];
     }
   );
+
+  "Sphinx" = super."Sphinx".overrideDerivation( old:
+    {
+      LC_ALL = "en_US.UTF-8";
+    });
 }

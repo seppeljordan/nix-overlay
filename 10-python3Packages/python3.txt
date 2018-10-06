@@ -1,9 +1,9 @@
+pycairo
 click
 dbus-python
 jinja2
 jinja2-cli
 lxml
-pycairo
 pydbus
 pygobject
 pytest
