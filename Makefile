@@ -1,5 +1,5 @@
 PYPI2NIX=$(PWD)/pypi2nix-exec/bin/pypi2nix
-NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unstable.tar.gz:nixpkgs-overlays=$(shell pwd)
+NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-18.09.tar.gz:nixpkgs-overlays=$(shell pwd)
 
 all: pypi2nix-exec/bin/pypi2nix update test
 
