@@ -27,7 +27,7 @@ nix-prefetch-github==1.3
 nix-pureos==1.0
 packaging==18.0
 paramiko==2.4.2
-parsemon2==1.0
+parsemon2==1.1
 pluggy==0.7.1
 py==1.6.0
 pyasn1==0.4.4

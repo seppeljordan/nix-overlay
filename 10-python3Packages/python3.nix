@@ -703,8 +703,8 @@ let
     };
 
     "parsemon2" = python.mkDerivation {
-      name = "parsemon2-1.0";
-      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "0d91klfdkqpn36jl985z16j30fv16786rp7pcvdkm1vmdrfa6v39"; rev = "c4ce709cbdbb386e3ab40ee0b3ebb04d68a4fcde"; };
+      name = "parsemon2-1.1";
+      src = pkgs.fetchgit { url = "https://github.com/seppeljordan/parsemon2"; sha256 = "1anh4lavna2dy0srwaxh23cfxm2c03v9ppp1p85jmc5ivaag4jas"; rev = "66dd6d00501b9110d53aaf1b0a1b9385e0bbc133"; };
       doCheck = commonDoCheck;
       checkPhase = "";
       installCheckPhase = "";
@@ -1120,7 +1120,7 @@ let
   localOverridesFile = ./python3_override.nix;
   localOverrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "fdc822ffbef1adbb3918464effad79cfa5a4766d"; sha256 = "1bfbmz5py0vma5wnn940wm2v46fvgc4zsz72i545zv90zadblhfx"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "b9427768f1e4953dcfff2adc891ee7a45e3f102e"; sha256 = "191xc53i2dcbji9kvd1d02v1h3lsshjyj9bx23bfnrlqh9nri0yz"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   paramOverrides = [
     (overrides { inherit pkgs python; })
