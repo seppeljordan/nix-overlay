@@ -54,6 +54,7 @@ in
     (p: with p; [
       adoc-mode
       clojure-mode
+      nix-sandbox
       cssh
       dockerfile-mode
       elm-mode
