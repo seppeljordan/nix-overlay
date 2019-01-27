@@ -1,6 +1,49 @@
 { pkgs, python }:
 
-self: super: {
+self: super:
+let
+
+isPackage = package: drv:
+  (builtins.parseDrvName drv.name).name ==
+  "${python.__old.python.libPrefix}-${python.__old.python.libPrefix}-${package}";
+
+filterPackages = packages:
+  builtins.filter
+  (x: builtins.all (package: ! isPackage package x) packages);
+
+removePackages = packages: drv: drv.overrideDerivation (old: {
+  propagatedBuildInputs =
+    filterPackages packages old.propagatedBuildInputs;
+  buildInputs =
+    filterPackages packages old.buildInputs;
+  doCheck = false;
+});
+
+setLanguage = drv: drv.overrideDerivation( old:
+  {
+    LC_ALL = "en_US.UTF-8";
+  });
+
+addBuildInputs = packages: drv: drv.overrideDerivation( old:
+  {
+    buildInputs = old.buildInputs ++
+      builtins.map (x: self."${x}") packages;
+  });
+
+in
+{
+
+  "attrs" = removePackages ["pytest" "Sphinx"] super."attrs";
+
+  "cryptography" = removePackages ["pytest" "Sphinx"] super."cryptography";
+
+  "Sphinx" = setLanguage (removePackages ["pytest"] super."Sphinx");
+
+  "Flask" = removePackages ["pytest"] super."Flask";
+
+  "requests" = removePackages ["pytest"] super."requests";
+
+  "py" = addBuildInputs ["setuptools-scm"] super."py";
 
   "parsemon2" = super.parsemon2.overrideDerivation( old:
     {
@@ -30,14 +73,6 @@ self: super: {
     }
   );
 
-  "pluggy" = super.pluggy.overrideDerivation( old:
-    {
-      buildInputs = old.buildInputs ++ [ self."setuptools-scm" ];
-    }
-  );
+  "pluggy" = addBuildInputs ["setuptools-scm"] super."pluggy";
 
-  "Sphinx" = super."Sphinx".overrideDerivation( old:
-    {
-      LC_ALL = "en_US.UTF-8";
-    });
 }

@@ -35,7 +35,7 @@ test-python2-build:
 	nix build -f tests/test-python2-build.nix
 
 test-python3-build:
-	nix build -f tests/test-python3-build.nix
+	nix build -f tests/test-python3-build.nix --show-trace
 
 test-haskell-env:
 	nix build -f tests/test-haskell-env.nix
