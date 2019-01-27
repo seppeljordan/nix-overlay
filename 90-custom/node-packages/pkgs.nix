@@ -31,13 +31,13 @@ let
         sha1 = "89b4d199ab2bee49de164ea02b89ce462d71b767";
       };
     };
-    "bluebird-3.5.2" = {
+    "bluebird-3.5.3" = {
       name = "bluebird";
       packageName = "bluebird";
-      version = "3.5.2";
+      version = "3.5.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/bluebird/-/bluebird-3.5.2.tgz";
-        sha512 = "dhHTWMI7kMx5whMQntl7Vr9C6BvV10lFXDAasnqnrMYhXVCzzk6IO9Fo2L75jXHT07WrOngL1WDXOp+yYS91Yg==";
+        url = "https://registry.npmjs.org/bluebird/-/bluebird-3.5.3.tgz";
+        sha512 = "/qKPUQlaW1OyR51WeCPBvRnAlnZFUJkCSG5HzGnuIqhgyJtF+T94lFnn33eiazjRm2LAHVy2guNnaq48X9SJuw==";
       };
     };
     "bluebird-retry-0.5.3" = {
@@ -103,13 +103,13 @@ let
         sha1 = "0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77";
       };
     };
-    "colors-1.3.2" = {
+    "colors-1.3.3" = {
       name = "colors";
       packageName = "colors";
-      version = "1.3.2";
+      version = "1.3.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/colors/-/colors-1.3.2.tgz";
-        sha512 = "rhP0JSBGYvpcNQj4s5AdShMeE5ahMop96cTeDl/v9qQQm2fYClE2QXZRi8wLzc+GmXSxdIqqbOIAhyObEXDbfQ==";
+        url = "https://registry.npmjs.org/colors/-/colors-1.3.3.tgz";
+        sha512 = "mmGt/1pZqYRjMxB1axhTo16/snVZ5krrKkcmMeVKxzECMMXoCgnvTPp10QgHfcbQZw8Dq2jMNG6je4JlWU0gWg==";
       };
     };
     "concat-map-0.0.1" = {
@@ -184,13 +184,13 @@ let
         sha512 = "vcfuiIxogLV4DlGBHIUOwI0IbrJ8HWPc4MU7HzviGeNho/UJDfi6B5p3sHeWIQ0KGIU0Jpxi5ZHxemQfLkkAwQ==";
       };
     };
-    "graceful-fs-4.1.11" = {
+    "graceful-fs-4.1.15" = {
       name = "graceful-fs";
       packageName = "graceful-fs";
-      version = "4.1.11";
+      version = "4.1.15";
       src = fetchurl {
-        url = "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.11.tgz";
-        sha1 = "0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658";
+        url = "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.15.tgz";
+        sha512 = "6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==";
       };
     };
     "hoek-3.0.4" = {
@@ -252,7 +252,7 @@ let
       packageName = "is-builtin-module";
       version = "1.0.0";
       src = fetchurl {
-        url = "http://registry.npmjs.org/is-builtin-module/-/is-builtin-module-1.0.0.tgz";
+        url = "https://registry.npmjs.org/is-builtin-module/-/is-builtin-module-1.0.0.tgz";
         sha1 = "540572d34f7ac3119f8f76c30cbc1b1e037affbe";
       };
     };
@@ -288,7 +288,7 @@ let
       packageName = "load-json-file";
       version = "1.1.0";
       src = fetchurl {
-        url = "http://registry.npmjs.org/load-json-file/-/load-json-file-1.1.0.tgz";
+        url = "https://registry.npmjs.org/load-json-file/-/load-json-file-1.1.0.tgz";
         sha1 = "956905708d58b4bab4c2261b04f59f31c99374c0";
       };
     };
@@ -297,7 +297,7 @@ let
       packageName = "lodash";
       version = "3.10.1";
       src = fetchurl {
-        url = "http://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz";
+        url = "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz";
         sha1 = "5bf45e8e49ba4189e17d482789dfd15bd140b7b6";
       };
     };
@@ -369,7 +369,7 @@ let
       packageName = "os-locale";
       version = "1.4.0";
       src = fetchurl {
-        url = "http://registry.npmjs.org/os-locale/-/os-locale-1.4.0.tgz";
+        url = "https://registry.npmjs.org/os-locale/-/os-locale-1.4.0.tgz";
         sha1 = "20f9f17ae29ed345e8bde583b13d2009803c14d9";
       };
     };
@@ -481,13 +481,13 @@ let
         sha1 = "97f717b69d48784f5f526a6c5aa8ffdda055a4d1";
       };
     };
-    "semver-5.5.1" = {
+    "semver-5.6.0" = {
       name = "semver";
       packageName = "semver";
-      version = "5.5.1";
+      version = "5.6.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/semver/-/semver-5.5.1.tgz";
-        sha512 = "PqpAxfrEhlSUWge8dwIp4tZnQ25DIOthpiaHNIthsjEFQD6EvqUKUDM7L8O2rShkFccYo1VjJR0coWfNkCubRw==";
+        url = "https://registry.npmjs.org/semver/-/semver-5.6.0.tgz";
+        sha512 = "RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==";
       };
     };
     "set-blocking-2.0.0" = {
@@ -499,13 +499,13 @@ let
         sha1 = "045f9782d011ae9a6803ddd382b24392b3d890f7";
       };
     };
-    "spdx-correct-3.0.2" = {
+    "spdx-correct-3.1.0" = {
       name = "spdx-correct";
       packageName = "spdx-correct";
-      version = "3.0.2";
+      version = "3.1.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/spdx-correct/-/spdx-correct-3.0.2.tgz";
-        sha512 = "q9hedtzyXHr5S0A1vEPoK/7l8NpfkFYTq6iCY+Pno2ZbdZR6WexZFtqeVGkGxW3TEJMN914Z55EnAGMmenlIQQ==";
+        url = "https://registry.npmjs.org/spdx-correct/-/spdx-correct-3.1.0.tgz";
+        sha512 = "lr2EZCctC2BNR7j7WzJ2FpDznxky1sjfxvvYEyzxNyb6lZXHODmEoJeFu4JupYlkfha1KZpJyoqiJ7pgA1qq8Q==";
       };
     };
     "spdx-exceptions-2.2.0" = {
@@ -526,13 +526,13 @@ let
         sha512 = "Yg6D3XpRD4kkOmTpdgbUiEJFKghJH03fiC1OPll5h/0sO6neh2jqRDVHOQ4o/LMea0tgCkbMgea5ip/e+MkWyg==";
       };
     };
-    "spdx-license-ids-3.0.1" = {
+    "spdx-license-ids-3.0.3" = {
       name = "spdx-license-ids";
       packageName = "spdx-license-ids";
-      version = "3.0.1";
+      version = "3.0.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.1.tgz";
-        sha512 = "TfOfPcYGBB5sDuPn3deByxPhmfegAhpDYKSOXZQN81Oyrrif8ZCodOLzK3AesELnCx03kikhyDwh0pfvvQvF8w==";
+        url = "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.3.tgz";
+        sha512 = "uBIcIl3Ih6Phe3XHK1NqboJLdGfwr1UN3k6wSD1dZpmPsIkb8AGNbZYJ1fOBk834+Gxy8rpfDxrS6XLEMZMY2g==";
       };
     };
     "sprintf-js-1.0.3" = {
@@ -558,7 +558,7 @@ let
       packageName = "strip-ansi";
       version = "3.0.1";
       src = fetchurl {
-        url = "http://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz";
+        url = "https://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz";
         sha1 = "6a385fb8853d952d5ff05d0e8aaf94278dc63dcf";
       };
     };
@@ -612,7 +612,7 @@ let
       packageName = "wrap-ansi";
       version = "2.1.0";
       src = fetchurl {
-        url = "http://registry.npmjs.org/wrap-ansi/-/wrap-ansi-2.1.0.tgz";
+        url = "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-2.1.0.tgz";
         sha1 = "d8fc3d284dd05794fe84973caecdd1cf824fdd85";
       };
     };
@@ -648,7 +648,7 @@ let
       packageName = "yargs";
       version = "4.8.1";
       src = fetchurl {
-        url = "http://registry.npmjs.org/yargs/-/yargs-4.8.1.tgz";
+        url = "https://registry.npmjs.org/yargs/-/yargs-4.8.1.tgz";
         sha1 = "c0c42924ca4aaa6b0e6da1739dfb216439f9ddc0";
       };
     };
@@ -677,7 +677,7 @@ in
       sources."ansi-regex-2.1.1"
       sources."argparse-1.0.10"
       sources."balanced-match-1.0.0"
-      sources."bluebird-3.5.2"
+      sources."bluebird-3.5.3"
       sources."bluebird-retry-0.5.3"
       sources."brace-expansion-1.1.11"
       sources."builtin-modules-1.1.1"
@@ -689,7 +689,7 @@ in
       })
       sources."cliui-3.2.0"
       sources."code-point-at-1.1.0"
-      sources."colors-1.3.2"
+      sources."colors-1.3.3"
       sources."concat-map-0.0.1"
       sources."decamelize-1.2.0"
       sources."error-ex-1.3.2"
@@ -698,7 +698,7 @@ in
       sources."fs.realpath-1.0.0"
       sources."get-caller-file-1.0.3"
       sources."glob-7.1.3"
-      sources."graceful-fs-4.1.11"
+      sources."graceful-fs-4.1.15"
       sources."hoek-3.0.4"
       sources."hosted-git-info-2.7.1"
       sources."inflight-1.0.6"
@@ -730,12 +730,12 @@ in
       sources."read-pkg-up-1.0.1"
       sources."require-directory-2.1.1"
       sources."require-main-filename-1.0.1"
-      sources."semver-5.5.1"
+      sources."semver-5.6.0"
       sources."set-blocking-2.0.0"
-      sources."spdx-correct-3.0.2"
+      sources."spdx-correct-3.1.0"
       sources."spdx-exceptions-2.2.0"
       sources."spdx-expression-parse-3.0.0"
-      sources."spdx-license-ids-3.0.1"
+      sources."spdx-license-ids-3.0.3"
       sources."sprintf-js-1.0.3"
       sources."string-width-1.0.2"
       sources."strip-ansi-3.0.1"

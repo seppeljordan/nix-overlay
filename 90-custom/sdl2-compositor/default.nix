@@ -1,11 +1,16 @@
-{ mkDerivation, base, Cabal, hspec, hspec-core, lens, linear
-, lrucache, QuickCheck, sdl2, StateVar, stdenv, stm, text
+{ mkDerivation, base, Cabal, fetchgit, hspec, hspec-core, lens
+, linear, lrucache, QuickCheck, sdl2, StateVar, stdenv, stm, text
 , transformers
 }:
 mkDerivation {
   pname = "sdl2-compositor";
   version = "1.2.0.7";
-  sha256 = "1yfbqxrfhy951qdcf43vx9gxd4jj3l2dq5bz04blchpq4qzm4876";
+  src = fetchgit {
+    url = "https://github.com/seppeljordan/sdl2-compositor.git";
+    sha256 = "04fqhzf0z0a0j7cc8yhqklpx3xijq1hsrpwah1520q83lbas16g4";
+    rev = "a0e6f0bf9b3b8a19202ec798feb21ddb64affd66";
+    fetchSubmodules = true;
+  };
   isLibrary = true;
   isExecutable = true;
   libraryHaskellDepends = [

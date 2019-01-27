@@ -6,6 +6,7 @@ all: pypi2nix-exec/bin/pypi2nix update test
 update: \
 	update-geimskell \
 	update-htiled \
+	update-sdl2-compositor \
 	update-lrucache \
 	update-nixpkgs-python \
 	update-node-packages \
@@ -31,6 +32,12 @@ test: \
 test-geimskell:
 	nix build -f tests/test-geimskell.nix
 
+update-lrucache:
+	mkdir -p 90-custom/lrucache
+	cabal2nix cabal://lrucache \
+		> 90-custom/lrucache/default.nix
+
+
 test-python2-build:
 	nix build -f tests/test-python2-build.nix
 
@@ -51,14 +58,13 @@ update-htiled:
 	cabal2nix https://github.com/seppeljordan/htiled.git \
 		> 90-custom/htiled/default.nix
 
-update-lrucache:
-	mkdir -p 90-custom/lrucache
-	cabal2nix https://github.com/seppeljordan/lrucache.git \
-		> 90-custom/lrucache/default.nix
-
 update-geimskell:
 	cd 90-custom/geimskell && \
 		cabal2nix "https://github.com/seppeljordan/geimskell.git" > default.nix
+
+update-sdl2-compositor:
+	cd 90-custom/sdl2-compositor && \
+		cabal2nix "https://github.com/seppeljordan/sdl2-compositor.git" > default.nix
 
 update-pypiPackages3:
 	cd 10-python3Packages && $(PYPI2NIX) \
@@ -93,7 +99,7 @@ update-riemann:
 # -A pypiPackages3.packages.pypi2nix
 pypi2nix-exec/bin/pypi2nix:
 	nix-build '<nixpkgs>' \
-		-A pythonNEXT.pypi2nix.packages.pypi2nix \
+		-A pypiPackages.packages.pypi2nix \
 		-o pypi2nix-exec --show-trace
 
 
