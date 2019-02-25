@@ -643,8 +643,8 @@ let
       name = "nix-prefetch-github-2.1";
       src = pkgs.fetchgit {
         url = "https://github.com/seppeljordan/nix-prefetch-github";
-        sha256 = "1v4w7xs8wxgl36vb2cnyj219mqvximkvvw46h4fp25vi2g3f9h8d";
-        rev = "0b63b78df5e5e17fa46cbdd8aac2b56e8622e5d3";
+        sha256 = "16s1rppqn3yn4syf1jgcn6vrrcdijk9lqg0jqnxs9wwx17821nm4";
+        rev = "976e11991144c3706c61181e1c1c225cfea2a8a4";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
