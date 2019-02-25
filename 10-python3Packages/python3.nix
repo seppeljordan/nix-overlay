@@ -163,17 +163,17 @@ let
     };
 
     "MarkupSafe" = python.mkDerivation {
-      name = "MarkupSafe-1.1.0";
+      name = "MarkupSafe-1.1.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/ac/7e/1b4c2e05809a4414ebce0892fe1e32c14ace86ca7d50c70f00979ca9b3a3/MarkupSafe-1.1.0.tar.gz";
-        sha256 = "4e97332c9ce444b0c2c38dd22ddc61c743eb208d916e4265a2a3b575bdccb1d3";
+        url = "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz";
+        sha256 = "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "https://www.palletsprojects.com/p/markupsafe/";
-        license = licenses.bsdOriginal;
+        homepage = "https://palletsprojects.com/p/markupsafe/";
+        license = "BSD-3-Clause";
         description = "Safely add untrusted strings to HTML/XML markup.";
       };
     };
@@ -248,10 +248,10 @@ let
     };
 
     "Sphinx" = python.mkDerivation {
-      name = "Sphinx-1.8.3";
+      name = "Sphinx-1.8.4";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/4d/ed/4595274b5c9ce53a768cc0804ef65fd6282c956b93919a969e98d53894e4/Sphinx-1.8.3.tar.gz";
-        sha256 = "c4cb17ba44acffae3d3209646b6baec1e215cad3065e852c68cc569d4df1b9f8";
+        url = "https://files.pythonhosted.org/packages/dd/f8/df628d41f42793d446285767164c6a8da71d82892f2c98c43e0523836d39/Sphinx-1.8.4.tar.gz";
+        sha256 = "c1c00fc4f6e8b101a0d037065043460dffc2d507257f2f11acaed71fd2b0c83c";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -326,10 +326,10 @@ let
     };
 
     "atomicwrites" = python.mkDerivation {
-      name = "atomicwrites-1.2.1";
+      name = "atomicwrites-1.3.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/ac/ed/a311712ef6b4355035489f665e63e1a73f9eb371929e3c98e5efd451069e/atomicwrites-1.2.1.tar.gz";
-        sha256 = "ec9ae8adaae229e4f8446952d204a3e4b5fdd2d099f9be3aaf556120135fb3ee";
+        url = "https://files.pythonhosted.org/packages/ec/0f/cd484ac8820fed363b374af30049adc8fd13065720fd4f4c6be8a2309da7/atomicwrites-1.3.0.tar.gz";
+        sha256 = "75a9445bac02d8d058d5e1fe689654ba5a6556a1dfd8ce6ec55a0ed79866cfa6";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -393,10 +393,10 @@ let
     };
 
     "cffi" = python.mkDerivation {
-      name = "cffi-1.11.5";
+      name = "cffi-1.12.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz";
-        sha256 = "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4";
+        url = "https://files.pythonhosted.org/packages/bc/81/47bd0404f2cb5363edb371e3b15da6387b5e9b80122e5b81be8b8f411e9b/cffi-1.12.1.tar.gz";
+        sha256 = "9b6f7ba4e78c52c1a291d0c0c0bd745d19adde1a9e1c03cb899f0c6efd6f8033";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -587,10 +587,10 @@ let
     };
 
     "lxml" = python.mkDerivation {
-      name = "lxml-4.3.0";
+      name = "lxml-4.3.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/16/4a/b085a04d6dad79aa5c00c65c9b2bbcb2c6c22e5ac341e7968e0ad2c57e2f/lxml-4.3.0.tar.gz";
-        sha256 = "d1e111b3ab98613115a208c1017f266478b0ab224a67bc8eac670fa0bad7d488";
+        url = "https://files.pythonhosted.org/packages/0f/bd/bb1464d1f363dbd805862c8a1ea258b9a4f4d2049c376d1c4790b6545691/lxml-4.3.1.tar.gz";
+        sha256 = "da5e7e941d6e71c9c9a717c93725cda0708c2474f532e3680ac5e39ec57d224d";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -603,16 +603,14 @@ let
     };
 
     "more-itertools" = python.mkDerivation {
-      name = "more-itertools-5.0.0";
+      name = "more-itertools-6.0.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/dd/26/30fc0d541d9fdf55faf5ba4b0fd68f81d5bd2447579224820ad525934178/more-itertools-5.0.0.tar.gz";
-        sha256 = "38a936c0a6d98a38bcc2d03fdaaedaba9f412879461dd2ceff8d37564d6522e4";
+        url = "https://files.pythonhosted.org/packages/dd/f4/cdfbb6f07f767e0cd8a11b16adfecc735b6eb87dbebda026ce8898e1cc22/more-itertools-6.0.0.tar.gz";
+        sha256 = "590044e3942351a1bdb1de960b739ff4ce277960f2425ad4509446dbace8d9d1";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
-      propagatedBuildInputs = [
-        self."six"
-      ];
+      propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/erikrose/more-itertools";
         license = licenses.mit;
@@ -642,11 +640,11 @@ let
     };
 
     "nix-prefetch-github" = python.mkDerivation {
-      name = "nix-prefetch-github-1.3";
+      name = "nix-prefetch-github-2.1";
       src = pkgs.fetchgit {
         url = "https://github.com/seppeljordan/nix-prefetch-github";
-        sha256 = "1vf5i3s9ql9cr37smbqyqdrpiympjxx3kmwn6xv9h2fn5jyiwh8y";
-        rev = "f71616bde96da27329e4a6db4a339381472f2e36";
+        sha256 = "1v4w7xs8wxgl36vb2cnyj219mqvximkvvw46h4fp25vi2g3f9h8d";
+        rev = "0b63b78df5e5e17fa46cbdd8aac2b56e8622e5d3";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -726,11 +724,11 @@ let
     };
 
     "parsemon2" = python.mkDerivation {
-      name = "parsemon2-2.2";
+      name = "parsemon2-3.0";
       src = pkgs.fetchgit {
         url = "https://github.com/seppeljordan/parsemon2";
-        sha256 = "11ag0yh670p6yqf8amsxf62x1fz2finqb6frx45np4p5c4n61dwh";
-        rev = "b2b43550f217b4d1106eabba6145415da01be81a";
+        sha256 = "075wl6ixsbvlqnr4sjvgwinsf5px1kz3fpahays5186y21ml5a0i";
+        rev = "2acee2270fc719874ed6a3af6174e63c7f1e26e6";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -745,10 +743,10 @@ let
     };
 
     "pluggy" = python.mkDerivation {
-      name = "pluggy-0.8.1";
+      name = "pluggy-0.9.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/38/e1/83b10c17688af7b2998fa5342fec58ecbd2a5a7499f31e606ae6640b71ac/pluggy-0.8.1.tar.gz";
-        sha256 = "8ddc32f03971bfdf900a81961a48ccf2fb677cf7715108f85295c67405798616";
+        url = "https://files.pythonhosted.org/packages/a7/8c/55c629849c64e665258d8976322dfdad171fa2f57117590662d8a67618a4/pluggy-0.9.0.tar.gz";
+        sha256 = "19ecf9ce9db2fce065a7a0586e07cfb4ac8614fe96edf628a264b1c70116cf8f";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -761,13 +759,15 @@ let
     };
 
     "py" = python.mkDerivation {
-      name = "py-1.7.0";
+      name = "py-1.8.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/c7/fa/eb6dd513d9eb13436e110aaeef9a1703437a8efa466ce6bb2ff1d9217ac7/py-1.7.0.tar.gz";
-        sha256 = "bf92637198836372b520efcba9e020c330123be8ce527e535d185ed4b6f45694";
+        url = "https://files.pythonhosted.org/packages/f1/5a/87ca5909f400a2de1561f1648883af74345fe96349f34f737cdfc94eba8c/py-1.8.0.tar.gz";
+        sha256 = "dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53";
       };
       doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
+      buildInputs = commonBuildInputs ++ [
+        self."setuptools-scm"
+      ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "http://py.readthedocs.io/";
@@ -901,10 +901,10 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-4.1.1";
+      name = "pytest-4.3.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/e2/1d/5aaae6a77d9699ebcc5cbed574c28272371b8915073a126a9ead961c8f6c/pytest-4.1.1.tar.gz";
-        sha256 = "c3c573a29d7c9547fb90217ece8a8843aa0c1328a797e200290dc3d0b4b823be";
+        url = "https://files.pythonhosted.org/packages/7c/02/b35c0a322e332544716a0c598f8208ba3474fa94706183c26465d833b283/pytest-4.3.0.tar.gz";
+        sha256 = "067a1d4bf827ffdd56ad21bd46674703fce77c5957f6c1eef731f6146bfcef1c";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -1126,6 +1126,8 @@ let
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."certifi"
+        self."cryptography"
+        self."idna"
       ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://urllib3.readthedocs.io/";

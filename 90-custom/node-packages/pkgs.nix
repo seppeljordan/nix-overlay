@@ -58,15 +58,6 @@ let
         sha512 = "iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==";
       };
     };
-    "builtin-modules-1.1.1" = {
-      name = "builtin-modules";
-      packageName = "builtin-modules";
-      version = "1.1.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/builtin-modules/-/builtin-modules-1.1.1.tgz";
-        sha1 = "270f076c5a72c02f5b65a47df94c5fe3a278892f";
-      };
-    };
     "camelcase-3.0.0" = {
       name = "camelcase";
       packageName = "camelcase";
@@ -247,15 +238,6 @@ let
         sha1 = "77c99840527aa8ecb1a8ba697b80645a7a926a9d";
       };
     };
-    "is-builtin-module-1.0.0" = {
-      name = "is-builtin-module";
-      packageName = "is-builtin-module";
-      version = "1.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/is-builtin-module/-/is-builtin-module-1.0.0.tgz";
-        sha1 = "540572d34f7ac3119f8f76c30cbc1b1e037affbe";
-      };
-    };
     "is-fullwidth-code-point-1.0.0" = {
       name = "is-fullwidth-code-point";
       packageName = "is-fullwidth-code-point";
@@ -328,13 +310,13 @@ let
         sha512 = "yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==";
       };
     };
-    "normalize-package-data-2.4.0" = {
+    "normalize-package-data-2.5.0" = {
       name = "normalize-package-data";
       packageName = "normalize-package-data";
-      version = "2.4.0";
+      version = "2.5.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/normalize-package-data/-/normalize-package-data-2.4.0.tgz";
-        sha512 = "9jjUFbTPfEy3R/ad/2oNbKtW9Hgovl5O1FvFWKkKblNXoN/Oou6+9+KKohPK13Yc3/TyunyWhJp6gvRNR/PPAw==";
+        url = "https://registry.npmjs.org/normalize-package-data/-/normalize-package-data-2.5.0.tgz";
+        sha512 = "/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==";
       };
     };
     "number-is-nan-1.0.1" = {
@@ -409,6 +391,15 @@ let
         sha1 = "174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f";
       };
     };
+    "path-parse-1.0.6" = {
+      name = "path-parse";
+      packageName = "path-parse";
+      version = "1.0.6";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/path-parse/-/path-parse-1.0.6.tgz";
+        sha512 = "GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==";
+      };
+    };
     "path-type-1.1.0" = {
       name = "path-type";
       packageName = "path-type";
@@ -479,6 +470,15 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/require-main-filename/-/require-main-filename-1.0.1.tgz";
         sha1 = "97f717b69d48784f5f526a6c5aa8ffdda055a4d1";
+      };
+    };
+    "resolve-1.10.0" = {
+      name = "resolve";
+      packageName = "resolve";
+      version = "1.10.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/resolve/-/resolve-1.10.0.tgz";
+        sha512 = "3sUr9aq5OfSg2S9pNtPA9hL1FVEAjvfOC4leW0SNf/mpnaakz2a9femSd6LqAww2RaFctwyf1lCqnTHuF1rxDg==";
       };
     };
     "semver-5.6.0" = {
@@ -680,7 +680,6 @@ in
       sources."bluebird-3.5.3"
       sources."bluebird-retry-0.5.3"
       sources."brace-expansion-1.1.11"
-      sources."builtin-modules-1.1.1"
       sources."camelcase-3.0.0"
       (sources."cli-table2-0.2.0" // {
         dependencies = [
@@ -705,7 +704,6 @@ in
       sources."inherits-2.0.3"
       sources."invert-kv-1.0.0"
       sources."is-arrayish-0.2.1"
-      sources."is-builtin-module-1.0.0"
       sources."is-fullwidth-code-point-1.0.0"
       sources."is-utf8-0.2.1"
       sources."lcid-1.0.0"
@@ -713,7 +711,7 @@ in
       sources."lodash-4.17.11"
       sources."lodash.assign-4.2.0"
       sources."minimatch-3.0.4"
-      sources."normalize-package-data-2.4.0"
+      sources."normalize-package-data-2.5.0"
       sources."number-is-nan-1.0.1"
       sources."once-1.4.0"
       sources."os-homedir-1.0.2"
@@ -722,6 +720,7 @@ in
       sources."parse-json-2.2.0"
       sources."path-exists-2.1.0"
       sources."path-is-absolute-1.0.1"
+      sources."path-parse-1.0.6"
       sources."path-type-1.1.0"
       sources."pify-2.3.0"
       sources."pinkie-2.0.4"
@@ -730,6 +729,7 @@ in
       sources."read-pkg-up-1.0.1"
       sources."require-directory-2.1.1"
       sources."require-main-filename-1.0.1"
+      sources."resolve-1.10.0"
       sources."semver-5.6.0"
       sources."set-blocking-2.0.0"
       sources."spdx-correct-3.1.0"

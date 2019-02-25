@@ -13,7 +13,7 @@ sphinx
 stormssh
 toml
 xdg
-xmltodict
+xmltodict==0.11.0
 setuptools-scm
 
 git+https://github.com/garbas/pypi2nix#egg=pypi2nix
