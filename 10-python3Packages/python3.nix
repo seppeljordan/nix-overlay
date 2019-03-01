@@ -393,10 +393,10 @@ let
     };
 
     "cffi" = python.mkDerivation {
-      name = "cffi-1.12.1";
+      name = "cffi-1.12.2";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/bc/81/47bd0404f2cb5363edb371e3b15da6387b5e9b80122e5b81be8b8f411e9b/cffi-1.12.1.tar.gz";
-        sha256 = "9b6f7ba4e78c52c1a291d0c0c0bd745d19adde1a9e1c03cb899f0c6efd6f8033";
+        url = "https://files.pythonhosted.org/packages/64/7c/27367b38e6cc3e1f49f193deb761fe75cda9f95da37b67b422e62281fcac/cffi-1.12.2.tar.gz";
+        sha256 = "e113878a446c6228669144ae8a56e268c91b7f1fafae927adc4879d9849e0ea7";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -427,10 +427,10 @@ let
     };
 
     "cryptography" = python.mkDerivation {
-      name = "cryptography-2.5";
+      name = "cryptography-2.6.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/69/ed/5e97b7f54237a9e4e6291b6e52173372b7fa45ca730d36ea90b790c0059a/cryptography-2.5.tar.gz";
-        sha256 = "4946b67235b9d2ea7d31307be9d5ad5959d6c4a8f98f900157b47abddf698401";
+        url = "https://files.pythonhosted.org/packages/07/ca/bc827c5e55918ad223d59d299fff92f3563476c3b00d0a9157d9c0217449/cryptography-2.6.1.tar.gz";
+        sha256 = "26c821cbeb683facb966045e2064303029d572a87ee69ca5a1bf54bf55f93ca6";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -571,8 +571,8 @@ let
       name = "kubecert-1.0";
       src = pkgs.fetchgit {
         url = "https://github.com/seppeljordan/kubecert";
-        sha256 = "1vpdcjasysz17dfr1ini9jw25cmhm2x1yh7rd9z9xk5ql1y5s1w7";
-        rev = "e9e089c71f970fba72cb495cd433549687a180cf";
+        sha256 = "1yjvck75c2hdbwyz6l4xgbcngbn1h7j06lmhbgmx8qhkv9lkbwy3";
+        rev = "7e65d5707a0136f63834fe16cf52e4819ec14067";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -587,10 +587,10 @@ let
     };
 
     "lxml" = python.mkDerivation {
-      name = "lxml-4.3.1";
+      name = "lxml-4.3.2";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/0f/bd/bb1464d1f363dbd805862c8a1ea258b9a4f4d2049c376d1c4790b6545691/lxml-4.3.1.tar.gz";
-        sha256 = "da5e7e941d6e71c9c9a717c93725cda0708c2474f532e3680ac5e39ec57d224d";
+        url = "https://files.pythonhosted.org/packages/65/6f/d070609b415f4a24bf36b7deb94bfd791e8d023c0dbf4233659af53fe0ab/lxml-4.3.2.tar.gz";
+        sha256 = "3a9d8521c89bf6f2a929c3d12ad3ad7392c774c327ea809fd08a13be6b3bc05f";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -640,11 +640,11 @@ let
     };
 
     "nix-prefetch-github" = python.mkDerivation {
-      name = "nix-prefetch-github-2.1";
+      name = "nix-prefetch-github-2.2";
       src = pkgs.fetchgit {
         url = "https://github.com/seppeljordan/nix-prefetch-github";
-        sha256 = "16s1rppqn3yn4syf1jgcn6vrrcdijk9lqg0jqnxs9wwx17821nm4";
-        rev = "976e11991144c3706c61181e1c1c225cfea2a8a4";
+        sha256 = "1m1d1fzacvwprfvhxih1hzr1m0y1jjxiznf8p8b3bi5a41yzvrrl";
+        rev = "9ce3bcc3610ffeb36f53bc690682f48c8d311764";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];

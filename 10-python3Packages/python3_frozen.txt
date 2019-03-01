@@ -5,10 +5,10 @@ attrs==18.2.0
 Babel==2.6.0
 bcrypt==3.1.6
 certifi==2018.11.29
-cffi==1.12.1
+cffi==1.12.2
 chardet==3.0.4
 Click==7.0
-cryptography==2.5
+cryptography==2.6.1
 dbus-python==1.2.8
 docutils==0.14
 effect==0.12.0
@@ -19,11 +19,11 @@ itsdangerous==1.1.0
 Jinja2==2.10
 jinja2-cli==0.6.0
 kubecert==1.0
-lxml==4.3.1
+lxml==4.3.2
 MarkupSafe==1.1.1
 more-itertools==6.0.0
 nix-helpers==1.0
-nix-prefetch-github==2.1
+nix-prefetch-github==2.2
 nix-pureos==1.0
 packaging==19.0
 paramiko==2.4.2
