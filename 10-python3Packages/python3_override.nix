@@ -24,7 +24,7 @@ setLanguage = drv: drv.overrideDerivation( old:
     LC_ALL = "en_US.UTF-8";
   });
 
-addBuildInputs = packages: drv: drv.overrideDerivation( old:
+addBuildInputs = packages: drv: drv.overridePythonAttrs( old:
   {
     buildInputs = old.buildInputs ++
       builtins.map (x: self."${x}") packages;
@@ -45,13 +45,16 @@ in
 
   "py" = addBuildInputs ["setuptools-scm"] super."py";
 
-  "parsemon2" = super.parsemon2.overrideDerivation( old:
+  "parsemon2" = (addBuildInputs ["Sphinx"] super.parsemon2).overridePythonAttrs( old:
     {
-      postPhases = [ "buildDocsPhase" "installDocsPhase" ];
-      buildInputs = old.buildInputs ++ [ self."Sphinx" ];
+      preBuildPhases = [ "buildDocsPhase" ];
+      preInstallPhases = [ "buildDocsPhase" "installDocsPhase" ];
       buildDocsPhase = ''
+        OLD_PATH="$PATH"
+        export PATH=${self.Sphinx}/bin:$PATH
         export LC_ALL=C
         make man
+        export PATH="$OLD_PATH"
       '';
       installDocsPhase = ''
         mkdir -p $out/share/man/man3
