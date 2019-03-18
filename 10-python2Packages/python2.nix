@@ -95,7 +95,10 @@ let
         sha256 = "c5906ca35545a996cddeaa7e3b047bed400963a6869c917cc5558511fe0f04e6";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/aszlig/hetzner";

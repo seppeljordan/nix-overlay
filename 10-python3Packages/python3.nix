@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -V 3 -v -E libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection --setup-requires pycairo -r python3.txt --default-overrides --basename python3
+#   pypi2nix -V 3 -v -E libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection --setup-requires pycairo --setup-requires setuptools-scm -r python3.txt --default-overrides --basename python3
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -95,7 +95,10 @@ let
         sha256 = "8cba50f48c529ca3fa18cf81fa9403be176d374ac4d60738b839122dfaaa3d23";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."pytz"
       ];
@@ -113,7 +116,10 @@ let
         sha256 = "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://palletsprojects.com/p/click/";
@@ -129,7 +135,10 @@ let
         sha256 = "2271c0070dbcb5275fad4a82e29f23ab92682dc45f9dfbc22c02ba9b9322ce48";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."Click"
         self."Jinja2"
@@ -150,7 +159,10 @@ let
         sha256 = "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."Babel"
         self."MarkupSafe"
@@ -169,7 +181,10 @@ let
         sha256 = "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://palletsprojects.com/p/markupsafe/";
@@ -179,13 +194,16 @@ let
     };
 
     "PyGObject" = python.mkDerivation {
-      name = "PyGObject-3.30.4";
+      name = "PyGObject-3.32.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/8c/1f/76533985b054473ef6ab1ba4d9c00d62da502f8b43d3171ae588ec81ae93/PyGObject-3.30.4.tar.gz";
-        sha256 = "2d4423cbf169d50a3165f2dde21478a00215c7fb3f68d9d236af588c670980bb";
+        url = "https://files.pythonhosted.org/packages/0b/fd/56ac6898afc5c7f5718026103bd8f0b44714b6f79ac20d7eb8990c9a7eab/PyGObject-3.32.0.tar.gz";
+        sha256 = "a4d6f6d8e688d28e07119fc83aabc6e7aad02057f48b2194089959d03654f695";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."pycairo"
       ];
@@ -203,7 +221,10 @@ let
         sha256 = "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."cffi"
         self."six"
@@ -216,16 +237,19 @@ let
     };
 
     "PyYAML" = python.mkDerivation {
-      name = "PyYAML-3.13";
+      name = "PyYAML-5.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz";
-        sha256 = "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf";
+        url = "https://files.pythonhosted.org/packages/9f/2c/9417b5c774792634834e730932745bc09a7d36754ca00acf1ccd1ac2594d/PyYAML-5.1.tar.gz";
+        sha256 = "436bc774ecf7c103814098159fbb84c2715d25980175292c648f2da143909f95";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "http://pyyaml.org/wiki/PyYAML";
+        homepage = "https://github.com/yaml/pyyaml";
         license = licenses.mit;
         description = "YAML parser and emitter for Python";
       };
@@ -238,7 +262,10 @@ let
         sha256 = "5ffada19f6203563680669ee7f53b64dabbeb100eb51b61996085e99c03b284a";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "http://pygments.org/";
@@ -248,13 +275,16 @@ let
     };
 
     "Sphinx" = python.mkDerivation {
-      name = "Sphinx-1.8.4";
+      name = "Sphinx-1.8.5";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/dd/f8/df628d41f42793d446285767164c6a8da71d82892f2c98c43e0523836d39/Sphinx-1.8.4.tar.gz";
-        sha256 = "c1c00fc4f6e8b101a0d037065043460dffc2d507257f2f11acaed71fd2b0c83c";
+        url = "https://files.pythonhosted.org/packages/2a/86/8e1e8400bb6eca5ed960917952600fce90599e1cb0d20ddedd81ba163370/Sphinx-1.8.5.tar.gz";
+        sha256 = "c7658aab75c920288a8cf6f09f244c6cfdae30d82d803ac1634d9f223a80ca08";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."Babel"
         self."Jinja2"
@@ -282,7 +312,10 @@ let
         sha256 = "c3fd7a7d41976d9f44db327260e263132466836cef6f91512889ed60ad26557c";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."termcolor"
       ];
@@ -300,7 +333,10 @@ let
         sha256 = "a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://alabaster.readthedocs.io";
@@ -316,7 +352,10 @@ let
         sha256 = "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/wbond/asn1crypto";
@@ -332,7 +371,10 @@ let
         sha256 = "75a9445bac02d8d058d5e1fe689654ba5a6556a1dfd8ce6ec55a0ed79866cfa6";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/untitaker/python-atomicwrites";
@@ -342,13 +384,16 @@ let
     };
 
     "attrs" = python.mkDerivation {
-      name = "attrs-18.2.0";
+      name = "attrs-19.1.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/0f/9e/26b1d194aab960063b266170e53c39f73ea0d0d3f5ce23313e0ec8ee9bdf/attrs-18.2.0.tar.gz";
-        sha256 = "10cbf6e27dbce8c30807caf056c8eb50917e0eaafe86347671b57254006c3e69";
+        url = "https://files.pythonhosted.org/packages/cc/d9/931a24cc5394f19383fbbe3e1147a0291276afa43a0dc3ed0d6cd9fda813/attrs-19.1.0.tar.gz";
+        sha256 = "f0b870f674851ecbfbbbd364d6b5cbdff9dcedbc7f3f5e18a6891057f21fe399";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://www.attrs.org/";
@@ -364,7 +409,10 @@ let
         sha256 = "44636759d222baa62806bbceb20e96f75a015a6381690d1bc2eda91c01ec02ea";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."cffi"
         self."six"
@@ -377,13 +425,16 @@ let
     };
 
     "certifi" = python.mkDerivation {
-      name = "certifi-2018.11.29";
+      name = "certifi-2019.3.9";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/55/54/3ce77783acba5979ce16674fc98b1920d00b01d337cfaaf5db22543505ed/certifi-2018.11.29.tar.gz";
-        sha256 = "47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7";
+        url = "https://files.pythonhosted.org/packages/06/b8/d1ea38513c22e8c906275d135818fee16ad8495985956a9b7e2bb21942a1/certifi-2019.3.9.tar.gz";
+        sha256 = "b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://certifi.io/";
@@ -399,7 +450,10 @@ let
         sha256 = "e113878a446c6228669144ae8a56e268c91b7f1fafae927adc4879d9849e0ea7";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."pycparser"
       ];
@@ -417,7 +471,10 @@ let
         sha256 = "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/chardet/chardet";
@@ -433,7 +490,10 @@ let
         sha256 = "26c821cbeb683facb966045e2064303029d572a87ee69ca5a1bf54bf55f93ca6";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."asn1crypto"
         self."cffi"
@@ -454,7 +514,10 @@ let
         sha256 = "abf12bbb765e300bf8e2a1b2f32f85949eab06998dbda127952c31cb63957b6f";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "http://www.freedesktop.org/wiki/Software/DBusBindings/#python";
@@ -470,7 +533,10 @@ let
         sha256 = "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "http://docutils.sourceforge.net/";
@@ -486,7 +552,10 @@ let
         sha256 = "f43322b269b2dca0c15856f090b9167d8499bf474ec64696c80a508299d51f69";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."attrs"
         self."six"
@@ -505,7 +574,10 @@ let
         sha256 = "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/kjd/idna";
@@ -521,7 +593,10 @@ let
         sha256 = "f3832918bc3c66617f92e35f5d70729187676313caa60c187eb0f28b8fe5e3b5";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/shibukawa/imagesize_py";
@@ -537,7 +612,10 @@ let
         sha256 = "321b033d07f2a4136d3ec762eac9f16a10ccd60f53c0c91af90217ace7ba1f19";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://palletsprojects.com/p/itsdangerous/";
@@ -553,7 +631,10 @@ let
         sha256 = "4b1be17ce8a8f133df02205c3f0d3ebfc3a68e795d26987f846a2316636427b7";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."Jinja2"
         self."PyYAML"
@@ -575,7 +656,10 @@ let
         rev = "7e65d5707a0136f63834fe16cf52e4819ec14067";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."effect"
       ];
@@ -593,7 +677,10 @@ let
         sha256 = "3a9d8521c89bf6f2a929c3d12ad3ad7392c774c327ea809fd08a13be6b3bc05f";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "http://lxml.de/";
@@ -609,7 +696,10 @@ let
         sha256 = "590044e3942351a1bdb1de960b739ff4ce277960f2425ad4509446dbace8d9d1";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/erikrose/more-itertools";
@@ -626,7 +716,10 @@ let
         rev = "8e8a988acba86fd5184e0a429720918a4fe2704a";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."Click"
         self."Jinja2"
@@ -647,7 +740,10 @@ let
         rev = "9ce3bcc3610ffeb36f53bc690682f48c8d311764";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."Click"
         self."Jinja2"
@@ -670,7 +766,10 @@ let
         rev = "46d7987231ac1ef7a110b2f8881aab25d4c2c128";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."Click"
         self."pydbus"
@@ -690,7 +789,10 @@ let
         sha256 = "0c98a5d0be38ed775798ece1b9727178c4469d9c3b4ada66e8e6b7849f8732af";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."pyparsing"
         self."six"
@@ -709,7 +811,10 @@ let
         sha256 = "a8975a7df3560c9f1e2b43dc54ebd40fd00a7017392ca5445ce7df409f900fcb";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."PyNaCl"
         self."bcrypt"
@@ -727,11 +832,14 @@ let
       name = "parsemon2-3.0";
       src = pkgs.fetchgit {
         url = "https://github.com/seppeljordan/parsemon2";
-        sha256 = "075wl6ixsbvlqnr4sjvgwinsf5px1kz3fpahays5186y21ml5a0i";
-        rev = "2acee2270fc719874ed6a3af6174e63c7f1e26e6";
+        sha256 = "16w9fj2dr685dk1w0nd5v1pq0xr11fmw5q78f1gfl9d5rrpxclvb";
+        rev = "5ed135b6d8b2e86505a4db5aaa6a3407dfacdcd1";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."attrs"
       ];
@@ -749,7 +857,10 @@ let
         sha256 = "19ecf9ce9db2fce065a7a0586e07cfb4ac8614fe96edf628a264b1c70116cf8f";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/pytest-dev/pluggy";
@@ -765,7 +876,16 @@ let
         sha256 = "dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [
+        self."setuptools-scm"
+      ];
       buildInputs = commonBuildInputs ++ [
+        self."setuptools-scm"
+      ];
+      nativeBuildInputs = commonBuildInputs ++ [
+        self."setuptools-scm"
+      ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [
         self."setuptools-scm"
       ];
       propagatedBuildInputs = [ ];
@@ -783,7 +903,10 @@ let
         sha256 = "da2420fe13a9452d8ae97a0e478adde1dee153b11ba832a95b223a2ba01c10f7";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/etingof/pyasn1";
@@ -799,7 +922,10 @@ let
         sha256 = "abd42a4c9c2069febb4c38fe74bfc4b4a9d3a89fea3bc2e4ba7baff7a20f783f";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://pycairo.readthedocs.io";
@@ -815,7 +941,10 @@ let
         sha256 = "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/eliben/pycparser";
@@ -831,7 +960,10 @@ let
         sha256 = "4207162eff54223822c185da06c1ba8a34137a9602f3da5a528eedf3f78d0f2c";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/LEW21/pydbus";
@@ -848,7 +980,10 @@ let
         rev = "e8a46298a592ad9037587afb707ac75b3114eff9";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."PyYAML"
         self."requests"
@@ -869,7 +1004,10 @@ let
         sha256 = "66c9268862641abcac4a96ba74506e594c884e3f57690a696d21ad8210ed667a";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/pyparsing/pyparsing/";
@@ -882,11 +1020,14 @@ let
       name = "pypi2nix-2.0.0";
       src = pkgs.fetchgit {
         url = "https://github.com/garbas/pypi2nix";
-        sha256 = "0nrz4863infjwipn3lgac42f4y3ld7045ls2q9z4z4x50xk7p4zm";
-        rev = "0498dac1c6c5ee445ed23056af0efb3e2358358d";
+        sha256 = "0yaxdv9j82ihhr1cp76hfwdm2apidygznyyc77kck82awda9zi1z";
+        rev = "9a8eff045dcd8cd24badcf2e56048b0d513628eb";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."Click"
         self."Jinja2"
@@ -901,13 +1042,16 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-4.3.0";
+      name = "pytest-4.3.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/7c/02/b35c0a322e332544716a0c598f8208ba3474fa94706183c26465d833b283/pytest-4.3.0.tar.gz";
-        sha256 = "067a1d4bf827ffdd56ad21bd46674703fce77c5957f6c1eef731f6146bfcef1c";
+        url = "https://files.pythonhosted.org/packages/c9/ff/e353dff7987c3a6ccb0cecb1c148c7b276c235f80f7017d181d19e2b4710/pytest-4.3.1.tar.gz";
+        sha256 = "592eaa2c33fae68c7d75aacf042efc9f77b27c08a6224a4f59beab8d9a420523";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."atomicwrites"
         self."attrs"
@@ -931,7 +1075,10 @@ let
         sha256 = "d5f05e487007e29e03409f9398d074e158d920d36eb82eaf66fb1136b0c5374c";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "http://pythonhosted.org/pytz";
@@ -947,7 +1094,10 @@ let
         sha256 = "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."certifi"
         self."chardet"
@@ -969,7 +1119,10 @@ let
         sha256 = "52ab47715fa0fc7d8e6cd15168d1a69ba995feb1505131c3e814eb7087b57358";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/pypa/setuptools_scm/";
@@ -985,7 +1138,10 @@ let
         sha256 = "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/benjaminp/six";
@@ -1001,7 +1157,10 @@ let
         sha256 = "919f26a68b2c17a7634da993d91339e288964f93c274f1343e3bbbe2096e1128";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/shibukawa/snowball_py";
@@ -1017,7 +1176,10 @@ let
         sha256 = "9de47f375baf1ea07cdb3436ff39d7a9c76042c10a769c52353ec46e4e8fc3b9";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "http://sphinx-doc.org/";
@@ -1033,7 +1195,10 @@ let
         sha256 = "8d034dcd9487fa0d280e0ec855d08420f51d5f9f2249f932e3c12119eaa53453";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."Flask"
         self."paramiko"
@@ -1047,25 +1212,6 @@ let
       };
     };
 
-    "svm-kubernetes-utils" = python.mkDerivation {
-      name = "svm-kubernetes-utils-0.1";
-      src = pkgs.fetchhg {
-        url = "https://bitbucket.org/schneevonmorgen/kubernetes-utils";
-        sha256 = "0ihrwwzx3cwzq0qrh9dhyardy1900hzpms25b7qpb2b1cglyilfq";
-        rev = "bf79593451ff";
-      };
-      doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
-      propagatedBuildInputs = [
-        self."pykube"
-      ];
-      meta = with pkgs.stdenv.lib; {
-        homepage = "https://bitbucket.org/schneevonmorgen/kubernetes-utils";
-        license = "UNKNOWN";
-        description = "Utility for applications running on kubernetes";
-      };
-    };
-
     "termcolor" = python.mkDerivation {
       name = "termcolor-1.1.0";
       src = pkgs.fetchurl {
@@ -1073,7 +1219,10 @@ let
         sha256 = "1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "http://pypi.python.org/pypi/termcolor";
@@ -1089,7 +1238,10 @@ let
         sha256 = "229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/uiri/toml";
@@ -1105,7 +1257,10 @@ let
         sha256 = "4ebeb848845ac898da6519b9b31879cf13b6626f7184c496037b818e238f2c4e";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."pytz"
       ];
@@ -1123,7 +1278,10 @@ let
         sha256 = "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."certifi"
         self."cryptography"
@@ -1143,7 +1301,10 @@ let
         sha256 = "7ce9fc52cee0f8e31d0beb0f29e102f23725c0c470aee447d907e1999ffda7b7";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/srstevenson/xdg";
@@ -1159,7 +1320,10 @@ let
         sha256 = "8f8d7d40aa28d83f4109a7e8aa86e67a4df202d9538be40c0cb1d70da527b0df";
       };
       doCheck = commonDoCheck;
+      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
+      nativeBuildInputs = commonBuildInputs ++ [ ];
+      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/martinblech/xmltodict";

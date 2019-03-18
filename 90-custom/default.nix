@@ -36,7 +36,8 @@ in
   };
   haskellEnv = self.haskellPackages.ghcWithHoogle
                (p: with p; [
-                 argparser
+                 # currently broken
+                 # argparser
                  base
                  cabal-install
                  doctest

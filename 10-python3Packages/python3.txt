@@ -12,7 +12,7 @@ requests
 sphinx
 stormssh
 toml
-xdg
+xdg==3.0.2
 xmltodict==0.11.0
 setuptools-scm
 
@@ -23,4 +23,3 @@ git+https://github.com/seppeljordan/nix-prefetch-github#egg=nix-prefetch-github
 git+https://github.com/seppeljordan/nix-pureos#egg=nix-pureos
 git+https://github.com/seppeljordan/parsemon2#egg=parsemon2
 git+https://github.com/seppeljordan/pykube#egg=pykube
-hg+https://bitbucket.org/schneevonmorgen/kubernetes-utils#egg=svm-kubernetes-utils
