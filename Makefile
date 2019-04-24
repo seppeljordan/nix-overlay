@@ -12,7 +12,6 @@ update: \
 	update-node-packages \
 	update-pypiPackages2 \
 	update-pypiPackages3 \
-	update-riemann \
 	update-winetricks
 
 update-nixpkgs-python:
@@ -26,8 +25,7 @@ test: \
 	test-python3-build \
 	test-emacs \
 	test-haskell-env \
-	test-geimskell \
-	test-riemann-tools
+	test-geimskell
 
 test-geimskell:
 	nix build -f tests/test-geimskell.nix
@@ -49,9 +47,6 @@ test-haskell-env:
 
 test-emacs:
 	nix build -f tests/test-emacs.nix
-
-test-riemann-tools:
-	nix build -f tests/test-riemann-tools.nix
 
 update-htiled:
 	mkdir -p 90-custom/htiled
@@ -94,9 +89,6 @@ update-node-packages:
 	cd 90-custom/node-packages && \
 		node2nix -6 -i pkgs.json -o pkgs.nix
 
-update-riemann:
-	cd 90-custom/riemann-tools && ./generate-gemset
-
 # -A pypiPackages3.packages.pypi2nix
 pypi2nix-exec/bin/pypi2nix:
 	nix-build '<nixpkgs>' \
@@ -113,11 +105,9 @@ pypi2nix-exec/bin/pypi2nix:
 	test-haskell-env \
 	test-python2-build \
 	test-python3-build \
-	test-riemann-tools \
 	update \
 	update-nixpkgs-python \
 	update-node-packages \
 	update-pypiPackages2 \
 	update-pypiPackages3 \
-	update-winetricks \
-	update-riemann
+	update-winetricks
