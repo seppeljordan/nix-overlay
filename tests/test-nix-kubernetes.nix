@@ -1,2 +1,2 @@
 with import <nixpkgs> {};
-riemann-tools
+nix-kubernetes

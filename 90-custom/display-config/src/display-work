@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-xrandr --output LVDS1 --below VGA1 --output VGA1 --auto --primary
+xrandr --output LVDS1 --below VGA1 --output HDMI1 --auto --primary
 FEH_FILE=$HOME/.fehbg
 if [ -e ${FEH_FILE} ]; then sh ${FEH_FILE}; fi

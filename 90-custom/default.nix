@@ -87,14 +87,14 @@ in
       });
     in
       (useCustomSource (useWineWow super.winetricks));
-  customNodePackages = import ./node-packages { pkgs = self; };
-  nix-kubernetes = self.customNodePackages."nix-kubernetes-git+https://github.com/seppeljordan/nix-kubernetes.git";
-  nixops = super.nixops.overrideDerivation (
-    old: {
-      patchPhase = ''
-        substituteInPlace nix/eval-machine-info.nix \
-            --replace 'system.nixosVersion' 'system.nixos.version'
-      '';
-    }
-  );
+    nix-prefetch-github = super.nix-prefetch-github.overrideDerivation( old: rec {
+      name = "nix-prefetch-github-${version}";
+      version = "2.3";
+      src = super.fetchFromGitHub {
+        owner = "seppeljordan";
+        repo = "nix-prefetch-github";
+        rev = "v${version}";
+        sha256 = "0b2hgfyxhlqq6lyi5cr98dz6if5kl6b3kq67f2lzfkalydywl1dh";
+      };
+    });
 }

@@ -25,7 +25,12 @@ test: \
 	test-python3-build \
 	test-emacs \
 	test-haskell-env \
-	test-geimskell
+	test-geimskell \
+	test-nix-kubernetes \
+	test-nix-prefetch-github
+
+test-nix-kubernetes:
+	nix build -f tests/test-nix-kubernetes.nix
 
 test-geimskell:
 	nix build -f tests/test-geimskell.nix
@@ -47,6 +52,9 @@ test-haskell-env:
 
 test-emacs:
 	nix build -f tests/test-emacs.nix
+
+test-nix-prefetch-github:
+	nix build -f tests/test-nix-prefetch-github.nix
 
 update-htiled:
 	mkdir -p 90-custom/htiled
@@ -86,8 +94,8 @@ update-winetricks:
 		nix-prefetch-github Winetricks winetricks > source.json
 
 update-node-packages:
-	cd 90-custom/node-packages && \
-		node2nix -6 -i pkgs.json -o pkgs.nix
+	cd 20-node-packages/node-packages && \
+		node2nix -8 -i pkgs.json -o pkgs.nix
 
 # -A pypiPackages3.packages.pypi2nix
 pypi2nix-exec/bin/pypi2nix:
@@ -105,6 +113,7 @@ pypi2nix-exec/bin/pypi2nix:
 	test-haskell-env \
 	test-python2-build \
 	test-python3-build \
+	test-nix-kubernetes \
 	update \
 	update-nixpkgs-python \
 	update-node-packages \

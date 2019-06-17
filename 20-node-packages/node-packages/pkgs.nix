@@ -31,13 +31,13 @@ let
         sha1 = "89b4d199ab2bee49de164ea02b89ce462d71b767";
       };
     };
-    "bluebird-3.5.4" = {
+    "bluebird-3.5.5" = {
       name = "bluebird";
       packageName = "bluebird";
-      version = "3.5.4";
+      version = "3.5.5";
       src = fetchurl {
-        url = "https://registry.npmjs.org/bluebird/-/bluebird-3.5.4.tgz";
-        sha512 = "FG+nFEZChJrbQ9tIccIfZJBz3J7mLrAhxakAbnrJWn8d7aKOC+LWifa0G+p4ZqKp4y13T7juYvdhq9NzKdsrjw==";
+        url = "https://registry.npmjs.org/bluebird/-/bluebird-3.5.5.tgz";
+        sha512 = "5am6HnnfN+urzt4yfg7IgTbotDjIT/u8AJpEt0sIU9FtXfVeezXAPKswrG+xKUCOYAINpSdgZVDU6QFh+cuH3w==";
       };
     };
     "bluebird-retry-0.5.3" = {
@@ -166,13 +166,13 @@ let
         sha512 = "3t6rVToeoZfYSGd8YoLFR2DJkiQrIiUrGcjvFX2mDw3bn6k2OtwHN0TNCLbBO+w8qTvimhDkv+LSscbJY1vE6w==";
       };
     };
-    "glob-7.1.3" = {
+    "glob-7.1.4" = {
       name = "glob";
       packageName = "glob";
-      version = "7.1.3";
+      version = "7.1.4";
       src = fetchurl {
-        url = "https://registry.npmjs.org/glob/-/glob-7.1.3.tgz";
-        sha512 = "vcfuiIxogLV4DlGBHIUOwI0IbrJ8HWPc4MU7HzviGeNho/UJDfi6B5p3sHeWIQ0KGIU0Jpxi5ZHxemQfLkkAwQ==";
+        url = "https://registry.npmjs.org/glob/-/glob-7.1.4.tgz";
+        sha512 = "hkLPepehmnKk41pUGm3sYxoFs/umurYfYJCerbXEyFIWcAzvpipAgVkBqqT9RBKMGjnq6kMuyYwha6csxbiM1A==";
       };
     };
     "graceful-fs-4.1.15" = {
@@ -472,13 +472,13 @@ let
         sha1 = "97f717b69d48784f5f526a6c5aa8ffdda055a4d1";
       };
     };
-    "resolve-1.10.1" = {
+    "resolve-1.11.1" = {
       name = "resolve";
       packageName = "resolve";
-      version = "1.10.1";
+      version = "1.11.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/resolve/-/resolve-1.10.1.tgz";
-        sha512 = "KuIe4mf++td/eFb6wkaPbMDnP6kObCaEtIDuHOUED6MNUo4K670KZUHuuvYPZDxNF0WVLw49n06M2m2dXphEzA==";
+        url = "https://registry.npmjs.org/resolve/-/resolve-1.11.1.tgz";
+        sha512 = "vIpgF6wfuJOZI7KKKSP+HmiKggadPQAdsp5HiC1mvqnfp0gF1vdwgBWZIdrVft9pgqoMFQN+R7BSWZiBxx+BBw==";
       };
     };
     "semver-5.7.0" = {
@@ -677,7 +677,7 @@ in
       sources."ansi-regex-2.1.1"
       sources."argparse-1.0.10"
       sources."balanced-match-1.0.0"
-      sources."bluebird-3.5.4"
+      sources."bluebird-3.5.5"
       sources."bluebird-retry-0.5.3"
       sources."brace-expansion-1.1.11"
       sources."camelcase-3.0.0"
@@ -696,7 +696,7 @@ in
       sources."find-up-1.1.2"
       sources."fs.realpath-1.0.0"
       sources."get-caller-file-1.0.3"
-      sources."glob-7.1.3"
+      sources."glob-7.1.4"
       sources."graceful-fs-4.1.15"
       sources."hoek-3.0.4"
       sources."hosted-git-info-2.7.1"
@@ -729,7 +729,7 @@ in
       sources."read-pkg-up-1.0.1"
       sources."require-directory-2.1.1"
       sources."require-main-filename-1.0.1"
-      sources."resolve-1.10.1"
+      sources."resolve-1.11.1"
       sources."semver-5.7.0"
       sources."set-blocking-2.0.0"
       sources."spdx-correct-3.1.0"
@@ -758,6 +758,6 @@ in
       license = "MIT";
     };
     production = true;
-    bypassCache = false;
+    bypassCache = true;
   };
 }
