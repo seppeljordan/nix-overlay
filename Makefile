@@ -97,10 +97,10 @@ update-node-packages:
 	cd 20-node-packages/node-packages && \
 		node2nix -8 -i pkgs.json -o pkgs.nix
 
-# -A pypiPackages3.packages.pypi2nix
+# '<nixpkgs>' -A pypiPackages.packages.pypi2nix
 pypi2nix-exec/bin/pypi2nix:
-	nix-build '<nixpkgs>' \
-		-A pypiPackages.packages.pypi2nix \
+	nix-build \
+		https://github.com/seppeljordan/pypi2nix/archive/refactor-tests.tar.gz \
 		-o pypi2nix-exec --show-trace
 
 
