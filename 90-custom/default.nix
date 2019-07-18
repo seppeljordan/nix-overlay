@@ -55,7 +55,6 @@ in
     (p: with p; [
       adoc-mode
       clojure-mode
-      nix-sandbox
       cssh
       dockerfile-mode
       elm-mode
@@ -68,10 +67,12 @@ in
       magit
       markdown-mode
       nix-mode
+      nix-sandbox
       nyan-mode
       paredit
       projectile
       py-isort
+      racer
       rust-mode
       scala-mode
       xresources-theme
