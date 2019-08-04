@@ -100,7 +100,7 @@ update-node-packages:
 # '<nixpkgs>' -A pypiPackages.packages.pypi2nix
 pypi2nix-exec/bin/pypi2nix:
 	nix-build \
-		https://github.com/seppeljordan/pypi2nix/archive/refactor-tests.tar.gz \
+		https://github.com/nix-community/pypi2nix/archive/master.tar.gz \
 		-o pypi2nix-exec --show-trace
 
 
