@@ -2,7 +2,7 @@
 # See more at: https://github.com/nix-community/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -V 3 -v -E 'libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection' --setup-requires pycairo --setup-requires setuptools-scm -r python3.txt --default-overrides --basename python3
+#   pypi2nix -V 3 -E 'libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection' --setup-requires pycairo --setup-requires setuptools-scm -r python3.txt --default-overrides --basename python3
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -349,7 +349,7 @@ let
       ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://palletsprojects.com/p/flask/";
-        license = "BSD-3-Clause";
+        license = licenses.bsd3;
         description = "A simple framework for building complex web applications.";
       };
     };
@@ -482,10 +482,10 @@ let
     };
 
     "lxml" = python.mkDerivation {
-      name = "lxml-4.4.0";
+      name = "lxml-4.4.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/e1/f5/5eb3b491958dcfdcfa5daae3c655ab59276bc216ca015e44743c9c220e9e/lxml-4.4.0.tar.gz";
-        sha256 = "3b57dc5ed7b6a7d852c961f2389ca99404c2b59fd2088baec6fbaca02f688be4";
+        url = "https://files.pythonhosted.org/packages/c4/43/3f1e7d742e2a7925be180b6af5e0f67d38de2f37560365ac1a0b9a04c015/lxml-4.4.1.tar.gz";
+        sha256 = "c81cb40bff373ab7a7446d6bbca0190bccc5be3448b47b51d729e37799bb5692";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -508,7 +508,7 @@ let
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://palletsprojects.com/p/markupsafe/";
-        license = "BSD-3-Clause";
+        license = licenses.bsd3;
         description = "Safely add untrusted strings to HTML/XML markup.";
       };
     };
@@ -573,8 +573,8 @@ let
       name = "nix-prefetch-github-2.3";
       src = pkgs.fetchgit {
         url = "https://github.com/seppeljordan/nix-prefetch-github";
-        sha256 = "0mwwdnj5hwc01yxy6nyq8pcvlfi6cls0xq8n2rif5kbqbqy353rc";
-        rev = "cd9708fcdf033874451a879ac5fe68d7df930b7e";
+        sha256 = "1nh136ir5q9j84wjcrn9qvw8v3vdpmdayfhq8z853yl4wljmcxfb";
+        rev = "f043e83500a65729110f61b371ff89f079725326";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -699,7 +699,7 @@ let
       ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/pytest-dev/pluggy";
-        license = "MIT license";
+        license = licenses.mit;
         description = "plugin and hook calling mechanisms for python";
       };
     };
@@ -731,7 +731,7 @@ let
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "http://py.readthedocs.io/";
-        license = "MIT license";
+        license = licenses.mit;
         description = "library with cross-python path, ini-parsing, io, code, log facilities";
       };
     };
@@ -883,8 +883,8 @@ let
       name = "pypi2nix-2.0.0";
       src = pkgs.fetchgit {
         url = "https://github.com/nix-community/pypi2nix";
-        sha256 = "1sz793nczkkvdzjkj0kciia12n83bqhsvy81lj7zsdii409d1jsj";
-        rev = "b931d82518eadaeee6dd3486bd8737555b3c9c5c";
+        sha256 = "0gfkx95ki3icsw9z5mdpynn1j9qrn20q17hyl282m4ka0b1vvkd6";
+        rev = "0107762cec6f4ae78674b650509e6f34f37e50e4";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -906,10 +906,10 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-5.0.1";
+      name = "pytest-5.1.2";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/60/23/de5604e58f4eba7a90f70486c8d4ece25f1a404bae29683903ffd2aea425/pytest-5.0.1.tar.gz";
-        sha256 = "6ef6d06de77ce2961156013e9dff62f1b2688aa04d0dc244299fe7d67e09370d";
+        url = "https://files.pythonhosted.org/packages/c3/66/228ce6dca2b4d2cd5f9c1244aca14e0b13c31e4dbdf39294e782a1c78f12/pytest-5.1.2.tar.gz";
+        sha256 = "b78fe2881323bd44fd9bd76e5317173d4316577e7b1cddebae9136a4495ec865";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [
@@ -928,7 +928,7 @@ let
       ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://docs.pytest.org/en/latest/";
-        license = "MIT license";
+        license = licenses.mit;
         description = "pytest: simple powerful testing with Python";
       };
     };
@@ -1057,10 +1057,10 @@ let
     };
 
     "sphinx" = python.mkDerivation {
-      name = "sphinx-2.1.2";
+      name = "sphinx-2.2.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/89/1e/64c77163706556b647f99d67b42fced9d39ae6b1b86673965a2cd28037b5/Sphinx-2.1.2.tar.gz";
-        sha256 = "f9a79e746b87921cabc3baa375199c6076d1270cee53915dbd24fdbeaaacc427";
+        url = "https://files.pythonhosted.org/packages/76/42/a4465a0080e545cd152f7d3f16229d5e1300183fcb1067e4ec7e639b8605/Sphinx-2.2.0.tar.gz";
+        sha256 = "0d586b0f8c2fc3cc6559c5e8fd6124628110514fda0e5d7c82e682d749d2e845";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -1322,7 +1322,7 @@ let
       ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://palletsprojects.com/p/werkzeug/";
-        license = "BSD-3-Clause";
+        license = licenses.bsd3;
         description = "The comprehensive WSGI web application library.";
       };
     };
@@ -1363,16 +1363,18 @@ let
     };
 
     "zipp" = python.mkDerivation {
-      name = "zipp-0.5.2";
+      name = "zipp-0.6.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/66/ae/1d6693cde3b3e3c14e95cf3408f24d0e869ead42a79993b611d8817d929a/zipp-0.5.2.tar.gz";
-        sha256 = "4970c3758f4e89a7857a973b1e2a5d75bcdc47794442f2e2dd4fe8e0466e809a";
+        url = "https://files.pythonhosted.org/packages/57/dd/585d728479d97d25aeeb9aa470d36a4ad8d0ba5610f84e14770128ce6ff7/zipp-0.6.0.tar.gz";
+        sha256 = "3718b1cbcd963c7d4c5511a8240812904164b7f381b647143a89d3b98f9bcd8e";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [
         self."setuptools-scm"
       ];
-      propagatedBuildInputs = [ ];
+      propagatedBuildInputs = [
+        self."more-itertools"
+      ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/jaraco/zipp";
         license = "UNKNOWN";

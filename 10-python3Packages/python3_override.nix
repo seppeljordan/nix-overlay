@@ -74,4 +74,6 @@ in
   "zipp" = addBuildInputs ["setuptools-scm"] super."zipp";
 
   "importlib-metadata" = addBuildInputs ["setuptools-scm"] super."importlib-metadata";
+
+  # "cymem" = addBuildInputs ["wheel"] super."cymem";
 }

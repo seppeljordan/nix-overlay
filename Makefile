@@ -72,7 +72,6 @@ update-sdl2-compositor:
 update-pypiPackages3:
 	cd 10-python3Packages && $(PYPI2NIX) \
 		-V 3 \
-		-v \
 		-E "libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection" \
 		--setup-requires 'pycairo' \
 		--setup-requires 'setuptools-scm' \

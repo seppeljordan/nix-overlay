@@ -42,7 +42,7 @@ jinja2-cli==0.7.0
 
 kubecert==1.0
 
-lxml==4.4.0
+lxml==4.4.1
 
 MarkupSafe==1.1.1
 
@@ -88,7 +88,7 @@ pyparsing==2.4.2
 
 pypi2nix==2.0.0
 
-pytest==5.0.1
+pytest==5.1.2
 
 pytz==2019.2
 
@@ -104,7 +104,7 @@ six==1.12.0
 
 snowballstemmer==1.9.0
 
-Sphinx==2.1.2
+Sphinx==2.2.0
 
 sphinxcontrib-applehelp==1.0.1
 
@@ -138,4 +138,4 @@ write==2019.4.13
 
 xmltodict==0.12.0
 
-zipp==0.5.2
+zipp==0.6.0
