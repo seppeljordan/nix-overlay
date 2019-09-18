@@ -2,7 +2,7 @@
 # See more at: https://github.com/nix-community/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -V 3 -E 'libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection' --setup-requires pycairo --setup-requires setuptools-scm -r python3.txt --default-overrides --basename python3
+#   pypi2nix -V python3 -v -E 'libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection' --setup-requires pycairo --setup-requires setuptools-scm -r python3.txt --default-overrides --basename python3
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -23,7 +23,7 @@ let
     overrides =
       self: super: {
         bootstrapped-pip = super.bootstrapped-pip.overrideDerivation (old: {
-          patchPhase = old.patchPhase + ''
+          patchPhase = (if builtins.hasAttr "patchPhase" old then old.patchPhase else "") + ''
             if [ -e $out/${pkgs.python3.sitePackages}/pip/req/req_install.py ]; then
               sed -i \
                 -e "s|paths_to_remove.remove(auto_confirm)|#paths_to_remove.remove(auto_confirm)|"  \
@@ -179,9 +179,7 @@ let
         sha256 = "0b0069c752ec14172c5f78208f1863d7ad6755a6fae6fe76ec2c80d13be41e42";
 };
       doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [
-        self."cffi"
-      ];
+      buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."cffi"
         self."six"
@@ -194,10 +192,10 @@ let
     };
 
     "certifi" = python.mkDerivation {
-      name = "certifi-2019.6.16";
+      name = "certifi-2019.9.11";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz";
-        sha256 = "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695";
+        url = "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz";
+        sha256 = "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -266,13 +264,10 @@ let
         sha256 = "e6347742ac8f35ded4a46ff835c60e68c22a536a8ae5c4422966d06946b6d4c6";
 };
       doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [
-        self."cffi"
-      ];
+      buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."asn1crypto"
         self."cffi"
-        self."idna"
         self."six"
       ];
       meta = with pkgs.stdenv.lib; {
@@ -283,10 +278,10 @@ let
     };
 
     "dbus-python" = python.mkDerivation {
-      name = "dbus-python-1.2.8";
+      name = "dbus-python-1.2.12";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/3f/e7/4edb582d1ffd5ac3c84188deea32e960b5c8c0fe1da56ce70224f85ce542/dbus-python-1.2.8.tar.gz";
-        sha256 = "abf12bbb765e300bf8e2a1b2f32f85949eab06998dbda127952c31cb63957b6f";
+        url = "https://files.pythonhosted.org/packages/b6/85/7b46d31f15a970665533ad5956adee013f03f0ad4421c3c83304ae9c9906/dbus-python-1.2.12.tar.gz";
+        sha256 = "cdd4de2c4f5e58f287b12013ed7b41dee81d503c8d0d2397c5bd2fb01badf260";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -387,10 +382,10 @@ let
     };
 
     "importlib-metadata" = python.mkDerivation {
-      name = "importlib-metadata-0.19";
+      name = "importlib-metadata-0.23";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/27/49/58d50a592d99a6bf58c4c1b02b203a48357a74e33922a9d021fda07d4ce3/importlib_metadata-0.19.tar.gz";
-        sha256 = "23d3d873e008a513952355379d93cbcab874c58f4f034ff657c7a87422fa64e8";
+        url = "https://files.pythonhosted.org/packages/5d/44/636bcd15697791943e2dedda0dbe098d8530a38d113b202817133e0b06c0/importlib_metadata-0.23.tar.gz";
+        sha256 = "aa18d7378b00b40847790e7c27e11673d7fed219354109d0e7b9e5b25dc3ad26";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [
@@ -431,7 +426,6 @@ let
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
-        self."babel"
         self."markupsafe"
       ];
       meta = with pkgs.stdenv.lib; {
@@ -451,9 +445,6 @@ let
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."jinja2"
-        self."pyyaml"
-        self."toml"
-        self."xmltodict"
       ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/mattrobenolt/jinja2-cli";
@@ -570,11 +561,11 @@ let
     };
 
     "nix-prefetch-github" = python.mkDerivation {
-      name = "nix-prefetch-github-2.3";
+      name = "nix-prefetch-github-2.3.1";
       src = pkgs.fetchgit {
         url = "https://github.com/seppeljordan/nix-prefetch-github";
-        sha256 = "1nh136ir5q9j84wjcrn9qvw8v3vdpmdayfhq8z853yl4wljmcxfb";
-        rev = "f043e83500a65729110f61b371ff89f079725326";
+        sha256 = "13wvq13iiva97a16kahfpxar5ppb015nnbn7d4v9s9jyxdickc2c";
+        rev = "7fcc055b211933a6b9b1d51c81d3d8dfb51b4bc6";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -685,10 +676,10 @@ let
     };
 
     "pluggy" = python.mkDerivation {
-      name = "pluggy-0.12.0";
+      name = "pluggy-0.13.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/75/21/cdabca0144cfa282c2893dc8e07957245ac8657896ef3ea26f18b6fda710/pluggy-0.12.0.tar.gz";
-        sha256 = "0825a152ac059776623854c1543d65a4ad408eb3d33ee114dff91e57ec6ae6fc";
+        url = "https://files.pythonhosted.org/packages/d7/9d/ae82a5facf2dd89f557a33ad18eb68e5ac7b7a75cf52bf6a208f29077ecf/pluggy-0.13.0.tar.gz";
+        sha256 = "fa5fa1622fa6dd5c030e9cad086fa19ef6a0cf6d7a2d12318e10cb49d6d68f34";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [
@@ -801,10 +792,10 @@ let
     };
 
     "pygobject" = python.mkDerivation {
-      name = "pygobject-3.32.2";
+      name = "pygobject-3.34.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/40/ee/8daf797cda4ffe7724b9d47cbb5e2b44ca6235764622d163c586bd9bd7c5/PyGObject-3.32.2.tar.gz";
-        sha256 = "fa82746df059b9e0dcf473e0a9ff0693aa5e064f1ca1e2c46b5ac815bceda1ad";
+        url = "https://files.pythonhosted.org/packages/46/8a/b183f3edc812d4d28c8b671a922b5bc2863be5d38c56b3ad9155815e78dd/PyGObject-3.34.0.tar.gz";
+        sha256 = "2acb0daf2b3a23a90f52066cc23d1053339fee2f5f7f4275f8baa3704ae0c543";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [
@@ -849,9 +840,7 @@ let
         sha256 = "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c";
 };
       doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [
-        self."cffi"
-      ];
+      buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
         self."cffi"
         self."six"
@@ -883,8 +872,8 @@ let
       name = "pypi2nix-2.0.0";
       src = pkgs.fetchgit {
         url = "https://github.com/nix-community/pypi2nix";
-        sha256 = "0gfkx95ki3icsw9z5mdpynn1j9qrn20q17hyl282m4ka0b1vvkd6";
-        rev = "0107762cec6f4ae78674b650509e6f34f37e50e4";
+        sha256 = "1fx41y3a9zqry6g9mi2ckk8mxci6asfjp5678c83li6hk9vih16y";
+        rev = "02332320a32110f2adbd38beffab65b87498bb7f";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -893,15 +882,16 @@ let
         self."click"
         self."jinja2"
         self."nix-prefetch-github"
+        self."packaging"
         self."parsley"
         self."requests"
         self."setupcfg"
         self."toml"
       ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "https://github.com/NixOS/pypi2nix";
+        homepage = "https://github.com/nix-community/pypi2nix";
         license = licenses.bsdOriginal;
-        description = "A tool that generates nix expressions for your python packages, so you don't have to.";
+        description = "A tool that generates nix expressions for your python packages, so you do not have to.";
       };
     };
 
@@ -923,7 +913,6 @@ let
         self."packaging"
         self."pluggy"
         self."py"
-        self."requests"
         self."wcwidth"
       ];
       meta = with pkgs.stdenv.lib; {
@@ -976,7 +965,6 @@ let
       propagatedBuildInputs = [
         self."certifi"
         self."chardet"
-        self."cryptography"
         self."idna"
         self."urllib3"
       ];
@@ -1041,18 +1029,18 @@ let
     };
 
     "snowballstemmer" = python.mkDerivation {
-      name = "snowballstemmer-1.9.0";
+      name = "snowballstemmer-1.9.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/a0/5e/d9ead2d57d39b3e1c1868ce84212319e5543a19c4185dce7e42a9dd968b0/snowballstemmer-1.9.0.tar.gz";
-        sha256 = "9f3b9ffe0809d174f7047e121431acf99c89a7040f0ca84f94ba53a498e6d0c9";
+        url = "https://files.pythonhosted.org/packages/51/16/86a280d59b3bb439e7103ea1a275a191e3d2df8a3543cda0708f7cb4333c/snowballstemmer-1.9.1.tar.gz";
+        sha256 = "713e53b79cbcf97bc5245a06080a33d54a77e7cce2f789c835a143bcdb5c033e";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/snowballstem/snowball";
-        license = licenses.bsdOriginal;
-        description = "This package provides 23 stemmers for 22 languages generated from Snowball algorithms.";
+        license = licenses.bsd3;
+        description = "This package provides 26 stemmers for 25 languages generated from Snowball algorithms.";
       };
     };
 
@@ -1263,11 +1251,7 @@ let
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
-      propagatedBuildInputs = [
-        self."certifi"
-        self."cryptography"
-        self."idna"
-      ];
+      propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://urllib3.readthedocs.io/";
         license = licenses.mit;
@@ -1310,16 +1294,14 @@ let
     };
 
     "werkzeug" = python.mkDerivation {
-      name = "werkzeug-0.15.5";
+      name = "werkzeug-0.15.6";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/c7/fb/56734c47bc5bb4d00898c2581bc08166cb6fea72b6894cf279053521c25a/Werkzeug-0.15.5.tar.gz";
-        sha256 = "a13b74dd3c45f758d4ebdb224be8f1ab8ef58b3c0ffc1783a8c7d9f4f50227e6";
+        url = "https://files.pythonhosted.org/packages/a3/32/2c91f662d66d4ae8993987b56cd1706a9a526f3ac310dd7fca47d7851533/Werkzeug-0.15.6.tar.gz";
+        sha256 = "0a24d43be6a7dce81bae05292356176d6c46d63e42a0dd3f9504b210a9cfaa43";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
-      propagatedBuildInputs = [
-        self."termcolor"
-      ];
+      propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://palletsprojects.com/p/werkzeug/";
         license = licenses.bsd3;

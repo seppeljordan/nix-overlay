@@ -71,7 +71,8 @@ update-sdl2-compositor:
 
 update-pypiPackages3:
 	cd 10-python3Packages && $(PYPI2NIX) \
-		-V 3 \
+		-V python3 \
+		-v \
 		-E "libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection" \
 		--setup-requires 'pycairo' \
 		--setup-requires 'setuptools-scm' \
@@ -82,7 +83,7 @@ update-pypiPackages3:
 update-pypiPackages2:
 	$(PYPI2NIX) \
 		-v \
-		-V 2.7 \
+		-V python27 \
 		-E "libffi openssl" \
 		-r 10-python2Packages/python2.txt \
 		--default-overrides \
