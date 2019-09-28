@@ -77,7 +77,6 @@ in
       scala-mode
       xresources-theme
       yaml-mode
-      elpy
     ]);
   wineWow = self.wineUnstable.override { wineBuild = "wineWow"; };
   winetricks =

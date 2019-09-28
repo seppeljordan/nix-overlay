@@ -1,8 +1,8 @@
 # generated using pypi2nix tool (version: 2.0.0)
-# See more at: https://github.com/garbas/pypi2nix
+# See more at: https://github.com/nix-community/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -v -V 2.7 -E libffi openssl -r 10-python2Packages/python2.txt --default-overrides --basename 10-python2Packages/python2
+#   pypi2nix -v -V python27 -E 'libffi openssl' -r 10-python2Packages/python2.txt --default-overrides --basename 10-python2Packages/python2
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -19,20 +19,6 @@ let
     inherit pkgs;
     inherit (pkgs) stdenv;
     python = pkgs.python27Full;
-    # patching pip so it does not try to remove files when running nix-shell
-    overrides =
-      self: super: {
-        bootstrapped-pip = super.bootstrapped-pip.overrideDerivation (old: {
-          patchPhase = old.patchPhase + ''
-            if [ -e $out/${pkgs.python27Full.sitePackages}/pip/req/req_install.py ]; then
-              sed -i \
-                -e "s|paths_to_remove.remove(auto_confirm)|#paths_to_remove.remove(auto_confirm)|"  \
-                -e "s|self.uninstalled = paths_to_remove|#self.uninstalled = paths_to_remove|"  \
-                $out/${pkgs.python27Full.sitePackages}/pip/req/req_install.py
-            fi
-          '';
-        });
-      };
   };
 
   commonBuildInputs = with pkgs; [ libffi openssl ];
@@ -75,7 +61,9 @@ let
       __old = pythonPackages;
       inherit interpreter;
       inherit interpreterWithPackages;
-      mkDerivation = pythonPackages.buildPythonPackage;
+      mkDerivation = args: pythonPackages.buildPythonPackage (args // {
+        nativeBuildInputs = (args.nativeBuildInputs or []) ++ args.buildInputs;
+      });
       packages = pkgs;
       overrideDerivation = drv: f:
         pythonPackages.buildPythonPackage (
@@ -89,16 +77,13 @@ let
 
   generated = self: {
     "hetzner" = python.mkDerivation {
-      name = "hetzner-0.8.1";
+      name = "hetzner-0.8.2";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/97/ad/ffd4c0ad002c2b9b8218875e9d12d3f911cd9e2aaff484db2a0aba318885/hetzner-0.8.1.tar.gz";
-        sha256 = "c5906ca35545a996cddeaa7e3b047bed400963a6869c917cc5558511fe0f04e6";
-      };
+        url = "https://files.pythonhosted.org/packages/0d/51/713daf14d5fd56b029424c71746708e774f1d0b5f5bd07b674cd4b616b69/hetzner-0.8.2.tar.gz";
+        sha256 = "5e20d22faa56a7e0de8d81908babfcec84f95c373869db1f7a882bd80d367f55";
+};
       doCheck = commonDoCheck;
-      checkInputs = commonBuildInputs ++ [ ];
       buildInputs = commonBuildInputs ++ [ ];
-      nativeBuildInputs = commonBuildInputs ++ [ ];
-      propagatedNativeBuildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/aszlig/hetzner";

@@ -1,5 +1,5 @@
 PYPI2NIX=$(PWD)/pypi2nix-exec/bin/pypi2nix
-NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-19.03.tar.gz:nixpkgs-overlays=$(shell pwd)
+NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-19.09.tar.gz:nixpkgs-overlays=$(shell pwd)
 
 all: pypi2nix-exec/bin/pypi2nix update test
 
@@ -26,11 +26,7 @@ test: \
 	test-emacs \
 	test-haskell-env \
 	test-geimskell \
-	test-nix-kubernetes \
 	test-nix-prefetch-github
-
-test-nix-kubernetes:
-	nix build -f tests/test-nix-kubernetes.nix
 
 test-geimskell:
 	nix build -f tests/test-geimskell.nix
@@ -45,7 +41,7 @@ test-python2-build:
 	nix build -f tests/test-python2-build.nix
 
 test-python3-build:
-	nix build -f tests/test-python3-build.nix
+	nix-build tests/test-python3-build.nix --show-trace -j 1
 
 test-haskell-env:
 	nix build -f tests/test-haskell-env.nix
@@ -70,19 +66,15 @@ update-sdl2-compositor:
 		cabal2nix "https://github.com/seppeljordan/sdl2-compositor.git" > default.nix
 
 update-pypiPackages3:
+	rm -rf build/python3
 	cd 10-python3Packages && $(PYPI2NIX) \
 		-V python3 \
-		-v \
-		-E "libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection" \
-		--setup-requires 'pycairo' \
-		--setup-requires 'setuptools-scm' \
+		-E "libsodium libffi libxml2 libxslt openssl" \
 		-r python3.txt \
-		--default-overrides \
 		--basename python3
 
 update-pypiPackages2:
 	$(PYPI2NIX) \
-		-v \
 		-V python27 \
 		-E "libffi openssl" \
 		-r 10-python2Packages/python2.txt \

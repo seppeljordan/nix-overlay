@@ -63,12 +63,6 @@ in
     }
   );
 
-  "pydbus" = super.pydbus.overrideDerivation( old:
-    {
-      propagatedBuildInputs = old.propagatedBuildInputs ++ [ self."pygobject" ];
-    }
-  );
-
   "pluggy" = addBuildInputs ["setuptools-scm"] super."pluggy";
 
   "zipp" = addBuildInputs ["setuptools-scm"] super."zipp";

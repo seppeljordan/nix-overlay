@@ -2,7 +2,7 @@
 # See more at: https://github.com/nix-community/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -V python3 -v -E 'libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection' --setup-requires pycairo --setup-requires setuptools-scm -r python3.txt --default-overrides --basename python3
+#   pypi2nix -V python3 -E 'libsodium libffi libxml2 libxslt openssl' -r python3.txt --basename python3
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -19,23 +19,9 @@ let
     inherit pkgs;
     inherit (pkgs) stdenv;
     python = pkgs.python3;
-    # patching pip so it does not try to remove files when running nix-shell
-    overrides =
-      self: super: {
-        bootstrapped-pip = super.bootstrapped-pip.overrideDerivation (old: {
-          patchPhase = (if builtins.hasAttr "patchPhase" old then old.patchPhase else "") + ''
-            if [ -e $out/${pkgs.python3.sitePackages}/pip/req/req_install.py ]; then
-              sed -i \
-                -e "s|paths_to_remove.remove(auto_confirm)|#paths_to_remove.remove(auto_confirm)|"  \
-                -e "s|self.uninstalled = paths_to_remove|#self.uninstalled = paths_to_remove|"  \
-                $out/${pkgs.python3.sitePackages}/pip/req/req_install.py
-            fi
-          '';
-        });
-      };
   };
 
-  commonBuildInputs = with pkgs; [ libffi openssl mercurial libxml2 libxslt pkgconfig dbus dbus-glib ncurses cairo gobjectIntrospection ];
+  commonBuildInputs = with pkgs; [ libsodium libffi libxml2 libxslt openssl ];
   commonDoCheck = false;
 
   withPackages = pkgs':
@@ -179,7 +165,9 @@ let
         sha256 = "0b0069c752ec14172c5f78208f1863d7ad6755a6fae6fe76ec2c80d13be41e42";
 };
       doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
+      buildInputs = commonBuildInputs ++ [
+        self."cffi"
+      ];
       propagatedBuildInputs = [
         self."cffi"
         self."six"
@@ -264,7 +252,9 @@ let
         sha256 = "e6347742ac8f35ded4a46ff835c60e68c22a536a8ae5c4422966d06946b6d4c6";
 };
       doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
+      buildInputs = commonBuildInputs ++ [
+        self."cffi"
+      ];
       propagatedBuildInputs = [
         self."asn1crypto"
         self."cffi"
@@ -274,22 +264,6 @@ let
         homepage = "https://github.com/pyca/cryptography";
         license = licenses.bsdOriginal;
         description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers.";
-      };
-    };
-
-    "dbus-python" = python.mkDerivation {
-      name = "dbus-python-1.2.12";
-      src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/b6/85/7b46d31f15a970665533ad5956adee013f03f0ad4421c3c83304ae9c9906/dbus-python-1.2.12.tar.gz";
-        sha256 = "cdd4de2c4f5e58f287b12013ed7b41dee81d503c8d0d2397c5bd2fb01badf260";
-};
-      doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
-      propagatedBuildInputs = [ ];
-      meta = with pkgs.stdenv.lib; {
-        homepage = "http://www.freedesktop.org/wiki/Software/DBusBindings/#python";
-        license = "Expat (MIT/X11)";
-        description = "Python bindings for libdbus";
       };
     };
 
@@ -539,27 +513,6 @@ let
       };
     };
 
-    "nix-helpers" = python.mkDerivation {
-      name = "nix-helpers-1.0";
-      src = pkgs.fetchgit {
-        url = "https://github.com/seppeljordan/nix-helpers";
-        sha256 = "18wnwlz1hv87ldc849sjiz86c19abcxq2h758yc4f3p02zqp69y9";
-        rev = "8e8a988acba86fd5184e0a429720918a4fe2704a";
-      };
-      doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
-      propagatedBuildInputs = [
-        self."click"
-        self."jinja2"
-        self."requests"
-      ];
-      meta = with pkgs.stdenv.lib; {
-        homepage = "https://github.com/seppeljordan/nix-helpers";
-        license = "GPL-3";
-        description = "Utilities for working with Nix package manager";
-      };
-    };
-
     "nix-prefetch-github" = python.mkDerivation {
       name = "nix-prefetch-github-2.3.1";
       src = pkgs.fetchgit {
@@ -583,10 +536,10 @@ let
     };
 
     "orderdict" = python.mkDerivation {
-      name = "orderdict-2019.4.13";
+      name = "orderdict-2019.9.25";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/da/c9/4ee29607001d6eabc4b3fe19405e285afb670acb73757fac3162424f5edf/orderdict-2019.4.13.tar.gz";
-        sha256 = "6158b2c09522728a9ce92cfe1e1d8dc465d47ebc6852a535f6d438bbd6522dba";
+        url = "https://files.pythonhosted.org/packages/37/17/b5791077b10ded7cf26f0417fc81e3b7ffa0e26f87309243bba669ad5f57/orderdict-2019.9.25.tar.gz";
+        sha256 = "0bbca83e980b90d4c1316262edcdc8f86b3117ed508bfe7f1b48290bdf613367";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -594,22 +547,21 @@ let
         self."public"
       ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "https://github.com/looking-for-a-job/orderdict.py";
+        homepage = "https://github.com/andrewp-as-is/orderdict.py";
         license = "UNKNOWN";
         description = "UNKNOWN";
       };
     };
 
     "packaging" = python.mkDerivation {
-      name = "packaging-19.1";
+      name = "packaging-19.2";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/8b/3a/5bfe64c319be5775ed7ea3bc1a8e5667e0d57a740cc0498ce03e032eaf93/packaging-19.1.tar.gz";
-        sha256 = "c491ca87294da7cc01902edbe30a5bc6c4c28172b5138ab4e4aa1b9d7bfaeafe";
+        url = "https://files.pythonhosted.org/packages/5a/2f/449ded84226d0e2fda8da9252e5ee7731bdf14cd338f622dfcd9934e0377/packaging-19.2.tar.gz";
+        sha256 = "28b924174df7a2fa32c1953825ff29c61e2f5e082343165438812f00d3a7fc47";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
-        self."attrs"
         self."pyparsing"
         self."six"
       ];
@@ -727,22 +679,6 @@ let
       };
     };
 
-    "pycairo" = python.mkDerivation {
-      name = "pycairo-1.18.1";
-      src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/48/20/5e83af98eb897935bf7dc39455e892ba866feebb9b7c3b392982866f9958/pycairo-1.18.1.tar.gz";
-        sha256 = "70172e58b6bad7572a3518c26729b074acdde15e6fee6cbab6d3528ad552b786";
-};
-      doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
-      propagatedBuildInputs = [ ];
-      meta = with pkgs.stdenv.lib; {
-        homepage = "https://pycairo.readthedocs.io";
-        license = "UNKNOWN";
-        description = "Python interface for cairo";
-      };
-    };
-
     "pycparser" = python.mkDerivation {
       name = "pycparser-2.19";
       src = pkgs.fetchurl {
@@ -791,48 +727,6 @@ let
       };
     };
 
-    "pygobject" = python.mkDerivation {
-      name = "pygobject-3.34.0";
-      src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/46/8a/b183f3edc812d4d28c8b671a922b5bc2863be5d38c56b3ad9155815e78dd/PyGObject-3.34.0.tar.gz";
-        sha256 = "2acb0daf2b3a23a90f52066cc23d1053339fee2f5f7f4275f8baa3704ae0c543";
-};
-      doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [
-        self."pycairo"
-      ];
-      propagatedBuildInputs = [
-        self."pycairo"
-      ];
-      meta = with pkgs.stdenv.lib; {
-        homepage = "https://pygobject.readthedocs.io";
-        license = "GNU LGPL";
-        description = "Python bindings for GObject Introspection";
-      };
-    };
-
-    "pykube" = python.mkDerivation {
-      name = "pykube-0.16a1";
-      src = pkgs.fetchgit {
-        url = "https://github.com/seppeljordan/pykube";
-        sha256 = "0cfp83n9y8jfwzbz1pdgshrqzg7m27j3aqzz3xaphbl1k9lrsabj";
-        rev = "e8a46298a592ad9037587afb707ac75b3114eff9";
-      };
-      doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
-      propagatedBuildInputs = [
-        self."pyyaml"
-        self."requests"
-        self."six"
-        self."tzlocal"
-      ];
-      meta = with pkgs.stdenv.lib; {
-        homepage = "https://github.com/kelproject/pykube";
-        license = "Apache";
-        description = "Python client library for Kubernetes";
-      };
-    };
-
     "pynacl" = python.mkDerivation {
       name = "pynacl-1.3.0";
       src = pkgs.fetchurl {
@@ -840,7 +734,9 @@ let
         sha256 = "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c";
 };
       doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
+      buildInputs = commonBuildInputs ++ [
+        self."cffi"
+      ];
       propagatedBuildInputs = [
         self."cffi"
         self."six"
@@ -872,8 +768,8 @@ let
       name = "pypi2nix-2.0.0";
       src = pkgs.fetchgit {
         url = "https://github.com/nix-community/pypi2nix";
-        sha256 = "1fx41y3a9zqry6g9mi2ckk8mxci6asfjp5678c83li6hk9vih16y";
-        rev = "02332320a32110f2adbd38beffab65b87498bb7f";
+        sha256 = "0hphyn6wx9x34gblr8apc3gaz92bl3l4pj1c3acqildfsc8y28hh";
+        rev = "912d7ed21f5b654c5b7a7469538e81234f707c9c";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -884,7 +780,6 @@ let
         self."nix-prefetch-github"
         self."packaging"
         self."parsley"
-        self."requests"
         self."setupcfg"
         self."toml"
       ];
@@ -896,10 +791,10 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-5.1.2";
+      name = "pytest-5.1.3";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/c3/66/228ce6dca2b4d2cd5f9c1244aca14e0b13c31e4dbdf39294e782a1c78f12/pytest-5.1.2.tar.gz";
-        sha256 = "b78fe2881323bd44fd9bd76e5317173d4316577e7b1cddebae9136a4495ec865";
+        url = "https://files.pythonhosted.org/packages/cd/a9/522f0830079931fee274ce63d8d31df59fc1c1d5896a5f07678c7ad6dc25/pytest-5.1.3.tar.gz";
+        sha256 = "cc6620b96bc667a0c8d4fa592a8c9c94178a1bd6cc799dbb057dfd9286d31a31";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [
@@ -1225,29 +1120,11 @@ let
       };
     };
 
-    "tzlocal" = python.mkDerivation {
-      name = "tzlocal-2.0.0";
-      src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/c6/52/5ec375d4efcbe4e31805f3c4b301bdfcff9dcbdb3605d4b79e117a16b38d/tzlocal-2.0.0.tar.gz";
-        sha256 = "949b9dd5ba4be17190a80c0268167d7e6c92c62b30026cf9764caf3e308e5590";
-};
-      doCheck = commonDoCheck;
-      buildInputs = commonBuildInputs ++ [ ];
-      propagatedBuildInputs = [
-        self."pytz"
-      ];
-      meta = with pkgs.stdenv.lib; {
-        homepage = "https://github.com/regebro/tzlocal";
-        license = licenses.mit;
-        description = "tzinfo object for the local timezone";
-      };
-    };
-
     "urllib3" = python.mkDerivation {
-      name = "urllib3-1.25.3";
+      name = "urllib3-1.25.6";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz";
-        sha256 = "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232";
+        url = "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz";
+        sha256 = "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -1294,10 +1171,10 @@ let
     };
 
     "werkzeug" = python.mkDerivation {
-      name = "werkzeug-0.15.6";
+      name = "werkzeug-0.16.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/a3/32/2c91f662d66d4ae8993987b56cd1706a9a526f3ac310dd7fca47d7851533/Werkzeug-0.15.6.tar.gz";
-        sha256 = "0a24d43be6a7dce81bae05292356176d6c46d63e42a0dd3f9504b210a9cfaa43";
+        url = "https://files.pythonhosted.org/packages/5e/fd/eb19e4f6a806cd6ee34900a687f181001c7a0059ff914752091aba84681f/Werkzeug-0.16.0.tar.gz";
+        sha256 = "7280924747b5733b246fe23972186c6b348f9ae29724135a6dfc1e53cea433e7";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -1367,7 +1244,7 @@ let
   localOverridesFile = ./python3_override.nix;
   localOverrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "403bb1d312b1cfd82663208d7e9ae48c8ff2614a"; sha256 = "0v4gxikwh4362s40an68kj7dyiib1bcq5bn9m5j7h93yniz3zkd3"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+    
   ];
   paramOverrides = [
     (overrides { inherit pkgs python; })

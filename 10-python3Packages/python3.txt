@@ -1,24 +1,20 @@
-pycairo
 click
-dbus-python
 jinja2
 jinja2-cli
 lxml
 pydbus
-pygobject
 pytest
 pyyaml
 requests
-Sphinx
+sphinx
 stormssh
 toml
 xmltodict
 setuptools-scm
-Pygments
+pygments
 
 git+https://github.com/nix-community/pypi2nix#egg=pypi2nix
 git+https://github.com/seppeljordan/kubecert#egg=kubecert
-git+https://github.com/seppeljordan/nix-helpers#egg=nix-helpers
 git+https://github.com/seppeljordan/nix-prefetch-github#egg=nix-prefetch-github
 git+https://github.com/seppeljordan/parsemon2#egg=parsemon2
-git+https://github.com/seppeljordan/pykube#egg=pykube
+

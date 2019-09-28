@@ -1,5 +1,0 @@
-[
-    {
-        "nix-kubernetes": "git+https://github.com/seppeljordan/nix-kubernetes.git"
-    }
-]
