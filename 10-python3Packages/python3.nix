@@ -768,8 +768,8 @@ let
       name = "pypi2nix-2.0.0";
       src = pkgs.fetchgit {
         url = "https://github.com/nix-community/pypi2nix";
-        sha256 = "0bnkb0h2hakgg08xvdfznpcfli61x2g5d40k7bnlmf2578n6jr7z";
-        rev = "ea40bcf4afca0b4087a3f827d40c509df81f9592";
+        sha256 = "0jnxp76j4i4pjyqsyrzzb54nlhx6mqf7rhcix61pv1ghiq1l7lv2";
+        rev = "bdb7420ce6650be80957ec9be10480e6eacacd27";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
