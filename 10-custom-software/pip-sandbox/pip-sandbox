@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+DIRECTORY=$(mktemp -d)
+
+trap "rm -rf ${DIRECTORY}" EXIT
+
+cd ${DIRECTORY}
+SOURCE_DATE_EPOCH="$(date +%s)" \
+    nix-shell -p python3 python3Packages.pip python3Packages.wheel python3Packages.setuptools python3Packages.virtualenv --command "virtualenv .env && PATH=.env/bin:$PATH bash"

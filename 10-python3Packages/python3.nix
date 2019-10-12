@@ -93,10 +93,10 @@ let
     };
 
     "asn1crypto" = python.mkDerivation {
-      name = "asn1crypto-0.24.0";
+      name = "asn1crypto-1.1.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz";
-        sha256 = "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49";
+        url = "https://files.pythonhosted.org/packages/04/20/ac105ae01c29580ebff75bbf1effb69d788bfa54a8336a8f14399b09e2e1/asn1crypto-1.1.0.tar.gz";
+        sha256 = "5abe83e773026162e4869f4ac16edf7554f661e8cc0bb6d2be3bc6915456731b";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -125,10 +125,10 @@ let
     };
 
     "attrs" = python.mkDerivation {
-      name = "attrs-19.1.0";
+      name = "attrs-19.2.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/cc/d9/931a24cc5394f19383fbbe3e1147a0291276afa43a0dc3ed0d6cd9fda813/attrs-19.1.0.tar.gz";
-        sha256 = "f0b870f674851ecbfbbbd364d6b5cbdff9dcedbc7f3f5e18a6891057f21fe399";
+        url = "https://files.pythonhosted.org/packages/bd/69/2833f182ea95ea1f17e9a7559b8b92ebfdf4f68b5c58b15bc10f47bc2e01/attrs-19.2.0.tar.gz";
+        sha256 = "f913492e1663d3c36f502e5e9ba6cd13cf19d7fab50aa13239e420fef95e1396";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -392,10 +392,10 @@ let
     };
 
     "jinja2" = python.mkDerivation {
-      name = "jinja2-2.10.1";
+      name = "jinja2-2.10.3";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/93/ea/d884a06f8c7f9b7afbc8138b762e80479fb17aedbbe2b06515a12de9378d/Jinja2-2.10.1.tar.gz";
-        sha256 = "065c4f02ebe7f7cf559e49ee5a95fb800a9e4528727aec6f24402a5374c65013";
+        url = "https://files.pythonhosted.org/packages/7b/db/1d037ccd626d05a7a47a1b81ea73775614af83c2b3e53d86a0bb41d8d799/Jinja2-2.10.3.tar.gz";
+        sha256 = "9fe95f19286cfefaa917656583d020be14e7859c6b0252588391e47db34527de";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -403,9 +403,9 @@ let
         self."markupsafe"
       ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "http://jinja.pocoo.org/";
-        license = licenses.bsdOriginal;
-        description = "A small but fast and easy to use stand-alone template engine written in pure python.";
+        homepage = "https://palletsprojects.com/p/jinja/";
+        license = licenses.bsd3;
+        description = "A very fast and expressive template engine.";
       };
     };
 
@@ -768,8 +768,8 @@ let
       name = "pypi2nix-2.0.0";
       src = pkgs.fetchgit {
         url = "https://github.com/nix-community/pypi2nix";
-        sha256 = "0hphyn6wx9x34gblr8apc3gaz92bl3l4pj1c3acqildfsc8y28hh";
-        rev = "912d7ed21f5b654c5b7a7469538e81234f707c9c";
+        sha256 = "0bnkb0h2hakgg08xvdfznpcfli61x2g5d40k7bnlmf2578n6jr7z";
+        rev = "ea40bcf4afca0b4087a3f827d40c509df81f9592";
       };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -791,10 +791,10 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-5.1.3";
+      name = "pytest-5.2.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/cd/a9/522f0830079931fee274ce63d8d31df59fc1c1d5896a5f07678c7ad6dc25/pytest-5.1.3.tar.gz";
-        sha256 = "cc6620b96bc667a0c8d4fa592a8c9c94178a1bd6cc799dbb057dfd9286d31a31";
+        url = "https://files.pythonhosted.org/packages/3a/3b/f839b8431582e0f4e5f98230300db70b795f467503b2cdb0bf7eb9b18351/pytest-5.2.1.tar.gz";
+        sha256 = "ca563435f4941d0cb34767301c27bc65c510cb82e90b9ecf9cb52dc2c63caaa0";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [
@@ -818,10 +818,10 @@ let
     };
 
     "pytz" = python.mkDerivation {
-      name = "pytz-2019.2";
+      name = "pytz-2019.3";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/27/c0/fbd352ca76050952a03db776d241959d5a2ee1abddfeb9e2a53fdb489be4/pytz-2019.2.tar.gz";
-        sha256 = "26c0b32e437e54a18161324a2fca3c4b9846b74a8dccddd843113109e1116b32";
+        url = "https://files.pythonhosted.org/packages/82/c3/534ddba230bd4fbbd3b7a3d35f3341d014cca213f369a9940925e7e5f691/pytz-2019.3.tar.gz";
+        sha256 = "b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];
@@ -924,10 +924,10 @@ let
     };
 
     "snowballstemmer" = python.mkDerivation {
-      name = "snowballstemmer-1.9.1";
+      name = "snowballstemmer-2.0.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/51/16/86a280d59b3bb439e7103ea1a275a191e3d2df8a3543cda0708f7cb4333c/snowballstemmer-1.9.1.tar.gz";
-        sha256 = "713e53b79cbcf97bc5245a06080a33d54a77e7cce2f789c835a143bcdb5c033e";
+        url = "https://files.pythonhosted.org/packages/21/1b/6b8bbee253195c61aeaa61181bb41d646363bdaa691d0b94b304d4901193/snowballstemmer-2.0.0.tar.gz";
+        sha256 = "df3bac3df4c2c01363f3dd2cfa78cce2840a79b9f1c2d2de9ce8d31683992f52";
 };
       doCheck = commonDoCheck;
       buildInputs = commonBuildInputs ++ [ ];

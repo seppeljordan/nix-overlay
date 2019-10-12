@@ -26,7 +26,8 @@ test: \
 	test-emacs \
 	test-haskell-env \
 	test-geimskell \
-	test-nix-prefetch-github
+	test-nix-prefetch-github \
+	test-custom
 
 test-geimskell:
 	nix build -f tests/test-geimskell.nix
@@ -94,6 +95,9 @@ pypi2nix-exec/bin/pypi2nix:
 	nix-build \
 		https://github.com/nix-community/pypi2nix/archive/master.tar.gz \
 		-o pypi2nix-exec --show-trace
+
+test-custom:
+	nix build -f tests/test-custom.nix
 
 
 .PHONY: \
