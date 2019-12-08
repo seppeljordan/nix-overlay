@@ -24,7 +24,7 @@ setLanguage = drv: drv.overrideDerivation( old:
     LC_ALL = "en_US.UTF-8";
   });
 
-addBuildInputs = packages: drv: drv.overridePythonAttrs( old:
+addBuildInputs = packages: drv: drv.overrideDerivation( old:
   {
     buildInputs = old.buildInputs ++
       builtins.map (x: self."${x}") packages;
@@ -45,7 +45,7 @@ in
 
   "py" = addBuildInputs ["setuptools-scm"] super."py";
 
-  "parsemon2" = (addBuildInputs ["sphinx"] super.parsemon2).overridePythonAttrs( old:
+  "parsemon2" = (addBuildInputs ["sphinx"] super.parsemon2).overrideDerivation( old:
     {
       preBuildPhases = [ "buildDocsPhase" ];
       preInstallPhases = [ "buildDocsPhase" "installDocsPhase" ];

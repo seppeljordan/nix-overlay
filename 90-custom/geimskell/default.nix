@@ -9,8 +9,8 @@ mkDerivation {
   version = "0.1.0.0";
   src = fetchgit {
     url = "https://github.com/seppeljordan/geimskell.git";
-    sha256 = "050mgvxjmgp5pifrbw2bdbl3zmmghri0lafxxyxgs31ikzgiagm4";
-    rev = "cab7019335936c633f5a5bed3e63c1d06a757f64";
+    sha256 = "1skxnqwmyqqnikkyzw4rxfa5xc16jhp8lrh2zzvb32pilnk7z8j3";
+    rev = "d5d44cee3446ef506358f92229c7a6fa55b2269e";
     fetchSubmodules = true;
   };
   isLibrary = true;
@@ -23,6 +23,9 @@ mkDerivation {
     transformers vector
   ];
   executableHaskellDepends = [ base ];
-  testHaskellDepends = [ base hspec htiled QuickCheck ];
+  testHaskellDepends = [
+    base hspec htiled QuickCheck random reactive-banana sdl2
+    transformers
+  ];
   license = stdenv.lib.licenses.gpl3;
 }

@@ -9,7 +9,6 @@ update: \
 	update-sdl2-compositor \
 	update-lrucache \
 	update-nixpkgs-python \
-	update-node-packages \
 	update-pypiPackages2 \
 	update-pypiPackages3 \
 	update-winetricks
@@ -86,10 +85,6 @@ update-winetricks:
 	cd 90-custom/winetricks && \
 		nix-prefetch-github Winetricks winetricks > source.json
 
-update-node-packages:
-	cd 20-node-packages/node-packages && \
-		node2nix -8 -i pkgs.json -o pkgs.nix
-
 # '<nixpkgs>' -A pypiPackages.packages.pypi2nix
 pypi2nix-exec/bin/pypi2nix:
 	nix-build \
@@ -112,7 +107,6 @@ test-custom:
 	test-nix-kubernetes \
 	update \
 	update-nixpkgs-python \
-	update-node-packages \
 	update-pypiPackages2 \
 	update-pypiPackages3 \
 	update-winetricks

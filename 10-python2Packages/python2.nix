@@ -1,8 +1,8 @@
-# generated using pypi2nix tool (version: 2.0.0)
+# generated using pypi2nix tool (version: 2.0.2)
 # See more at: https://github.com/nix-community/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -v -V python27 -E 'libffi openssl' -r 10-python2Packages/python2.txt --default-overrides --basename 10-python2Packages/python2
+#   pypi2nix -V python27 -E 'libffi openssl' -r 10-python2Packages/python2.txt --default-overrides --basename 10-python2Packages/python2
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -83,6 +83,7 @@ let
         sha256 = "5e20d22faa56a7e0de8d81908babfcec84f95c373869db1f7a882bd80d367f55";
 };
       doCheck = commonDoCheck;
+      format = "setuptools";
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
@@ -95,7 +96,7 @@ let
   localOverridesFile = ./python2_override.nix;
   localOverrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-        (let src = pkgs.fetchFromGitHub { owner = "garbas"; repo = "nixpkgs-python"; rev = "403bb1d312b1cfd82663208d7e9ae48c8ff2614a"; sha256 = "0v4gxikwh4362s40an68kj7dyiib1bcq5bn9m5j7h93yniz3zkd3"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
+        (let src = pkgs.fetchFromGitHub { owner = "nix-community"; repo = "pypi2nix-overrides"; rev = "db87933d87d9b3943cf636a49f16b76c9ea66db7"; sha256 = "1phiqh72dyg7qhkv15kdg4gjkx8rkywvs41j7liz5faj66ijlpv6"; } ; in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
   paramOverrides = [
     (overrides { inherit pkgs python; })
