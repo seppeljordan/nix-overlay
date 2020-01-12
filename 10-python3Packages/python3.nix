@@ -114,10 +114,10 @@ let
     };
 
     "babel" = python.mkDerivation {
-      name = "babel-2.7.0";
+      name = "babel-2.8.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/bd/78/9fb975cbb3f4b136de2cd4b5e5ce4a3341169ebf4c6c03630996d05428f1/Babel-2.7.0.tar.gz";
-        sha256 = "e86135ae101e31e2c8ec20a4e0c5220f4eed12487d5cf3f78be7e98d3a57fc28";
+        url = "https://files.pythonhosted.org/packages/34/18/8706cfa5b2c73f5a549fdc0ef2e24db71812a2685959cff31cbdfc010136/Babel-2.8.0.tar.gz";
+        sha256 = "1aac2ae2d0d8ea368fa90906567f5c08463d98ade155c0c4bfedd6a0f7160e38";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -251,10 +251,10 @@ let
     };
 
     "docutils" = python.mkDerivation {
-      name = "docutils-0.15.2";
+      name = "docutils-0.16";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz";
-        sha256 = "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99";
+        url = "https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz";
+        sha256 = "c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -326,10 +326,10 @@ let
     };
 
     "imagesize" = python.mkDerivation {
-      name = "imagesize-1.1.0";
+      name = "imagesize-1.2.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/41/f5/3cf63735d54aa9974e544aa25858d8f9670ac5b4da51020bbfc6aaade741/imagesize-1.1.0.tar.gz";
-        sha256 = "f3832918bc3c66617f92e35f5d70729187676313caa60c187eb0f28b8fe5e3b5";
+        url = "https://files.pythonhosted.org/packages/e4/9f/0452b459c8ba97e07c3cd2bd243783936a992006cf4cd1353c314a927028/imagesize-1.2.0.tar.gz";
+        sha256 = "b1f6b5a4eab1f73479a50fb79fcf729514a900c341d8503d62a62dbc4127a2b1";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -343,10 +343,10 @@ let
     };
 
     "importlib-metadata" = python.mkDerivation {
-      name = "importlib-metadata-1.2.0";
+      name = "importlib-metadata-1.4.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/9b/42/86a31ce5fd7e3c5fc9071cec95d0aab11deb2fd63eed27315f520d120bfd/importlib_metadata-1.2.0.tar.gz";
-        sha256 = "41e688146d000891f32b1669e8573c57e39e5060e7f5f647aa617cd9a9568278";
+        url = "https://files.pythonhosted.org/packages/8c/0e/10e247f40c89ba72b7f2a2104ccf1b65de18f79562ffe11bfb837b711acf/importlib_metadata-1.4.0.tar.gz";
+        sha256 = "f17c015735e1a88296994c0697ecea7e11db24290941983b08c9feb30921e6d8";
 };
       doCheck = commonDoCheck;
       format = "pyproject";
@@ -502,10 +502,10 @@ let
     };
 
     "more-itertools" = python.mkDerivation {
-      name = "more-itertools-8.0.2";
+      name = "more-itertools-8.1.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/4e/b2/e9e512cccde6c54bf66a8e5820a2af779eb8235028627002ca90d4f75bea/more-itertools-8.0.2.tar.gz";
-        sha256 = "b84b238cce0d9adad5ed87e745778d20a3f8487d0f0cb8b8a586816c7496458d";
+        url = "https://files.pythonhosted.org/packages/df/8c/c278395367a46c00d28036143fdc6583db8f98622b83875403f16473509b/more-itertools-8.1.0.tar.gz";
+        sha256 = "c468adec578380b6281a114cb8a5db34eb1116277da92d7c46f904f0b52d3288";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -542,10 +542,10 @@ let
     };
 
     "packaging" = python.mkDerivation {
-      name = "packaging-19.2";
+      name = "packaging-20.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/5a/2f/449ded84226d0e2fda8da9252e5ee7731bdf14cd338f622dfcd9934e0377/packaging-19.2.tar.gz";
-        sha256 = "28b924174df7a2fa32c1953825ff29c61e2f5e082343165438812f00d3a7fc47";
+        url = "https://files.pythonhosted.org/packages/c7/cf/d84b72480a556d9bd4a191a91b0a8ea71cb48e6f6132f12d9d365c51bdb6/packaging-20.0.tar.gz";
+        sha256 = "fe1d8331dfa7cc0a883b49d75fc76380b2ab2734b220fbb87d774e4fd4b851f8";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -562,10 +562,10 @@ let
     };
 
     "paramiko" = python.mkDerivation {
-      name = "paramiko-2.7.0";
+      name = "paramiko-2.7.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/d1/60/eec646bd557c9b0ae74f9559c44e470ae0cc70565a0008266785eca8e1be/paramiko-2.7.0.tar.gz";
-        sha256 = "fba9c46340e3d690ad5a9d0dbf06677cd91425de3afa7e9c0c187298ee4ddd0d";
+        url = "https://files.pythonhosted.org/packages/ac/15/4351003352e11300b9f44a13576bff52dcdc6e4a911129c07447bda0a358/paramiko-2.7.1.tar.gz";
+        sha256 = "920492895db8013f6cc0179293147f830b8c7b21fdfc839b6bad760c27459d9f";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -643,10 +643,10 @@ let
     };
 
     "py" = python.mkDerivation {
-      name = "py-1.8.0";
+      name = "py-1.8.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/f1/5a/87ca5909f400a2de1561f1648883af74345fe96349f34f737cdfc94eba8c/py-1.8.0.tar.gz";
-        sha256 = "dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53";
+        url = "https://files.pythonhosted.org/packages/bd/8f/169d08dcac7d6e311333c96b63cbe92e7947778475e1a619b674989ba1ed/py-1.8.1.tar.gz";
+        sha256 = "5e27081401262157467ad6e7f851b7aa402c5852dbcb3dae06768434de5752aa";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -735,10 +735,10 @@ let
     };
 
     "pyparsing" = python.mkDerivation {
-      name = "pyparsing-2.4.5";
+      name = "pyparsing-2.4.6";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/00/32/8076fa13e832bb4dcff379f18f228e5a53412be0631808b9ca2610c0f566/pyparsing-2.4.5.tar.gz";
-        sha256 = "4ca62001be367f01bd3e92ecbb79070272a9d4964dce6a48a82ff0b8bc7e683a";
+        url = "https://files.pythonhosted.org/packages/a2/56/0404c03c83cfcca229071d3c921d7d79ed385060bbe969fde3fd8f774ebd/pyparsing-2.4.6.tar.gz";
+        sha256 = "4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -755,8 +755,8 @@ let
       name = "pypi2nix-2.0.2";
       src = pkgs.fetchgit {
         url = "https://github.com/nix-community/pypi2nix";
-        sha256 = "1iz3bi80i7n5qzls6pwqvp4rhlydpwp5p0l3rdsn3lmpa1gprcgw";
-        rev = "22b2af53a37a76d97b928508c234a1a1ccbb00a1";
+        sha256 = "1a46vv2h3hc10lglngbmjcv09hd63awk7v429z4nfrrrb9l0idrh";
+        rev = "4f12dc348b93cb9d9104b6909c371478f4e61644";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -780,10 +780,10 @@ let
     };
 
     "pyrsistent" = python.mkDerivation {
-      name = "pyrsistent-0.15.6";
+      name = "pyrsistent-0.15.7";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/6c/6f/c1a2e8da80a0029f6b618d7e20e1a6f2a61dd04e2e54225309c2cc4268f7/pyrsistent-0.15.6.tar.gz";
-        sha256 = "f3b280d030afb652f79d67c5586157c5c1355c9a58dfc7940566e28d28f3df1b";
+        url = "https://files.pythonhosted.org/packages/90/aa/cdcf7ef88cc0f831b6f14c8c57318824c9de9913fe8de38e46a98c069a35/pyrsistent-0.15.7.tar.gz";
+        sha256 = "cdc7b5e3ed77bed61270a47d35434a30617b9becdf2478af76ad2c6ade307280";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -799,10 +799,10 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-5.3.1";
+      name = "pytest-5.3.2";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/58/76/45329365ccc901e954cbc6d4c4a7cb6162600a34ed060a6b7b4f127d8183/pytest-5.3.1.tar.gz";
-        sha256 = "f67403f33b2b1d25a6756184077394167fe5e2f9d8bdaab30707d19ccec35427";
+        url = "https://files.pythonhosted.org/packages/c5/71/91ec682e10114f191da1a0ffabf35eccb9ab1c6bf9a535bb4a1b89ea59ca/pytest-5.3.2.tar.gz";
+        sha256 = "6b571215b5a790f9b41f19f3531c53a45cf6bb8ef2988bc1ff9afb38270b25fa";
 };
       doCheck = commonDoCheck;
       format = "pyproject";
@@ -845,10 +845,10 @@ let
     };
 
     "pyyaml" = python.mkDerivation {
-      name = "pyyaml-5.2";
+      name = "pyyaml-5.3";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/8d/c9/e5be955a117a1ac548cdd31e37e8fd7b02ce987f9655f5c7563c656d5dcb/PyYAML-5.2.tar.gz";
-        sha256 = "c0ee8eca2c582d29c3c2ec6e2c4f703d1b7f1fb10bc72317355a746057e7346c";
+        url = "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz";
+        sha256 = "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -884,10 +884,10 @@ let
     };
 
     "setuptools" = python.mkDerivation {
-      name = "setuptools-42.0.2";
+      name = "setuptools-45.0.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/f7/b6/5b98441b6749ea1db1e41e5e6e7a93cbdd7ffd45e11fe1b22d45884bc777/setuptools-42.0.2.zip";
-        sha256 = "c5b372090d7c8709ce79a6a66872a91e518f7d65af97fca78135e1cb10d4b940";
+        url = "https://files.pythonhosted.org/packages/fd/76/3c7f726ed5c582019937f178d7478ce62716b7e8263344f1684cbe11ab3e/setuptools-45.0.0.zip";
+        sha256 = "c46d9c8f2289535457d36c676b541ca78f7dcb736b97d02f50d17f7f15b583cc";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -952,10 +952,10 @@ let
     };
 
     "sphinx" = python.mkDerivation {
-      name = "sphinx-2.2.2";
+      name = "sphinx-2.3.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/60/e8/dae78b653ef073b2a84755f755c51d39290f2f95c671671495cd2b9a4849/Sphinx-2.2.2.tar.gz";
-        sha256 = "559c1a8ed1365a982f77650720b41114414139a635692a23c2990824d0a84cf2";
+        url = "https://files.pythonhosted.org/packages/d3/32/96bbaccabdb6d0d1cec1067d71bd50cd18e93aed18216eafbe2afb85ac2d/Sphinx-2.3.1.tar.gz";
+        sha256 = "e6e766b74f85f37a5f3e0773a1e1be8db3fcb799deb58ca6d18b70b0b44542a5";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -1161,10 +1161,10 @@ let
     };
 
     "wcwidth" = python.mkDerivation {
-      name = "wcwidth-0.1.7";
+      name = "wcwidth-0.1.8";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/55/11/e4a2bb08bb450fdbd42cc709dd40de4ed2c472cf0ccb9e64af22279c5495/wcwidth-0.1.7.tar.gz";
-        sha256 = "3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e";
+        url = "https://files.pythonhosted.org/packages/5e/33/92333eb80be0c96385dee338f30b53e24a8b415d5785e225d789b3f90feb/wcwidth-0.1.8.tar.gz";
+        sha256 = "f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8";
 };
       doCheck = commonDoCheck;
       format = "setuptools";
