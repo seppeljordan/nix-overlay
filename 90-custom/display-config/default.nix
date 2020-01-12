@@ -1,8 +1,6 @@
 { stdenv, xrandr, makeWrapper, feh }:
-let
-  version = "1.0";
-in
-stdenv.mkDerivation {
+let version = "1.0";
+in stdenv.mkDerivation {
   name = "display-config-${version}";
   src = ./src;
 
