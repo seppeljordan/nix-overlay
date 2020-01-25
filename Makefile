@@ -1,7 +1,7 @@
-PYPI2NIX=$(PWD)/pypi2nix-exec/bin/pypi2nix
+PYPI2NIX=pypi2nix
 export NIX_PATH := nixpkgs-overlays=$(shell pwd):$(NIX_PATH)
 
-all: pypi2nix-exec/bin/pypi2nix update test
+all: update format test
 
 update: \
 	update-pypiPackages3
@@ -38,13 +38,16 @@ update-pypiPackages3:
 test-custom:
 	nix build -f tests/test-custom.nix
 
+format:
+	./format-nix-files
+
 
 .PHONY: \
 	clean \
-	pypi2nix-exec/bin/pypi2nix \
 	test \
 	test-emacs \
 	test-haskell-env \
 	test-python3-build \
 	update \
-	update-pypiPackages3
+	update-pypiPackages3 \
+	format

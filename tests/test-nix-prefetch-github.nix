@@ -1,2 +1,1 @@
-with import <nixpkgs> {};
-nix-prefetch-github
+with import <nixpkgs> { }; nix-prefetch-github

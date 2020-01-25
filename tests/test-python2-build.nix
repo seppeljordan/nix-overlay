@@ -1,7 +1,5 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 buildEnv {
   name = "test-env";
-  paths = [
-    pypiPackages2.interpreter
-  ];
+  paths = [ pypiPackages2.interpreter ];
 }

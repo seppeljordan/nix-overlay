@@ -1,2 +1,1 @@
-with import <nixpkgs> {};
-geimskell
+with import <nixpkgs> { }; geimskell

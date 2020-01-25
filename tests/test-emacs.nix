@@ -1,2 +1,1 @@
-with import <nixpkgs> {};
-emacsEnv
+with import <nixpkgs> { }; emacsEnv

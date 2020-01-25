@@ -1,3 +1,1 @@
-self: super: {
-  "pip-test-env" = super.callPackage ./pip-sandbox {};
-}
+self: super: { "pip-test-env" = super.callPackage ./pip-sandbox { }; }

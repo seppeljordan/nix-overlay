@@ -1,6 +1,5 @@
-{stdenv}:
-let
-  version = "1.0";
+{ stdenv }:
+let version = "1.0";
 in stdenv.mkDerivation rec {
   name = "pip-sandbox-${version}";
   inherit version;

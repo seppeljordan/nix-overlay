@@ -3,50 +3,43 @@
 self: super:
 let
 
-isPackage = package: drv:
-  (builtins.parseDrvName drv.name).name ==
-  "${python.__old.python.libPrefix}-${python.__old.python.libPrefix}-${package}";
+  isPackage = package: drv:
+    (builtins.parseDrvName drv.name).name
+    == "${python.__old.python.libPrefix}-${python.__old.python.libPrefix}-${package}";
 
-filterPackages = packages:
-  builtins.filter
-  (x: builtins.all (package: ! isPackage package x) packages);
+  filterPackages = packages:
+    builtins.filter (x: builtins.all (package: !isPackage package x) packages);
 
-removePackages = packages: drv: drv.overrideDerivation (old: {
-  propagatedBuildInputs =
-    filterPackages packages old.propagatedBuildInputs;
-  buildInputs =
-    filterPackages packages old.buildInputs;
-  doCheck = false;
-});
+  removePackages = packages: drv:
+    drv.overrideDerivation (old: {
+      propagatedBuildInputs = filterPackages packages old.propagatedBuildInputs;
+      buildInputs = filterPackages packages old.buildInputs;
+      doCheck = false;
+    });
 
-setLanguage = drv: drv.overrideDerivation( old:
-  {
-    LC_ALL = "en_US.UTF-8";
-  });
+  setLanguage = drv: drv.overrideDerivation (old: { LC_ALL = "en_US.UTF-8"; });
 
-addBuildInputs = packages: drv: drv.overrideDerivation( old:
-  {
-    buildInputs = old.buildInputs ++
-      builtins.map (x: self."${x}") packages;
-  });
+  addBuildInputs = packages: drv:
+    drv.overrideDerivation (old: {
+      buildInputs = old.buildInputs ++ builtins.map (x: self."${x}") packages;
+    });
 
-in
-{
+in {
 
-  "attrs" = removePackages ["pytest" "sphinx"] super."attrs";
+  "attrs" = removePackages [ "pytest" "sphinx" ] super."attrs";
 
-  "cryptography" = removePackages ["pytest" "sphinx"] super."cryptography";
+  "cryptography" = removePackages [ "pytest" "sphinx" ] super."cryptography";
 
-  "sphinx" = setLanguage (removePackages ["pytest"] super."sphinx");
+  "sphinx" = setLanguage (removePackages [ "pytest" ] super."sphinx");
 
-  "flask" = removePackages ["pytest"] super."flask";
+  "flask" = removePackages [ "pytest" ] super."flask";
 
-  "requests" = removePackages ["pytest"] super."requests";
+  "requests" = removePackages [ "pytest" ] super."requests";
 
-  "py" = addBuildInputs ["setuptools-scm"] super."py";
+  "py" = addBuildInputs [ "setuptools-scm" ] super."py";
 
-  "parsemon2" = (addBuildInputs ["sphinx"] super.parsemon2).overrideDerivation( old:
-    {
+  "parsemon2" = (addBuildInputs [ "sphinx" ] super.parsemon2).overrideDerivation
+    (old: {
       preBuildPhases = [ "buildDocsPhase" ];
       preInstallPhases = [ "buildDocsPhase" "installDocsPhase" ];
       buildDocsPhase = ''
@@ -60,14 +53,14 @@ in
         mkdir -p $out/share/man/man3
         cp build/man/parsemon2.3 $out/share/man/man3/parsemon2.3
       '';
-    }
-  );
+    });
 
-  "pluggy" = addBuildInputs ["setuptools-scm"] super."pluggy";
+  "pluggy" = addBuildInputs [ "setuptools-scm" ] super."pluggy";
 
-  "zipp" = addBuildInputs ["setuptools-scm"] super."zipp";
+  "zipp" = addBuildInputs [ "setuptools-scm" ] super."zipp";
 
-  "importlib-metadata" = addBuildInputs ["setuptools-scm"] super."importlib-metadata";
+  "importlib-metadata" =
+    addBuildInputs [ "setuptools-scm" ] super."importlib-metadata";
 
   # "cymem" = addBuildInputs ["wheel"] super."cymem";
 }
