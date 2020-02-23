@@ -1,4 +1,4 @@
-# generated using pypi2nix tool (version: 2.0.2)
+# generated using pypi2nix tool (version: 2.0.3)
 # See more at: https://github.com/nix-community/pypi2nix
 #
 # COMMAND:
@@ -173,12 +173,12 @@ let
     };
 
     "cffi" = python.mkDerivation {
-      name = "cffi-1.13.2";
+      name = "cffi-1.14.0";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz";
+          "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz";
         sha256 =
-          "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346";
+          "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -310,12 +310,12 @@ let
     };
 
     "idna" = python.mkDerivation {
-      name = "idna-2.8";
+      name = "idna-2.9";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz";
+          "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz";
         sha256 =
-          "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407";
+          "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -348,12 +348,12 @@ let
     };
 
     "importlib-metadata" = python.mkDerivation {
-      name = "importlib-metadata-1.4.0";
+      name = "importlib-metadata-1.5.0";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/8c/0e/10e247f40c89ba72b7f2a2104ccf1b65de18f79562ffe11bfb837b711acf/importlib_metadata-1.4.0.tar.gz";
+          "https://files.pythonhosted.org/packages/0d/e4/638f3bde506b86f62235c595073066e7b8472fc9ee2b8c6491347f31d726/importlib_metadata-1.5.0.tar.gz";
         sha256 =
-          "f17c015735e1a88296994c0697ecea7e11db24290941983b08c9feb30921e6d8";
+          "06f5b3a99029c7134207dd882428a66992a9de2bef7c2b699b5641f9886c3302";
       };
       doCheck = commonDoCheck;
       format = "pyproject";
@@ -388,12 +388,12 @@ let
     };
 
     "jinja2" = python.mkDerivation {
-      name = "jinja2-2.10.3";
+      name = "jinja2-2.11.1";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/7b/db/1d037ccd626d05a7a47a1b81ea73775614af83c2b3e53d86a0bb41d8d799/Jinja2-2.10.3.tar.gz";
+          "https://files.pythonhosted.org/packages/d8/03/e491f423379ea14bb3a02a5238507f7d446de639b623187bccc111fbecdf/Jinja2-2.11.1.tar.gz";
         sha256 =
-          "9fe95f19286cfefaa917656583d020be14e7859c6b0252588391e47db34527de";
+          "93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -470,19 +470,19 @@ let
     };
 
     "lxml" = python.mkDerivation {
-      name = "lxml-4.4.2";
+      name = "lxml-4.5.0";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/e4/19/8dfeef50623892577dc05245093e090bb2bab4c8aed5cad5b03208959563/lxml-4.4.2.tar.gz";
+          "https://files.pythonhosted.org/packages/39/2b/0a66d5436f237aff76b91e68b4d8c041d145ad0a2cdeefe2c42f76ba2857/lxml-4.5.0.tar.gz";
         sha256 =
-          "eff69ddbf3ad86375c344339371168640951c302450c5d3e9936e98d6459db06";
+          "8620ce80f50d023d414183bf90cc2576c2837b88e00bea3f33ad2630133bbb60";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "http://lxml.de/";
+        homepage = "https://lxml.de/";
         license = licenses.bsdOriginal;
         description =
           "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.";
@@ -509,12 +509,12 @@ let
     };
 
     "more-itertools" = python.mkDerivation {
-      name = "more-itertools-8.1.0";
+      name = "more-itertools-8.2.0";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/df/8c/c278395367a46c00d28036143fdc6583db8f98622b83875403f16473509b/more-itertools-8.1.0.tar.gz";
+          "https://files.pythonhosted.org/packages/a0/47/6ff6d07d84c67e3462c50fa33bf649cda859a8773b53dc73842e84455c05/more-itertools-8.2.0.tar.gz";
         sha256 =
-          "c468adec578380b6281a114cb8a5db34eb1116277da92d7c46f904f0b52d3288";
+          "b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -532,8 +532,8 @@ let
       name = "nix-prefetch-github-2.3.2";
       src = pkgs.fetchgit {
         url = "https://github.com/seppeljordan/nix-prefetch-github";
-        sha256 = "08vlwg9xcmqri0yxl79il1h2fzqflsbkkkwb4r7pipjn660b4nn5";
-        rev = "e5f9a7011c3b3ec75c85f4e9457a207cdc4dfe3e";
+        sha256 = "0shw5a28idyz9b1lbnphzq65gn2xybn6padf37m2ij1kiiczzvri";
+        rev = "6e1d1b7e33b81c059bcfba8010c0cbd4b43eddf7";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -762,11 +762,11 @@ let
     };
 
     "pypi2nix" = python.mkDerivation {
-      name = "pypi2nix-2.0.3";
+      name = "pypi2nix-2.0.4";
       src = pkgs.fetchgit {
         url = "https://github.com/nix-community/pypi2nix";
-        sha256 = "106y1j8c6b37wdv5lrqvv6kpba2gbgq1cg6025vyay8q6pmf4nk1";
-        rev = "047516e3ef0ddd70a15c09c9174ad48512f70cf5";
+        sha256 = "0zi7p9rx44r6kh8b6a1zr0zf1b5yw99w8r0kjync9hff9xpv8r5f";
+        rev = "aedd800c0bd70612d5b2b9a7d62a9c050de76113";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -780,6 +780,7 @@ let
         self."packaging"
         self."parsley"
         self."setuptools"
+        self."setuptools-scm"
         self."toml"
       ];
       meta = with pkgs.stdenv.lib; {
@@ -810,12 +811,12 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-5.3.4";
+      name = "pytest-5.3.5";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/eb/9c/8bf2a5e1a84e6b6d9a255ed1cda5d4b339699e9b1d95ed9f811209d588f8/pytest-5.3.4.tar.gz";
+          "https://files.pythonhosted.org/packages/f0/5f/41376614e41f7cdee02d22d1aec1ea028301b4c6c4523a5f7ef8e960fe0b/pytest-5.3.5.tar.gz";
         sha256 =
-          "1d122e8be54d1a709e56f82e2d85dcba3018313d64647f38a91aec88c239b600";
+          "0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d";
       };
       doCheck = commonDoCheck;
       format = "pyproject";
@@ -876,12 +877,12 @@ let
     };
 
     "requests" = python.mkDerivation {
-      name = "requests-2.22.0";
+      name = "requests-2.23.0";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz";
+          "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz";
         sha256 =
-          "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4";
+          "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -889,19 +890,19 @@ let
       propagatedBuildInputs =
         [ self."certifi" self."chardet" self."idna" self."urllib3" ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "http://python-requests.org";
+        homepage = "https://requests.readthedocs.io";
         license = licenses.asl20;
         description = "Python HTTP for Humans.";
       };
     };
 
     "setuptools" = python.mkDerivation {
-      name = "setuptools-45.1.0";
+      name = "setuptools-45.2.0";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/42/3e/2464120172859e5d103e5500315fb5555b1e908c0dacc73d80d35a9480ca/setuptools-45.1.0.zip";
+          "https://files.pythonhosted.org/packages/68/75/d1d7b7340b9eb6e0388bf95729e63c410b381eb71fe8875cdfd949d8f9ce/setuptools-45.2.0.zip";
         sha256 =
-          "91f72d83602a6e5e4a9e4fe296e27185854038d7cbda49dcd7006c4d3b3b89d5";
+          "89c6e6011ec2f6d57d43a3f9296c4ef022c2cbf49bab26b407fe67992ae3397f";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -916,12 +917,12 @@ let
     };
 
     "setuptools-scm" = python.mkDerivation {
-      name = "setuptools-scm-3.4.3";
+      name = "setuptools-scm-3.5.0";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/fe/bd/bc2fe0b14ce234bb5e2af5f3b574c5a8ef1b7845bfa41e7cf69a78627ec8/setuptools_scm-3.4.3.tar.gz";
+          "https://files.pythonhosted.org/packages/b2/f7/60a645aae001a2e06cf4b8db2fba9d9f36b8fd378f10647e3e218b61b74b/setuptools_scm-3.5.0.tar.gz";
         sha256 =
-          "26b8a108783cd88f4b15ff1f0f347d6b476db25d0c226159b835d713f9487320";
+          "5bdf21a05792903cafe7ae0c9501182ab52497614fa6b1750d9dbae7b60c1a87";
       };
       doCheck = commonDoCheck;
       format = "pyproject";
@@ -974,12 +975,12 @@ let
     };
 
     "sphinx" = python.mkDerivation {
-      name = "sphinx-2.3.1";
+      name = "sphinx-2.4.3";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/d3/32/96bbaccabdb6d0d1cec1067d71bd50cd18e93aed18216eafbe2afb85ac2d/Sphinx-2.3.1.tar.gz";
+          "https://files.pythonhosted.org/packages/35/e2/7efb490c116fa1a06a7c4c82ae5fd1510d7098b8ca76c31c0135828906f9/Sphinx-2.4.3.tar.gz";
         sha256 =
-          "e6e766b74f85f37a5f3e0773a1e1be8db3fcb799deb58ca6d18b70b0b44542a5";
+          "ca762da97c3b5107cbf0ab9e11d3ec7ab8d3c31377266fd613b962ed971df709";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -1048,21 +1049,22 @@ let
     };
 
     "sphinxcontrib-htmlhelp" = python.mkDerivation {
-      name = "sphinxcontrib-htmlhelp-1.0.2";
+      name = "sphinxcontrib-htmlhelp-1.0.3";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/f1/f2/88e9d6dc4a17f1e95871f8b634adefcc5d691334f7a121e9f384d1dc06fd/sphinxcontrib-htmlhelp-1.0.2.tar.gz";
+          "https://files.pythonhosted.org/packages/c9/2e/a7a5fef38327b7f643ed13646321d19903a2f54b0a05868e4bc34d729e1f/sphinxcontrib-htmlhelp-1.0.3.tar.gz";
         sha256 =
-          "4670f99f8951bd78cd4ad2ab962f798f5618b17675c35c5ac3b2132a14ea8422";
+          "e8f5bb7e31b2dbb25b9cc435c8ab7a79787ebf7f906155729338f3156d93659b";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "";
-        license = "";
-        description = "";
+        homepage = "http://sphinx-doc.org/";
+        license = licenses.bsdOriginal;
+        description =
+          "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files";
       };
     };
 
@@ -1223,12 +1225,12 @@ let
     };
 
     "werkzeug" = python.mkDerivation {
-      name = "werkzeug-0.16.0";
+      name = "werkzeug-1.0.0";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/5e/fd/eb19e4f6a806cd6ee34900a687f181001c7a0059ff914752091aba84681f/Werkzeug-0.16.0.tar.gz";
+          "https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz";
         sha256 =
-          "7280924747b5733b246fe23972186c6b348f9ae29724135a6dfc1e53cea433e7";
+          "169ba8a33788476292d04186ab33b01d6add475033dfc07215e6d219cc077096";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
@@ -1242,21 +1244,21 @@ let
     };
 
     "wheel" = python.mkDerivation {
-      name = "wheel-0.33.6";
+      name = "wheel-0.34.2";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/59/b0/11710a598e1e148fb7cbf9220fd2a0b82c98e94efbdecb299cb25e7f0b39/wheel-0.33.6.tar.gz";
+          "https://files.pythonhosted.org/packages/75/28/521c6dc7fef23a68368efefdcd682f5b3d1d58c2b90b06dc1d0b805b51ae/wheel-0.34.2.tar.gz";
         sha256 =
-          "10c9da68765315ed98850f8e048347c3eb06dd81822dc2ab1d4fde9dc9702646";
+          "8788e9155fe14f54164c1b9eb0a319d98ef02c160725587ad60f14ddc57b6f96";
       };
       doCheck = commonDoCheck;
       format = "setuptools";
-      buildInputs = commonBuildInputs ++ [ ];
+      buildInputs = commonBuildInputs ++ [ self."setuptools" ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/pypa/wheel";
         license = licenses.mit;
-        description = "A built-package format for Python.";
+        description = "A built-package format for Python";
       };
     };
 
@@ -1281,18 +1283,18 @@ let
     };
 
     "zipp" = python.mkDerivation {
-      name = "zipp-2.0.1";
+      name = "zipp-3.0.0";
       src = pkgs.fetchurl {
         url =
-          "https://files.pythonhosted.org/packages/69/d2/daa94177e934b0b1b0780f5c856c41c248a88b2f43c046ae23afb0116ec0/zipp-2.0.1.tar.gz";
+          "https://files.pythonhosted.org/packages/42/09/bb2a28216f9572da61a2c56c6d5bf6d8c011371d8268f42a9ca5a4cbaf40/zipp-3.0.0.tar.gz";
         sha256 =
-          "b338014b9bc7102ca69e0fb96ed07215a8954d2989bc5d83658494ab2ba634af";
+          "7c0f8e91abc0dc07a5068f315c52cb30c66bfbc581e5b50704c8a2f6ebae794a";
       };
       doCheck = commonDoCheck;
       format = "pyproject";
       buildInputs = commonBuildInputs
         ++ [ self."setuptools" self."setuptools-scm" self."wheel" ];
-      propagatedBuildInputs = [ self."more-itertools" ];
+      propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
         homepage = "https://github.com/jaraco/zipp";
         license = licenses.mit;
@@ -1308,8 +1310,8 @@ let
       src = pkgs.fetchFromGitHub {
         owner = "nix-community";
         repo = "pypi2nix-overrides";
-        rev = "ebc21a64505989717dc395ad92f0a4d7021c44bc";
-        sha256 = "1p1bqm80anxsnh2k26y0f066z3zpngwxpff1jldzzkbhvw8zw77i";
+        rev = "100c15ec7dfe7d241402ecfb1e796328d0eaf1ec";
+        sha256 = "0akfkvdakcdxc1lrxznh1rz2811x4pafnsq3jnyr5pn3m30pc7db";
       };
     in import "${src}/overrides.nix" { inherit pkgs python; })
   ];
